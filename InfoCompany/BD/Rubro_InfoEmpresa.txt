@@ -1,0 +1,27 @@
+1,Administración y Contabilidad                     
+2,Almacenamiento / Logística / Distribución         
+3,Arquitectura                                      
+4,Comercial / Ventas                                
+5,Comercio Exterior                                 
+6,Compras y Abastecimiento                          
+7,Diseño                                            
+8,Educación y Psicopedagogía                        
+9,Estética y Cuidado Personal                       
+10,Finanzas y Economía                               
+11,Gastronomía                                       
+12,Gerencia General / Alta Dirección                 
+13,Independientes                                    
+14,Ingeniería / Tecnicatura                          
+15,Jóvenes Profesionales / Pasantías                 
+16,Legales                                           
+17,Marketing y Publicidad                            
+18,Medios y Comunicación                             
+19,Música / Arte / Cultura                           
+20,Producción                                        
+21,Puestos Operativos / Otros                        
+22,Química / Bioquímica                              
+23,Recepción / Secretaria / Atención al cliente      
+24,Recursos Humanos                                  
+25,Relaciones Institucionales / Públicas             
+26,Salud                                             
+27,Sistemas / Tecnología / IT                        

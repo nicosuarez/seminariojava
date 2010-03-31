@@ -1,0 +1,57 @@
+CREATE TABLE `InfoCompany`.`Field` (
+  `FieldId` INT  NOT NULL,
+  `Description` VARCHAR(50)  NOT NULL,
+  PRIMARY KEY (`FieldId`)
+)
+ENGINE = InnoDB
+COMMENT = 'Rubro/Campo de la compania';
+
+CREATE TABLE `InfoCompany`.`Sector` (
+  `FieldId` INT  NOT NULL,
+  `SectorId` INT  NOT NULL,
+  `Description` VARCHAR(50)  NOT NULL,
+  PRIMARY KEY (`FieldId`, `SectorId`),
+  CONSTRAINT `Fk_Sector_Field` FOREIGN KEY `Fk_Sector_Field` (`FieldId`)
+    REFERENCES `Field` (`FieldId`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT
+)
+ENGINE = InnoDB
+COMMENT = 'Sector/Area dentro de la compania';
+
+CREATE TABLE `InfoCompany`.`Employ` (
+  `FieldId` INT  NOT NULL,
+  `SectorId` INT  NOT NULL,
+  `EmployId` INT  NOT NULL,
+  `Description` VARCHAR(50)  NOT NULL,
+  PRIMARY KEY (`FieldId`, `SectorId`, `EmployId`),
+  CONSTRAINT `Fk_Sector_Employ` FOREIGN KEY `Fk_Sector_Employ` (`FieldId`, `SectorId`)
+    REFERENCES `Sector` (`FieldId`, `SectorId`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT
+)
+ENGINE = InnoDB
+COMMENT = 'Empleo/Puesto dentro del sector de la empresa.';
+
+
+-- Carga de datos Migracion de SQL SERVER a MY SQL ---
+
+LOAD DATA LOCAL INFILE '/home/zebas/workspace/InfoCompany/BD/Rubro_InfoEmpresa.txt'
+INTO TABLE Field
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(FieldId, Description); 
+
+LOAD DATA LOCAL INFILE '/home/zebas/workspace/InfoCompany/BD/Area_InfoEmpresas.txt'
+INTO TABLE Sector
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(FieldId, SectorId, Description); 
+
+LOAD DATA LOCAL INFILE '/home/zebas/workspace/InfoCompany/BD/Puesto_InfoEmpresa.txt'
+INTO TABLE Employ
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+(FieldId, SectorId, EmployId, Description); 
+
+
