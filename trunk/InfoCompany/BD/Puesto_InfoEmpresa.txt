@@ -1,0 +1,580 @@
+1,1,1,Gerencia / Alta Gerencia / Dirección              
+1,1,2,Jefe / Supervisor / Responsable                   
+1,1,3,Senior / Semi-Senior                              
+1,1,4,Junior                                            
+1,2,1,Gerencia / Alta Gerencia / Dirección              
+1,2,2,Jefe / Supervisor / Responsable                   
+1,2,3,Senior / Semi-Senior                              
+1,2,4,Junior                                            
+1,3,1,Gerencia / Alta Gerencia / Dirección              
+1,3,2,Jefe / Supervisor / Responsable                   
+1,3,3,Senior / Semi-Senior                              
+1,3,4,Junior                                            
+1,4,1,Gerencia / Alta Gerencia / Dirección              
+1,4,2,Jefe / Supervisor / Responsable                   
+1,4,3,Senior / Semi-Senior                              
+1,4,4,Junior                                            
+1,5,1,Gerencia / Alta Gerencia / Dirección              
+1,5,2,Jefe / Supervisor / Responsable                   
+1,5,3,Senior / Semi-Senior                              
+1,5,4,Junior                                            
+1,6,1,Gerencia / Alta Gerencia / Dirección              
+1,6,2,Jefe / Supervisor / Responsable                   
+1,6,3,Senior / Semi-Senior                              
+1,6,4,Junior                                            
+1,7,1,Gerencia / Alta Gerencia / Dirección              
+1,7,2,Jefe / Supervisor / Responsable                   
+1,7,3,Senior / Semi-Senior                              
+1,7,4,Junior                                            
+1,8,1,Gerencia / Alta Gerencia / Dirección              
+1,8,2,Jefe / Supervisor / Responsable                   
+1,8,3,Senior / Semi-Senior                              
+1,8,4,Junior                                            
+1,9,1,Gerencia / Alta Gerencia / Dirección              
+1,9,2,Jefe / Supervisor / Responsable                   
+1,9,3,Senior / Semi-Senior                              
+1,9,4,Junior                                            
+1,10,1,Gerencia / Alta Gerencia / Dirección              
+1,10,2,Jefe / Supervisor / Responsable                   
+1,10,3,Senior / Semi-Senior                              
+1,10,4,Junior                                            
+1,11,1,Gerencia / Alta Gerencia / Dirección              
+1,11,2,Jefe / Supervisor / Responsable                   
+1,11,3,Senior / Semi-Senior                              
+1,11,4,Junior                                            
+1,12,1,Gerencia / Alta Gerencia / Dirección              
+1,12,2,Jefe / Supervisor / Responsable                   
+1,12,3,Senior / Semi-Senior                              
+1,12,4,Junior                                            
+1,13,1,Gerencia / Alta Gerencia / Dirección              
+1,13,2,Jefe / Supervisor / Responsable                   
+1,13,3,Senior / Semi-Senior                              
+1,13,4,Junior                                            
+1,14,1,Gerencia / Alta Gerencia / Dirección              
+1,14,2,Jefe / Supervisor / Responsable                   
+1,14,3,Senior / Semi-Senior                              
+1,14,4,Junior                                            
+1,15,1,Gerencia / Alta Gerencia / Dirección              
+1,15,2,Jefe / Supervisor / Responsable                   
+1,15,3,Senior / Semi-Senior                              
+1,15,4,Junior                                            
+2,1,1,Gerencia / Alta Gerencia / Dirección              
+2,1,2,Jefe / Supervisor / Responsable                   
+2,1,3,Senior / Semi-Senior                              
+2,1,4,Junior                                            
+2,2,1,Gerencia / Alta Gerencia / Dirección              
+2,2,2,Jefe / Supervisor / Responsable                   
+2,2,3,Senior / Semi-Senior                              
+2,2,4,Junior                                            
+3,1,1,Gerencia / Alta Gerencia / Dirección              
+3,1,2,Jefe / Supervisor / Responsable                   
+3,1,3,Senior / Semi-Senior                              
+3,1,4,Junior                                            
+3,2,1,Gerencia / Alta Gerencia / Dirección              
+3,2,2,Jefe / Supervisor / Responsable                   
+3,2,3,Senior / Semi-Senior                              
+3,2,4,Junior                                            
+4,1,1,Gerencia / Alta Gerencia / Dirección              
+4,1,2,Jefe / Supervisor / Responsable                   
+4,1,3,Senior / Semi-Senior                              
+4,1,4,Junior                                            
+4,2,1,Gerencia / Alta Gerencia / Dirección              
+4,2,2,Jefe / Supervisor / Responsable                   
+4,2,3,Senior / Semi-Senior                              
+4,2,4,Junior                                            
+4,3,1,Gerencia / Alta Gerencia / Dirección              
+4,3,2,Jefe / Supervisor / Responsable                   
+4,3,3,Senior / Semi-Senior                              
+4,3,4,Junior                                            
+4,4,1,Gerencia / Alta Gerencia / Dirección              
+4,4,2,Jefe / Supervisor / Responsable                   
+4,4,3,Senior / Semi-Senior                              
+4,4,4,Junior                                            
+4,5,1,Gerencia / Alta Gerencia / Dirección              
+4,5,2,Jefe / Supervisor / Responsable                   
+4,5,3,Senior / Semi-Senior                              
+4,5,4,Junior                                            
+5,1,1,Gerencia / Alta Gerencia / Dirección              
+5,1,2,Jefe / Supervisor / Responsable                   
+5,1,3,Senior / Semi-Senior                              
+5,1,4,Junior                                            
+5,2,1,Gerencia / Alta Gerencia / Dirección              
+5,2,2,Jefe / Supervisor / Responsable                   
+5,2,3,Senior / Semi-Senior                              
+5,2,4,Junior                                            
+6,1,1,Gerencia / Alta Gerencia / Dirección              
+6,1,2,Jefe / Supervisor / Responsable                   
+6,1,3,Senior / Semi-Senior                              
+6,1,4,Junior                                            
+6,2,1,Gerencia / Alta Gerencia / Dirección              
+6,2,2,Jefe / Supervisor / Responsable                   
+6,2,3,Senior / Semi-Senior                              
+6,2,4,Junior                                            
+7,1,1,Gerencia / Alta Gerencia / Dirección              
+7,1,2,Jefe / Supervisor / Responsable                   
+7,1,3,Senior / Semi-Senior                              
+7,1,4,Junior                                            
+7,2,1,Gerencia / Alta Gerencia / Dirección              
+7,2,2,Jefe / Supervisor / Responsable                   
+7,2,3,Senior / Semi-Senior                              
+7,2,4,Junior                                            
+7,3,1,Gerencia / Alta Gerencia / Dirección              
+7,3,2,Jefe / Supervisor / Responsable                   
+7,3,3,Senior / Semi-Senior                              
+7,3,4,Junior                                            
+7,4,1,Gerencia / Alta Gerencia / Dirección              
+7,4,2,Jefe / Supervisor / Responsable                   
+7,4,3,Senior / Semi-Senior                              
+7,4,4,Junior                                            
+7,5,1,Gerencia / Alta Gerencia / Dirección              
+7,5,2,Jefe / Supervisor / Responsable                   
+7,5,3,Senior / Semi-Senior                              
+7,5,4,Junior                                            
+7,6,1,Gerencia / Alta Gerencia / Dirección              
+7,6,2,Jefe / Supervisor / Responsable                   
+7,6,3,Senior / Semi-Senior                              
+7,6,4,Junior                                            
+8,1,1,Gerencia / Alta Gerencia / Dirección              
+8,1,2,Jefe / Supervisor / Responsable                   
+8,1,3,Senior / Semi-Senior                              
+8,1,4,Junior                                            
+8,2,1,Gerencia / Alta Gerencia / Dirección              
+8,2,2,Jefe / Supervisor / Responsable                   
+8,2,3,Senior / Semi-Senior                              
+8,2,4,Junior                                            
+9,1,1,Gerencia / Alta Gerencia / Dirección              
+9,1,2,Jefe / Supervisor / Responsable                   
+9,1,3,Senior / Semi-Senior                              
+9,1,4,Junior                                            
+10,1,1,Gerencia / Alta Gerencia / Dirección              
+10,1,2,Jefe / Supervisor / Responsable                   
+10,1,3,Senior / Semi-Senior                              
+10,1,4,Junior                                            
+10,2,1,Gerencia / Alta Gerencia / Dirección              
+10,2,2,Jefe / Supervisor / Responsable                   
+10,2,3,Senior / Semi-Senior                              
+10,2,4,Junior                                            
+10,3,1,Gerencia / Alta Gerencia / Dirección              
+10,3,2,Jefe / Supervisor / Responsable                   
+10,3,3,Senior / Semi-Senior                              
+10,3,4,Junior                                            
+10,4,1,Gerencia / Alta Gerencia / Dirección              
+10,4,2,Jefe / Supervisor / Responsable                   
+10,4,3,Senior / Semi-Senior                              
+10,4,4,Junior                                            
+10,5,1,Gerencia / Alta Gerencia / Dirección              
+10,5,2,Jefe / Supervisor / Responsable                   
+10,5,3,Senior / Semi-Senior                              
+10,5,4,Junior                                            
+10,6,1,Gerencia / Alta Gerencia / Dirección              
+10,6,2,Jefe / Supervisor / Responsable                   
+10,6,3,Senior / Semi-Senior                              
+10,6,4,Junior                                            
+10,7,1,Gerencia / Alta Gerencia / Dirección              
+10,7,2,Jefe / Supervisor / Responsable                   
+10,7,3,Senior / Semi-Senior                              
+10,7,4,Junior                                            
+10,8,1,Gerencia / Alta Gerencia / Dirección              
+10,8,2,Jefe / Supervisor / Responsable                   
+10,8,3,Senior / Semi-Senior                              
+10,8,4,Junior                                            
+10,9,1,Gerencia / Alta Gerencia / Dirección              
+10,9,2,Jefe / Supervisor / Responsable                   
+10,9,3,Senior / Semi-Senior                              
+10,9,4,Junior                                            
+11,1,1,Gerencia / Alta Gerencia / Dirección              
+11,1,2,Jefe / Supervisor / Responsable                   
+11,1,3,Senior / Semi-Senior                              
+11,1,4,Junior                                            
+11,2,1,Gerencia / Alta Gerencia / Dirección              
+11,2,2,Jefe / Supervisor / Responsable                   
+11,2,3,Senior / Semi-Senior                              
+11,2,4,Junior                                            
+12,1,1,Gerencia / Alta Gerencia / Dirección              
+12,1,2,Jefe / Supervisor / Responsable                   
+12,1,3,Senior / Semi-Senior                              
+12,1,4,Junior                                            
+12,2,1,Gerencia / Alta Gerencia / Dirección              
+12,2,2,Jefe / Supervisor / Responsable                   
+12,2,3,Senior / Semi-Senior                              
+12,2,4,Junior                                            
+12,3,1,Gerencia / Alta Gerencia / Dirección              
+12,3,2,Jefe / Supervisor / Responsable                   
+12,3,3,Senior / Semi-Senior                              
+12,3,4,Junior                                            
+12,4,1,Gerencia / Alta Gerencia / Dirección              
+12,4,2,Jefe / Supervisor / Responsable                   
+12,4,3,Senior / Semi-Senior                              
+12,4,4,Junior                                            
+12,5,1,Gerencia / Alta Gerencia / Dirección              
+12,5,2,Jefe / Supervisor / Responsable                   
+12,5,3,Senior / Semi-Senior                              
+12,5,4,Junior                                            
+12,6,1,Gerencia / Alta Gerencia / Dirección              
+12,6,2,Jefe / Supervisor / Responsable                   
+12,6,3,Senior / Semi-Senior                              
+12,6,4,Junior                                            
+13,1,1,Gerencia / Alta Gerencia / Dirección              
+13,1,2,Jefe / Supervisor / Responsable                   
+13,1,3,Senior / Semi-Senior                              
+13,1,4,Junior                                            
+14,1,1,Gerencia / Alta Gerencia / Dirección              
+14,1,2,Jefe / Supervisor / Responsable                   
+14,1,3,Senior / Semi-Senior                              
+14,1,4,Junior                                            
+14,2,1,Gerencia / Alta Gerencia / Dirección              
+14,2,2,Jefe / Supervisor / Responsable                   
+14,2,3,Senior / Semi-Senior                              
+14,2,4,Junior                                            
+14,3,1,Gerencia / Alta Gerencia / Dirección              
+14,3,2,Jefe / Supervisor / Responsable                   
+14,3,3,Senior / Semi-Senior                              
+14,3,4,Junior                                            
+14,4,1,Gerencia / Alta Gerencia / Dirección              
+14,4,2,Jefe / Supervisor / Responsable                   
+14,4,3,Senior / Semi-Senior                              
+14,4,4,Junior                                            
+14,5,1,Gerencia / Alta Gerencia / Dirección              
+14,5,2,Jefe / Supervisor / Responsable                   
+14,5,3,Senior / Semi-Senior                              
+14,5,4,Junior                                            
+14,6,1,Gerencia / Alta Gerencia / Dirección              
+14,6,2,Jefe / Supervisor / Responsable                   
+14,6,3,Senior / Semi-Senior                              
+14,6,4,Junior                                            
+14,7,1,Gerencia / Alta Gerencia / Dirección              
+14,7,2,Jefe / Supervisor / Responsable                   
+14,7,3,Senior / Semi-Senior                              
+14,7,4,Junior                                            
+14,8,1,Gerencia / Alta Gerencia / Dirección              
+14,8,2,Jefe / Supervisor / Responsable                   
+14,8,3,Senior / Semi-Senior                              
+14,8,4,Junior                                            
+14,9,1,Gerencia / Alta Gerencia / Dirección              
+14,9,2,Jefe / Supervisor / Responsable                   
+14,9,3,Senior / Semi-Senior                              
+14,9,4,Junior                                            
+14,10,1,Gerencia / Alta Gerencia / Dirección              
+14,10,2,Jefe / Supervisor / Responsable                   
+14,10,3,Senior / Semi-Senior                              
+14,10,4,Junior                                            
+14,11,1,Gerencia / Alta Gerencia / Dirección              
+14,11,2,Jefe / Supervisor / Responsable                   
+14,11,3,Senior / Semi-Senior                              
+14,11,4,Junior                                            
+14,12,1,Gerencia / Alta Gerencia / Dirección              
+14,12,2,Jefe / Supervisor / Responsable                   
+14,12,3,Senior / Semi-Senior                              
+14,12,4,Junior                                            
+14,13,1,Gerencia / Alta Gerencia / Dirección              
+14,13,2,Jefe / Supervisor / Responsable                   
+14,13,3,Senior / Semi-Senior                              
+14,13,4,Junior                                            
+14,14,1,Gerencia / Alta Gerencia / Dirección              
+14,14,2,Jefe / Supervisor / Responsable                   
+14,14,3,Senior / Semi-Senior                              
+14,14,4,Junior                                            
+14,15,1,Gerencia / Alta Gerencia / Dirección              
+14,15,2,Jefe / Supervisor / Responsable                   
+14,15,3,Senior / Semi-Senior                              
+14,15,4,Junior                                            
+14,16,1,Gerencia / Alta Gerencia / Dirección              
+14,16,2,Jefe / Supervisor / Responsable                   
+14,16,3,Senior / Semi-Senior                              
+14,16,4,Junior                                            
+14,17,1,Gerencia / Alta Gerencia / Dirección              
+14,17,2,Jefe / Supervisor / Responsable                   
+14,17,3,Senior / Semi-Senior                              
+14,17,4,Junior                                            
+14,18,1,Gerencia / Alta Gerencia / Dirección              
+14,18,2,Jefe / Supervisor / Responsable                   
+14,18,3,Senior / Semi-Senior                              
+14,18,4,Junior                                            
+15,1,1,Gerencia / Alta Gerencia / Dirección              
+15,1,2,Jefe / Supervisor / Responsable                   
+15,1,3,Senior / Semi-Senior                              
+15,1,4,Junior                                            
+15,2,1,Gerencia / Alta Gerencia / Dirección              
+15,2,2,Jefe / Supervisor / Responsable                   
+15,2,3,Senior / Semi-Senior                              
+15,2,4,Junior                                            
+16,1,1,Gerencia / Alta Gerencia / Dirección              
+16,1,2,Jefe / Supervisor / Responsable                   
+16,1,3,Senior / Semi-Senior                              
+16,1,4,Junior                                            
+16,2,1,Gerencia / Alta Gerencia / Dirección              
+16,2,2,Jefe / Supervisor / Responsable                   
+16,2,3,Senior / Semi-Senior                              
+16,2,4,Junior                                            
+17,1,1,Gerencia / Alta Gerencia / Dirección              
+17,1,2,Jefe / Supervisor / Responsable                   
+17,1,3,Senior / Semi-Senior                              
+17,1,4,Junior                                            
+17,2,1,Gerencia / Alta Gerencia / Dirección              
+17,2,2,Jefe / Supervisor / Responsable                   
+17,2,3,Senior / Semi-Senior                              
+17,2,4,Junior                                            
+17,3,1,Gerencia / Alta Gerencia / Dirección              
+17,3,2,Jefe / Supervisor / Responsable                   
+17,3,3,Senior / Semi-Senior                              
+17,3,4,Junior                                            
+17,4,1,Gerencia / Alta Gerencia / Dirección              
+17,4,2,Jefe / Supervisor / Responsable                   
+17,4,3,Senior / Semi-Senior                              
+17,4,4,Junior                                            
+17,5,1,Gerencia / Alta Gerencia / Dirección              
+17,5,2,Jefe / Supervisor / Responsable                   
+17,5,3,Senior / Semi-Senior                              
+17,5,4,Junior                                            
+17,6,1,Gerencia / Alta Gerencia / Dirección              
+17,6,2,Jefe / Supervisor / Responsable                   
+17,6,3,Senior / Semi-Senior                              
+17,6,4,Junior                                            
+17,7,1,Gerencia / Alta Gerencia / Dirección              
+17,7,2,Jefe / Supervisor / Responsable                   
+17,7,3,Senior / Semi-Senior                              
+17,7,4,Junior                                            
+17,8,1,Gerencia / Alta Gerencia / Dirección              
+17,8,2,Jefe / Supervisor / Responsable                   
+17,8,3,Senior / Semi-Senior                              
+17,8,4,Junior                                            
+18,1,1,Gerencia / Alta Gerencia / Dirección              
+18,1,2,Jefe / Supervisor / Responsable                   
+18,1,3,Senior / Semi-Senior                              
+18,1,4,Junior                                            
+18,2,1,Gerencia / Alta Gerencia / Dirección              
+18,2,2,Jefe / Supervisor / Responsable                   
+18,2,3,Senior / Semi-Senior                              
+18,2,4,Junior                                            
+18,3,1,Gerencia / Alta Gerencia / Dirección              
+18,3,2,Jefe / Supervisor / Responsable                   
+18,3,3,Senior / Semi-Senior                              
+18,3,4,Junior                                            
+19,1,1,Gerencia / Alta Gerencia / Dirección              
+19,1,2,Jefe / Supervisor / Responsable                   
+19,1,3,Senior / Semi-Senior                              
+19,1,4,Junior                                            
+20,1,1,Gerencia / Alta Gerencia / Dirección              
+20,1,2,Jefe / Supervisor / Responsable                   
+20,1,3,Senior / Semi-Senior                              
+20,1,4,Junior                                            
+20,2,1,Gerencia / Alta Gerencia / Dirección              
+20,2,2,Jefe / Supervisor / Responsable                   
+20,2,3,Senior / Semi-Senior                              
+20,2,4,Junior                                            
+20,3,1,Gerencia / Alta Gerencia / Dirección              
+20,3,2,Jefe / Supervisor / Responsable                   
+20,3,3,Senior / Semi-Senior                              
+20,3,4,Junior                                            
+20,4,1,Gerencia / Alta Gerencia / Dirección              
+20,4,2,Jefe / Supervisor / Responsable                   
+20,4,3,Senior / Semi-Senior                              
+20,4,4,Junior                                            
+20,5,1,Gerencia / Alta Gerencia / Dirección              
+20,5,2,Jefe / Supervisor / Responsable                   
+20,5,3,Senior / Semi-Senior                              
+20,5,4,Junior                                            
+20,6,1,Gerencia / Alta Gerencia / Dirección              
+20,6,2,Jefe / Supervisor / Responsable                   
+20,6,3,Senior / Semi-Senior                              
+20,6,4,Junior                                            
+20,7,1,Gerencia / Alta Gerencia / Dirección              
+20,7,2,Jefe / Supervisor / Responsable                   
+20,7,3,Senior / Semi-Senior                              
+20,7,4,Junior                                            
+20,8,1,Gerencia / Alta Gerencia / Dirección              
+20,8,2,Jefe / Supervisor / Responsable                   
+20,8,3,Senior / Semi-Senior                              
+20,8,4,Junior                                            
+21,1,1,Gerencia / Alta Gerencia / Dirección              
+21,1,2,Jefe / Supervisor / Responsable                   
+21,1,3,Senior / Semi-Senior                              
+21,1,4,Junior                                            
+21,2,1,Gerencia / Alta Gerencia / Dirección              
+21,2,2,Jefe / Supervisor / Responsable                   
+21,2,3,Senior / Semi-Senior                              
+21,2,4,Junior                                            
+21,3,1,Gerencia / Alta Gerencia / Dirección              
+21,3,2,Jefe / Supervisor / Responsable                   
+21,3,3,Senior / Semi-Senior                              
+21,3,4,Junior                                            
+21,4,1,Gerencia / Alta Gerencia / Dirección              
+21,4,2,Jefe / Supervisor / Responsable                   
+21,4,3,Senior / Semi-Senior                              
+21,4,4,Junior                                            
+21,5,1,Gerencia / Alta Gerencia / Dirección              
+21,5,2,Jefe / Supervisor / Responsable                   
+21,5,3,Senior / Semi-Senior                              
+21,5,4,Junior                                            
+21,6,1,Gerencia / Alta Gerencia / Dirección              
+21,6,2,Jefe / Supervisor / Responsable                   
+21,6,3,Senior / Semi-Senior                              
+21,6,4,Junior                                            
+21,7,1,Gerencia / Alta Gerencia / Dirección              
+21,7,2,Jefe / Supervisor / Responsable                   
+21,7,3,Senior / Semi-Senior                              
+21,7,4,Junior                                            
+21,8,1,Gerencia / Alta Gerencia / Dirección              
+21,8,2,Jefe / Supervisor / Responsable                   
+21,8,3,Senior / Semi-Senior                              
+21,8,4,Junior                                            
+21,9,1,Gerencia / Alta Gerencia / Dirección              
+21,9,2,Jefe / Supervisor / Responsable                   
+21,9,3,Senior / Semi-Senior                              
+21,9,4,Junior                                            
+21,10,1,Gerencia / Alta Gerencia / Dirección              
+21,10,2,Jefe / Supervisor / Responsable                   
+21,10,3,Senior / Semi-Senior                              
+21,10,4,Junior                                            
+21,11,1,Gerencia / Alta Gerencia / Dirección              
+21,11,2,Jefe / Supervisor / Responsable                   
+21,11,3,Senior / Semi-Senior                              
+21,11,4,Junior                                            
+21,12,1,Gerencia / Alta Gerencia / Dirección              
+21,12,2,Jefe / Supervisor / Responsable                   
+21,12,3,Senior / Semi-Senior                              
+21,12,4,Junior                                            
+21,13,1,Gerencia / Alta Gerencia / Dirección              
+21,13,2,Jefe / Supervisor / Responsable                   
+21,13,3,Senior / Semi-Senior                              
+21,13,4,Junior                                            
+22,1,1,Gerencia / Alta Gerencia / Dirección              
+22,1,2,Jefe / Supervisor / Responsable                   
+22,1,3,Senior / Semi-Senior                              
+22,1,4,Junior                                            
+22,2,1,Gerencia / Alta Gerencia / Dirección              
+22,2,2,Jefe / Supervisor / Responsable                   
+22,2,3,Senior / Semi-Senior                              
+22,2,4,Junior                                            
+22,3,1,Gerencia / Alta Gerencia / Dirección              
+22,3,2,Jefe / Supervisor / Responsable                   
+22,3,3,Senior / Semi-Senior                              
+22,3,4,Junior                                            
+23,1,1,Gerencia / Alta Gerencia / Dirección              
+23,1,2,Jefe / Supervisor / Responsable                   
+23,1,3,Senior / Semi-Senior                              
+23,1,4,Junior                                            
+23,2,1,Gerencia / Alta Gerencia / Dirección              
+23,2,2,Jefe / Supervisor / Responsable                   
+23,2,3,Senior / Semi-Senior                              
+23,2,4,Junior                                            
+23,3,1,Gerencia / Alta Gerencia / Dirección              
+23,3,2,Jefe / Supervisor / Responsable                   
+23,3,3,Senior / Semi-Senior                              
+23,3,4,Junior                                            
+23,4,1,Gerencia / Alta Gerencia / Dirección              
+23,4,2,Jefe / Supervisor / Responsable                   
+23,4,3,Senior / Semi-Senior                              
+23,4,4,Junior                                            
+24,1,1,Gerencia / Alta Gerencia / Dirección              
+24,1,2,Jefe / Supervisor / Responsable                   
+24,1,3,Senior / Semi-Senior                              
+24,1,4,Junior                                            
+24,2,1,Gerencia / Alta Gerencia / Dirección              
+24,2,2,Jefe / Supervisor / Responsable                   
+24,2,3,Senior / Semi-Senior                              
+24,2,4,Junior                                            
+24,3,1,Gerencia / Alta Gerencia / Dirección              
+24,3,2,Jefe / Supervisor / Responsable                   
+24,3,3,Senior / Semi-Senior                              
+24,3,4,Junior                                            
+24,4,1,Gerencia / Alta Gerencia / Dirección              
+24,4,2,Jefe / Supervisor / Responsable                   
+24,4,3,Senior / Semi-Senior                              
+24,4,4,Junior                                            
+24,5,1,Gerencia / Alta Gerencia / Dirección              
+24,5,2,Jefe / Supervisor / Responsable                   
+24,5,3,Senior / Semi-Senior                              
+24,5,4,Junior                                            
+24,6,1,Gerencia / Alta Gerencia / Dirección              
+24,6,2,Jefe / Supervisor / Responsable                   
+24,6,3,Senior / Semi-Senior                              
+24,6,4,Junior                                            
+24,7,1,Gerencia / Alta Gerencia / Dirección              
+24,7,2,Jefe / Supervisor / Responsable                   
+24,7,3,Senior / Semi-Senior                              
+24,7,4,Junior                                            
+24,8,1,Gerencia / Alta Gerencia / Dirección              
+24,8,2,Jefe / Supervisor / Responsable                   
+24,8,3,Senior / Semi-Senior                              
+24,8,4,Junior                                            
+24,9,1,Gerencia / Alta Gerencia / Dirección              
+24,9,2,Jefe / Supervisor / Responsable                   
+24,9,3,Senior / Semi-Senior                              
+24,9,4,Junior                                            
+25,1,1,Gerencia / Alta Gerencia / Dirección              
+25,1,2,Jefe / Supervisor / Responsable                   
+25,1,3,Senior / Semi-Senior                              
+25,1,4,Junior                                            
+25,2,1,Gerencia / Alta Gerencia / Dirección              
+25,2,2,Jefe / Supervisor / Responsable                   
+25,2,3,Senior / Semi-Senior                              
+25,2,4,Junior                                            
+25,3,1,Gerencia / Alta Gerencia / Dirección              
+25,3,2,Jefe / Supervisor / Responsable                   
+25,3,3,Senior / Semi-Senior                              
+25,3,4,Junior                                            
+26,1,1,Gerencia / Alta Gerencia / Dirección              
+26,1,2,Jefe / Supervisor / Responsable                   
+26,1,3,Senior / Semi-Senior                              
+26,1,4,Junior                                            
+26,2,1,Gerencia / Alta Gerencia / Dirección              
+26,2,2,Jefe / Supervisor / Responsable                   
+26,2,3,Senior / Semi-Senior                              
+26,2,4,Junior                                            
+27,1,1,Gerencia / Alta Gerencia / Dirección              
+27,1,2,Jefe / Supervisor / Responsable                   
+27,1,3,Senior / Semi-Senior                              
+27,1,4,Junior                                            
+27,2,1,Gerencia / Alta Gerencia / Dirección              
+27,2,2,Jefe / Supervisor / Responsable                   
+27,2,3,Senior / Semi-Senior                              
+27,2,4,Junior                                            
+27,3,1,Gerencia / Alta Gerencia / Dirección              
+27,3,2,Jefe / Supervisor / Responsable                   
+27,3,3,Senior / Semi-Senior                              
+27,3,4,Junior                                            
+27,4,1,Gerencia / Alta Gerencia / Dirección              
+27,4,2,Jefe / Supervisor / Responsable                   
+27,4,3,Senior / Semi-Senior                              
+27,4,4,Junior                                            
+27,5,1,Gerencia / Alta Gerencia / Dirección              
+27,5,2,Jefe / Supervisor / Responsable                   
+27,5,3,Senior / Semi-Senior                              
+27,5,4,Junior                                            
+27,6,1,Gerencia / Alta Gerencia / Dirección              
+27,6,2,Jefe / Supervisor / Responsable                   
+27,6,3,Senior / Semi-Senior                              
+27,6,4,Junior                                            
+27,7,1,Gerencia / Alta Gerencia / Dirección              
+27,7,2,Jefe / Supervisor / Responsable                   
+27,7,3,Senior / Semi-Senior                              
+27,7,4,Junior                                            
+27,8,1,Gerencia / Alta Gerencia / Dirección              
+27,8,2,Jefe / Supervisor / Responsable                   
+27,8,3,Senior / Semi-Senior                              
+27,8,4,Junior                                            
+27,9,1,Gerencia / Alta Gerencia / Dirección              
+27,9,2,Jefe / Supervisor / Responsable                   
+27,9,3,Senior / Semi-Senior                              
+27,9,4,Junior                                            
+27,10,1,Gerencia / Alta Gerencia / Dirección              
+27,10,2,Jefe / Supervisor / Responsable                   
+27,10,3,Senior / Semi-Senior                              
+27,10,4,Junior                                            
+27,11,1,Gerencia / Alta Gerencia / Dirección              
+27,11,2,Jefe / Supervisor / Responsable                   
+27,11,3,Senior / Semi-Senior                              
+27,11,4,Junior                                            
+27,12,1,Gerencia / Alta Gerencia / Dirección              
+27,12,2,Jefe / Supervisor / Responsable                   
+27,12,3,Senior / Semi-Senior                              
+27,12,4,Junior                                            
+27,13,1,Gerencia / Alta Gerencia / Dirección              
+27,13,2,Jefe / Supervisor / Responsable                   
+27,13,3,Senior / Semi-Senior                              
+27,13,4,Junior                                            
+27,14,1,Gerencia / Alta Gerencia / Dirección              
+27,14,2,Jefe / Supervisor / Responsable                   
+27,14,3,Senior / Semi-Senior                              
+27,14,4,Junior                                            

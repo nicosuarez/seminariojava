@@ -1,0 +1,145 @@
+1,1,Administración                                    
+1,2,Administración de Ventas                          
+1,3,Administración y Finanzas                         
+1,4,Auditoría                                         
+1,5,Clearing                                          
+1,6,Contabilidad                                      
+1,7,Control de gestión y Presupuesto                  
+1,8,Facturación                                       
+1,9,Finanzas Internacionales                          
+1,10,Fondos Comunes de Inversión                       
+1,11,Giros y Transferencias                            
+1,12,Impuestos                                         
+1,13,Mercado de Capitales                              
+1,14,Recupero de Créditos                              
+1,15,Seguros                                           
+2,1,Almacén / Depósito / Expedición                   
+2,2,Logística y Distribución                          
+3,1,Arquitectura                                      
+3,2,Dirección de Obra                                 
+4,1,Comercial / Ventas                                
+4,2,Desarrollo de Negocios                            
+4,3,E-Commerce                                        
+4,4,Planeamiento comercial                            
+4,5,Telemarketing                                     
+5,1,Aduana / Despachante de Aduana                    
+5,2,Comercio Exterior                                 
+6,1,Abastecimiento                                    
+6,2,Compras y Abastecimiento                          
+7,1,Diseño de Interiores / Decoración                 
+7,2,Diseño Gráfico                                    
+7,3,Diseño Industrial                                 
+7,4,Diseño Multimedia                                 
+7,5,Diseño Textil e Indumentaria                      
+7,6,Diseño Web                                        
+8,1,Educación                                         
+8,2,Psicopedagogía                                    
+9,1,Estética y Cuidado Personal                       
+10,1,Análisis de Riesgos                               
+10,2,Corporate Finance / Banca Inversión               
+10,3,Créditos y Cobranzas                              
+10,4,Cuentas Corrientes                                
+10,5,Evaluación Económica                              
+10,6,Finanzas                                          
+10,7,Inversiones / Proyectos de Inversión              
+10,8,Planeamiento económico-financiero                 
+10,9,Tesorería                                         
+11,1,Camareros                                         
+11,2,Gastronomía                                       
+12,1,Alta dirección                                    
+12,2,Dirección de Empresas                             
+12,3,Gerencia                                          
+12,4,Gerencia General                                  
+12,5,Presidencia                                       
+12,6,Vicepresidencia                                   
+13,1,Independientes                                    
+14,1,Ingeniería                                        
+14,2,Ingeniería Agrónoma                               
+14,3,Ingenieria Automatización                         
+14,4,Ingeniería Civil                                  
+14,5,Ingeniería de Procesos                            
+14,6,Ingeniería de Producto                            
+14,7,Ingeniería de Reservorios / Geología              
+14,8,Ingeniería de Ventas                              
+14,9,Ingeniería Eléctrica                              
+14,10,Ingeniería Electromecánica                        
+14,11,Ingeniería Electrónica                            
+14,12,Ingeniería en Alimentos                           
+14,13,Ingeniería en Telecomunicaciones                  
+14,14,Ingeniería Industrial                             
+14,15,Ingeniería Mecánica                               
+14,16,Ingeniería Oficina Técnica / Proyecto             
+14,17,Ingeniería Química                                
+14,18,Producción e Ingeniería                           
+15,1,Jóvenes Profesionales                             
+15,2,Pasantía / Trainee                                
+16,1,Garantías                                         
+16,2,Legales                                           
+17,1,Business Intelligence                             
+17,2,Database Marketing                                
+17,3,Investigación de Mercado                          
+17,4,Marketing                                         
+17,5,Planeamiento                                      
+17,6,Producto                                          
+17,7,Publicidad                                        
+17,8,Trade Marketing                                   
+18,1,Periodismo                                        
+18,2,Producción Audiovisual                            
+18,3,Traducción                                        
+19,1,Música / Arte / Cultura                           
+20,1,Calidad                                           
+20,2,Control de Calidad                                
+20,3,Investigación y Desarrollo                        
+20,4,Mantenimiento de planta                           
+20,5,Operaciones                                       
+20,6,Producción                                        
+20,7,Programación de producción                        
+20,8,Seguridad Industrial / Higiene / Medio Ambiente   
+21,1,Aeropuertos                                       
+21,2,Back Office                                       
+21,3,Cadetería                                         
+21,4,Caja                                              
+21,5,Data Entry                                        
+21,6,Housekeeping                                      
+21,7,Mantenimiento y Limpieza                          
+21,8,Oficios y Profesiones                             
+21,9,Packaging                                         
+21,10,Promotoras/es                                     
+21,11,Seguridad                                         
+21,12,Trabajo Social                                    
+21,13,Transporte                                        
+22,1,Bioquímica                                        
+22,2,Farmacia                                          
+22,3,Química                                           
+23,1,Atención al cliente                               
+23,2,Recepción                                         
+23,3,Secretaria / Asistente                            
+23,4,Telefonista                                       
+24,1,Administración de Personal                        
+24,2,Capacitación y Desarrollo                         
+24,3,Comunicaciones internas                           
+24,4,Medicina Laboral                                  
+24,5,Organización y Métodos                            
+24,6,Recursos Humanos                                  
+24,7,Relaciones Laborales                              
+24,8,Remuneraciones / Compen. y Beneficios             
+24,9,Selección y Empleos                               
+25,1,Comunicaciones externas                           
+25,2,Organización de Eventos                           
+25,3,Relaciones Institucionales / Públicas             
+26,1,Salud                                             
+26,2,Veterinaria                                       
+27,1,Administración de Base de Datos                   
+27,2,Análisis Funcional / Liderazgo de Proyecto        
+27,3,Análisis y Programación                           
+27,4,Data Warehousing                                  
+27,5,Internet                                          
+27,6,Multimedia                                        
+27,7,Programación                                      
+27,8,Redes                                             
+27,9,Seguridad Informática                             
+27,10,Sistemas                                          
+27,11,Soporte Técnico / Mesa de Ayuda                   
+27,12,Tecnología / Infraestructura                      
+27,13,Tecnologías de la Información                     
+27,14,Telecomunicaciones                                
