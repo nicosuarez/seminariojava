@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="getAllCompanies" method="getAllCompanies" class="com.ar.infocompany.entities.Company">
+			<result name="success">/resources/companies.jsp</result>
+		</action>
+		<action name="setUpForInsertOrUpdateCompany" method="setUpForInsertOrUpdateCompany" class="com.ar.infocompany.entities.Company">
+			<result name="success">/resources/companyForm.jsp</result>
+		</action>
+		<action name="insertOrUpdateCompany" method="insertOrUpdateCompany" class="com.ar.infocompany.entities.Company">
+			<result name="input">/resources/companyForm.jsp</result>
+			<result name="success">/resources/companyForm.jsp</result>
+		</action>
+		<action name="deleteCompany" method="deleteCompany" class="com.ar.infocompany.entities.Company">
+			<result name="success" type="redirectAction">getAllCompanies</result>
+		</action>
+	</package>
+</struts>
