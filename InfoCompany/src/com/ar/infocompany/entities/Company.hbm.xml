@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="com.ar.infocompany.entities">
+    <class name="Company" table="Company">
+        <id name="CompanyId" type="integer" column="id" length="11" unsaved-value="null">
+            <generator class="native"/>
+        </id>
+        <property name="Name" type="string">
+            <column name="Name"/>
+        </property>
+        <property name="FieldId" type="integer">
+            <column name="FieldId"/>
+        </property>
+    </class>
+</hibernate-mapping>
