@@ -23,7 +23,7 @@ public class Company implements Serializable {
 		companies = companyService.getAllCompanies();
 		return "success";
 	}
-	public String insertOrUpdateEst(){
+	public String insertOrUpdateCompany(){
 			if (company.getCompanyId() == null) {
 				companyService.insertCompany(company);
 			}else {
@@ -43,7 +43,6 @@ public class Company implements Serializable {
 		return "success";
 	}
 	
-
 	public Integer getCompanyId() {
 		return companyId;
 	}
@@ -80,6 +79,5 @@ public class Company implements Serializable {
 	public void setCompanyService(CompanyService companyService) {
 		this.companyService = companyService;
 	}
-
 
 }

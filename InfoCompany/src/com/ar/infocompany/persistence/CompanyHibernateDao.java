@@ -32,8 +32,6 @@ public class CompanyHibernateDao implements CompanyDao{
 		}
 	}
 	
-
-	
 	public Company getCompany(Integer id) {
 		Session session = HibernateUtil.getSession();
 		
