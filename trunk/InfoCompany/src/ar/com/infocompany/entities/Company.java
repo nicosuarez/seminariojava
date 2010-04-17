@@ -1,11 +1,6 @@
 package ar.com.infocompany.entities;
 
 import java.io.Serializable;
-import java.util.List;
-
-import ar.com.infocompany.service.CompanyDaoService;
-import ar.com.infocompany.service.CompanyService;
-
 
 public class Company implements Serializable {
 	
@@ -14,35 +9,9 @@ public class Company implements Serializable {
 	private String name = null;
 	private Integer fieldId;
 	private Company company;
-	private List<Company> companies;
-	private CompanyService companyService = new CompanyDaoService();
-	
 
 	public Company() {}
 	
-	public String getAllCompanies() {
-		companies = companyService.getAllCompanies();
-		return "success";
-	}
-	public String insertOrUpdateCompany(){
-			if (company.getCompanyId() == null) {
-				companyService.insertCompany(company);
-			}else {
-				companyService.updateCompany(company);
-			}
-		return "success";
-	}
-	public String deleteCompany(){
-		companyService.deleteCompany(company.getCompanyId());
-		return "success";
-	}
-	
-	public String setUpForInsertOrUpdateCompany(){
-		if (company != null && company.getCompanyId() != null) {
-			company = companyService.getCompany(company.getCompanyId());
-		}
-		return "success";
-	}
 	
 	public Integer getCompanyId() {
 		return companyId;
@@ -68,17 +37,4 @@ public class Company implements Serializable {
 	public void setCompany(Company company) {
 		this.company = company;
 	}
-	public List<Company> getCompanies() {
-		return companies;
-	}
-	public void setCompanies(List<Company> companies) {
-		this.companies = companies;
-	}
-	public CompanyService getCompanyService() {
-		return companyService;
-	}
-	public void setCompanyService(CompanyService companyService) {
-		this.companyService = companyService;
-	}
-
 }

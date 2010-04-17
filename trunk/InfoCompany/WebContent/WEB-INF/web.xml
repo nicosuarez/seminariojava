@@ -7,6 +7,9 @@
 			ar.com.infocompany.strutsfilter.StrutsFilter
 		</filter-class>
 	</filter>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>

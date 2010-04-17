@@ -5,17 +5,17 @@
 
 <struts>
 	<package name="default" extends="struts-default">
-		<action name="getAllCompanies" method="getAllCompanies" class="ar.com.infocompany.entities.Company">
+		<action name="getAllCompanies" method="getAllCompanies" class="springCompanyAction">
 			<result name="success">/pages/companies.jsp</result>
 		</action>
-		<action name="setUpForInsertOrUpdateCompany" method="setUpForInsertOrUpdateCompany" class="ar.com.infocompany.entities.Company">
+		<action name="setUpForInsertOrUpdateCompany" method="setUpForInsertOrUpdateCompany" class="springCompanyAction">
 			<result name="success">/pages/companyForm.jsp</result>
 		</action>
-		<action name="insertOrUpdateCompany" method="insertOrUpdateCompany" class="ar.com.infocompany.entities.Company">
+		<action name="insertOrUpdateCompany" method="insertOrUpdateCompany" class="springCompanyAction">
 			<result name="input">/pages/companyForm.jsp</result>
 			<result name="success">/pages/companyForm.jsp</result>
 		</action>
-		<action name="deleteCompany" method="deleteCompany" class="ar.com.infocompany.entities.Company">
+		<action name="deleteCompany" method="deleteCompany" class="springCompanyAction">
 			<result name="success" type="redirectAction">getAllCompanies</result>
 		</action>
 	</package>
