@@ -1,10 +1,12 @@
-package com.ar.infocompany.strutsfilter;
+package ar.com.infocompany.strutsfilter;
 
 
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
-import com.ar.infocompany.persistence.HibernateUtil;
+
+import ar.com.infocompany.persistence.HibernateUtil;
+
 import org.hibernate.HibernateException;
 
 public class StrutsFilter extends StrutsPrepareAndExecuteFilter {

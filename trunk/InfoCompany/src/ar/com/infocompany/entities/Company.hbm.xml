@@ -3,7 +3,7 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
-<hibernate-mapping package="com.ar.infocompany.entities">
+<hibernate-mapping package="ar.com.infocompany.entities">
     <class name="Company" table="Company">
         <id name="CompanyId" type="integer" column="CompanyId" length="11" unsaved-value="null">
             <generator class="native"/>

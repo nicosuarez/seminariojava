@@ -1,4 +1,4 @@
-package com.ar.infocompany.persistence;
+package ar.com.infocompany.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

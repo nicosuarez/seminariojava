@@ -1,10 +1,11 @@
-package com.ar.infocompany.service;
+package ar.com.infocompany.service;
 
 import java.util.List;
 
-import com.ar.infocompany.persistence.CompanyDao;
-import com.ar.infocompany.persistence.CompanyHibernateDao;
-import com.ar.infocompany.entities.Company;
+import ar.com.infocompany.entities.Company;
+import ar.com.infocompany.persistence.CompanyDao;
+import ar.com.infocompany.persistence.CompanyHibernateDao;
+
 
 public class CompanyDaoService implements CompanyService{
 	

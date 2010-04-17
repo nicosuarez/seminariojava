@@ -4,7 +4,7 @@
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>
-			com.ar.infocompany.strutsfilter.StrutsFilter
+			ar.com.infocompany.strutsfilter.StrutsFilter
 		</filter-class>
 	</filter>
 	<filter-mapping>
@@ -12,6 +12,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<welcome-file-list>
-		<welcome-file>/resources/index.jsp</welcome-file>
+		<welcome-file>/pages/index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
