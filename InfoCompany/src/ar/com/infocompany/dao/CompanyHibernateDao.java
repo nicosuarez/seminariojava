@@ -1,4 +1,4 @@
-package ar.com.infocompany.persistence;
+package ar.com.infocompany.dao;
 
 import java.util.List;
 
