@@ -9,12 +9,12 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class CompanyHibernateDao implements CompanyDao{
+public class CompanyHibernateDAO implements ICompanyDAO{
 	
 	private Company company;
 	private List<Company> companies;
 	
-	public CompanyHibernateDao() {
+	public CompanyHibernateDAO() {
 	}
 	
 	public List<Company> getAllCompanies() {
