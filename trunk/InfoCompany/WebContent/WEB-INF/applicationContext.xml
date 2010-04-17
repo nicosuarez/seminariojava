@@ -7,7 +7,11 @@
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
  
-   <bean id="modelService" class="ar.com.infocompany.services.ModelService"/>
+   <bean id="companyDAO" class="ar.com.infocompany.dao.CompanyHibernateDAO"/>
+ 
+   <bean id="modelService" class="ar.com.infocompany.services.ModelService">
+   		<property name="companyDAO" ref="companyDAO"/>
+   </bean>
  
    <bean id="springCompanyAction" class="ar.com.infocompany.actions.CompanyAction"
    	scope="prototype">

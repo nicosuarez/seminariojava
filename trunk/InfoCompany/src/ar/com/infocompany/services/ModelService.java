@@ -1,32 +1,41 @@
 package ar.com.infocompany.services;
 
+
 import java.util.List;
 
 import ar.com.infocompany.dao.ICompanyDAO;
-import ar.com.infocompany.dao.CompanyHibernateDAO;
 import ar.com.infocompany.entities.Company;
 
 
 public class ModelService implements IModelService{
 	
-	private ICompanyDAO dao;
+	private ICompanyDAO companyDAO;
 	
 	public ModelService() {
-		this.dao = new CompanyHibernateDAO();
+
 	}
+	
+	public ICompanyDAO getCompanyDAO() {
+		return companyDAO;
+	}
+
+	public void setCompanyDAO(ICompanyDAO companyDAO) {
+		this.companyDAO = companyDAO;
+	}
+
 	public List<Company> getAllCompanies() {
-		return dao.getAllCompanies();
+		return companyDAO.getAllCompanies();
 	}
 	public void deleteCompany(Integer id) {
-		dao.deleteCompany(id);
+		companyDAO.deleteCompany(id);
 	}
 	public Company getCompany(Integer id) {
-		return dao.getCompany(id);
+		return companyDAO.getCompany(id);
 	}
 	public void insertCompany(Company company) {
-		dao.insertCompany(company);
+		companyDAO.insertCompany(company);
 	}
 	public void updateCompany(Company company) {
-		dao.updateCompany(company);
+		companyDAO.updateCompany(company);
 	}
 }
