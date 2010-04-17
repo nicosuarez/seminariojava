@@ -5,7 +5,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
 
-import ar.com.infocompany.persistence.HibernateUtil;
+import ar.com.infocompany.dao.HibernateUtil;
 
 import org.hibernate.HibernateException;
 
