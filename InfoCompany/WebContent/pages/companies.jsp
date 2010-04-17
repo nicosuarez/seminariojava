@@ -12,7 +12,7 @@
 		<div id="header"></div>
 		
 	    <div id="nav">
-			<%@ include file="/resources/menu.jsp" %>
+			<%@ include file="/pages/menu.jsp" %>
 	    </div>
 		<div id="content"></div>
 	    <div id="right"></div>
@@ -36,7 +36,7 @@
 			    <s:iterator value="companies">
 			        <tr>
 			            <td class="nowrap"><s:property value="Name"/></td>
-			            <td class="nowrap"><s:property value="FielfId"/></td>
+			            <td class="nowrap"><s:property value="FieldId"/></td>
 			            <td class="nowrap"><s:url id="updateCompany" action="setUpForInsertOrUpdateCompany">
 								<s:param name="company.CompanyId" value="CompanyId" />
 							</s:url> <s:a href="%{updateCompany}">Edit</s:a>

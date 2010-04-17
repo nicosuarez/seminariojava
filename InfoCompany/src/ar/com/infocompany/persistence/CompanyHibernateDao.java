@@ -1,8 +1,9 @@
-package com.ar.infocompany.persistence;
+package ar.com.infocompany.persistence;
 
 import java.util.List;
 
-import com.ar.infocompany.entities.Company;
+import ar.com.infocompany.entities.Company;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;

@@ -1,9 +1,10 @@
-package com.ar.infocompany.entities;
+package ar.com.infocompany.entities;
 
 import java.io.Serializable;
 import java.util.List;
-import com.ar.infocompany.service.CompanyDaoService;
-import com.ar.infocompany.service.CompanyService;
+
+import ar.com.infocompany.service.CompanyDaoService;
+import ar.com.infocompany.service.CompanyService;
 
 
 public class Company implements Serializable {

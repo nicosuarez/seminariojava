@@ -12,7 +12,7 @@
 		<div id="header"></div>
   
 	  	<div id="nav">
-	  	 <%@ include file="/resources/menu.jsp" %>
+	  	 <%@ include file="/pages/menu.jsp" %>
 	  	</div>
 	
 		<div id="content">
