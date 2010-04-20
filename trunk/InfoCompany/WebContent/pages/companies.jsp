@@ -14,7 +14,17 @@
 	    <div id="nav">
 			<%@ include file="/pages/menu.jsp" %>
 	    </div>
-		<div id="content"></div>
+	    
+	    <center>
+	    	<div style="margin: auto; width: 25%;">
+			    <s:iterator value="cloud.tags()" status="status" >
+			        <a href="<s:property value="link"/>" style="font-size: <s:property value="weight"/>px;"><s:property value="name" /></a>
+			    </s:iterator>
+			</div>
+	    </center>
+	    <br>
+		<br>
+	    <div id="content"></div>
 	    <div id="right"></div>
 	    
 	    <center>

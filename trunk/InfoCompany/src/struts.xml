@@ -18,5 +18,7 @@
 		<action name="deleteCompany" method="deleteCompany" class="springCompanyAction">
 			<result name="success" type="redirectAction">getAllCompanies</result>
 		</action>
+		<action  name="indexPageLoad" method="getAllCompanies" class="springCompanyAction">
+		</action>
 	</package>
 </struts>
