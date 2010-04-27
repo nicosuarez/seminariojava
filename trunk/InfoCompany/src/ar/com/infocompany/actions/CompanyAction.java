@@ -1,11 +1,13 @@
 package ar.com.infocompany.actions;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.mcavallo.opencloud.Cloud;
 import org.mcavallo.opencloud.Tag;
 
 import ar.com.infocompany.entities.Company;
+import ar.com.infocompany.entities.Field;
 import ar.com.infocompany.services.IModelService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,7 +19,8 @@ public class CompanyAction extends ActionSupport{
 	private List<Company> companies;
 	private IModelService modelService;
 	private Cloud cloud;
-	
+	private List<Field> fields;
+	private String nameField; 
 	
 	public Cloud getCloud() {
 		return cloud;
@@ -59,6 +62,10 @@ public class CompanyAction extends ActionSupport{
 		if (company != null && company.getCompanyId() != null) {
 			company = modelService.getCompany(company.getCompanyId());
 		}
+		if(fields == null)
+		{
+			fields = modelService.getAllFields();
+		}
 		return "success";
 	}
 	
@@ -94,4 +101,35 @@ public class CompanyAction extends ActionSupport{
         /* Objeto creado  */
         return cloud;
 	}
+
+	public List<Field> getFields() {
+		return fields;
+	}
+
+	public void setFields(List<Field> fields) {
+		this.fields = fields;
+	}
+
+	public String getNameField() {
+		return nameField;
+	}
+
+	public void setNameField(String nameField) {
+		this.nameField = nameField;
+		int idField = Integer.parseInt(nameField);
+
+		if(fields == null)
+			fields = modelService.getAllFields();
+		
+		for(Field field: fields)
+		{
+			if(field.getFieldId() == idField)
+			{
+				company.setFieldId(field);
+				break;
+			}
+		}	
+	}
+	
+	
 }

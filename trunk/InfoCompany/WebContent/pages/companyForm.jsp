@@ -36,10 +36,12 @@
 				</b>
 				
 			     <s:textfield key="label.name" name="company.Name"/>
-		   		 <s:select key="label.field" name="company.FieldId"
-						    headerKey="1"
+		   		 <s:select key="label.field" name="nameField"
+						    list="fields"
+						  	headerKey="1"
 						    headerValue="-- Seleccionar --"
-						    list="#{'1':'Rubro de prueba','2':'Otros'}"/>
+						    listKey = "fieldId"
+						    listValue="description"/>
 				 <s:hidden name="company.CompanyId"></s:hidden>
 			    <br>
 			    <br>
