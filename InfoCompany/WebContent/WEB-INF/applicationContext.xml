@@ -8,9 +8,11 @@
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
  
    <bean id="companyDAO" class="ar.com.infocompany.dao.CompanyHibernateDAO"/>
- 
+   <bean id="fieldDAO" class="ar.com.infocompany.dao.FieldHibernateDAO"/>
+   
    <bean id="modelService" class="ar.com.infocompany.services.ModelService">
    		<property name="companyDAO" ref="companyDAO"/>
+   		<property name="fieldDAO" ref="fieldDAO"/>
    </bean>
  
    <bean id="springCompanyAction" class="ar.com.infocompany.actions.CompanyAction"

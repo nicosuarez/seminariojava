@@ -11,8 +11,7 @@
         <property name="Name" type="string">
             <column name="Name"/>
         </property>
-        <property name="FieldId" type="integer">
-            <column name="FieldId"/>
-        </property>
+        <many-to-one name="FieldId" class="ar.com.infocompany.entities.Field" column="FieldId" 
+        not-null="true" unique="true"/>
     </class>
 </hibernate-mapping>

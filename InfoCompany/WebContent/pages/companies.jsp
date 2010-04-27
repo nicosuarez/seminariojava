@@ -46,7 +46,7 @@
 			    <s:iterator value="companies">
 			        <tr>
 			            <td class="nowrap"><s:property value="Name"/></td>
-			            <td class="nowrap"><s:property value="FieldId"/></td>
+			            <td class="nowrap"><s:property value="FieldId.Description"/></td>
 			            <td class="nowrap"><s:url id="updateCompany" action="setUpForInsertOrUpdateCompany">
 								<s:param name="company.CompanyId" value="CompanyId" />
 							</s:url> <s:a href="%{updateCompany}">Edit</s:a>
