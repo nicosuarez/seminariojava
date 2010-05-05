@@ -4,9 +4,10 @@ import java.util.List;
 
 import ar.com.infocompany.entities.Company;
 import ar.com.infocompany.entities.Field;
+import ar.com.infocompany.entities.User;
 
 
-public interface IModelService {
+public interface IModelService{
 	
 	public List<Company> getAllCompanies();
 	public Company getCompany(Integer id);
@@ -19,4 +20,10 @@ public interface IModelService {
 	public void updateField(Field field);
 	public void insertField(Field field);
 	public void deleteField(Integer id);
+	
+	public List<User> getAllUsers();
+	public User getUser(Integer id);
+	public void updateUser(User user);
+	public void insertUser(User user);
+	public void deleteUser(Integer id);
 }

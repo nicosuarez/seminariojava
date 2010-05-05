@@ -25,7 +25,10 @@
         <property name="hibernate.connection.autoReconnect">true</property>
         <property name="hibernate.connection.autoReconnectForPools">true</property>
         <property name="hibernate.connection.is-connection-validation-required">true</property>
+        
 		<mapping resource="ar/com/infocompany/entities/Company.hbm.xml"/>
 		<mapping resource="ar/com/infocompany/entities/Field.hbm.xml"/>
+		<mapping resource="ar/com/infocompany/entities/User.hbm.xml"/>
+		
 	</session-factory>
 </hibernate-configuration>

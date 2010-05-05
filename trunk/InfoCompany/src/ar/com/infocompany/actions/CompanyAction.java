@@ -125,7 +125,7 @@ public class CompanyAction extends ActionSupport{
 		{
 			if(field.getFieldId() == idField)
 			{
-				company.setFieldId(field);
+				company.setCompanyField(field);
 				break;
 			}
 		}	

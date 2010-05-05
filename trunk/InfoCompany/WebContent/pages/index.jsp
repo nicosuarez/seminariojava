@@ -7,10 +7,6 @@
   		<title>InfoCompany v1.0 | 2010 project...</title>
 	</head>	
 	<body>
-	
-		<div id="wrapper"></div>
-		<div id="header"></div>
-  
 	  	<div id="nav">
 	  	 <%@ include file="/pages/menu.jsp" %>
 	  	</div>
