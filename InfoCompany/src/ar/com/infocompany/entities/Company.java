@@ -7,8 +7,7 @@ public class Company implements Serializable {
 	private static final long serialVersionUID = 8660772594337520815L;
 	private Integer companyId;
 	private String name = null;
-	private Field fieldId;
-	private Company company;
+	private Field companyField;
 
 	public Company() {}
 	
@@ -25,17 +24,11 @@ public class Company implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Field getFieldId() {
-		return fieldId;
+	public Field getCompanyField() {
+		return companyField;
 	}
-	public void setFieldId(Field fieldId) {
-		this.fieldId = fieldId;
+	public void setCompanyField(Field companyField) {
+		this.companyField = companyField;
 	}
 
-	public Company getCompany() {
-		return company;
-	}
-	public void setCompany(Company company) {
-		this.company = company;
-	}
 }

@@ -3,15 +3,17 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
-<hibernate-mapping package="ar.com.infocompany.entities">
-    <class name="Company" table="Company">
-        <id name="CompanyId" type="integer" column="CompanyId" length="11" unsaved-value="null">
-            <generator class="native"/>
+<hibernate-mapping>
+    <class name="ar.com.infocompany.entities.Company" table="Company">
+        <id name="CompanyId" type="integer" unsaved-value="null">
+            <column name="CompanyId" length="11" />
+            <generator class="native"></generator>
         </id>
         <property name="Name" type="string">
-            <column name="Name"/>
+            <column name="Name" />
         </property>
-        <many-to-one name="FieldId" class="ar.com.infocompany.entities.Field" column="FieldId" 
-        not-null="true" unique="true"/>
+        <many-to-one name="CompanyField" lazy="false" class="ar.com.infocompany.entities.Field">
+            <column name="FieldId" length="11" not-null="true" unique="true" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

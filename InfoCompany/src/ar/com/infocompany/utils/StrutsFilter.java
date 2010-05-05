@@ -1,4 +1,4 @@
-package ar.com.infocompany.strutsfilter;
+package ar.com.infocompany.utils;
 
 
 import javax.servlet.FilterConfig;

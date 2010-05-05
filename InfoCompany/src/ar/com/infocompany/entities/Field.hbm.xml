@@ -3,13 +3,14 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
-<hibernate-mapping package="ar.com.infocompany.entities">
-    <class name="Field" table="Field">
-        <id name="FieldId" type="integer" column="FieldId" length="11" unsaved-value="null">
-            <generator class="native"/>
+<hibernate-mapping>
+    <class name="ar.com.infocompany.entities.Field" table="Field">
+        <id name="FieldId" type="integer" unsaved-value="null">
+            <column name="FieldId" length="11" />
+            <generator class="native"></generator>
         </id>
         <property name="Description" type="string">
-            <column name="Description"/>
+            <column name="Description" />
         </property>
     </class>
 </hibernate-mapping>

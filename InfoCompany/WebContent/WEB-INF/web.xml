@@ -4,7 +4,7 @@
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>
-			ar.com.infocompany.strutsfilter.StrutsFilter
+			ar.com.infocompany.utils.StrutsFilter
 		</filter-class>
 	</filter>
 	<listener>

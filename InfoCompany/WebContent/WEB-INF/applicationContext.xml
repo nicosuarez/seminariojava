@@ -9,16 +9,34 @@
  
    <bean id="companyDAO" class="ar.com.infocompany.dao.CompanyHibernateDAO"/>
    <bean id="fieldDAO" class="ar.com.infocompany.dao.FieldHibernateDAO"/>
+   <bean id="userDAO" class="ar.com.infocompany.dao.UserHibernateDAO"/>
    
    <bean id="modelService" class="ar.com.infocompany.services.ModelService">
    		<property name="companyDAO" ref="companyDAO"/>
    		<property name="fieldDAO" ref="fieldDAO"/>
+   		<property name="userDAO" ref="userDAO"/>
+   </bean>
+   
+   <bean id="businessService" class="ar.com.infocompany.services.BusinessService"
+   	scope="prototype">
+      <property name="modelService" ref="modelService"/>
    </bean>
  
    <bean id="springCompanyAction" class="ar.com.infocompany.actions.CompanyAction"
    	scope="prototype">
       <property name="modelService" ref="modelService"/>
    </bean>
+   
+   <bean id="springLoginAction" class="ar.com.infocompany.actions.LoginAction"
+   	scope="prototype">
+      <property name="businessService" ref="businessService"/>
+   </bean>
+   
+   <bean id="springUserRegisterAction" class="ar.com.infocompany.actions.UserAction"
+   	scope="prototype">
+      <property name="modelService" ref="modelService"/>
+   </bean>
+   
    
 </beans>
 

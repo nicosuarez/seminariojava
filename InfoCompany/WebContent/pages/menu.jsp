@@ -4,7 +4,9 @@
 
 <body>
 	  <ul>
-	      <li><a href="getAllCompanies.action">Companies</a></li>
+	      <li><a href="<s:url action='getAllCompanies' namespace='/pages/secure'/>">Companies</a></li>
+	      <li><a href="<s:url action='LoginAction' namespace='/pages/'/>">Login</a></li>
+	      <li><a href="<s:url action='UserCreateForm' namespace='/pages/'/>">Registrarse</a></li>
       </ul>
 </body>
 </html>

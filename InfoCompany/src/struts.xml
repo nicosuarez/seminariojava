@@ -4,21 +4,93 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="default" extends="struts-default">
+	<package name="infoCompanyPublic" namespace="/pages" extends="struts-default">
+	
+		<global-results>
+			<result name="error">/pages/error.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+		
+		<action name="LoginForm">
+			<result>/pages/login.jsp</result>
+		</action>
+		
+		<action name="UserCreateForm">
+			<result>/pages/userCreateForm.jsp</result>
+		</action>
+		
+		<action name="Home">
+			<result>/pages/index.jsp</result>
+		</action>
+		
+		<action name="LoginAction" class="springLoginAction">
+			<result type="redirect">
+				/pages/secure/getAllCompanies.action
+			</result>
+			<result name="input">/pages/login.jsp</result>
+		</action>
+		
+		<action name="userRegisterAction" method="createOrUpdateUser" class="springUserRegisterAction">
+			<result type="redirectAction">UserCreateForm</result>
+			<result name="input">/pages/index.jsp</result>
+		</action>
+		
+		<action name="setUpForInsertOrUpdateUser" method="setUpForInsertOrUpdateUser" class="springUserRegisterAction">
+			<result type="redirectAction">UserCreateForm</result>
+		</action>
+		
+	</package>
+	
+	<package name="infoCompanySecure" namespace="/pages/secure" extends="struts-default">
+		
+		<interceptors>
+
+			<interceptor name="authenticationInterceptor"
+				class="ar.com.infocompany.utils.AuthenticationInterceptor" />
+
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="authenticationInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="secureStack" />
+
+		<global-results>
+			<result name="login" type="redirect">
+				/pages/LoginForm.action
+			</result>
+			<result name="error">/pages/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+		
 		<action name="getAllCompanies" method="getAllCompanies" class="springCompanyAction">
 			<result name="success">/pages/companies.jsp</result>
 		</action>
+		
 		<action name="setUpForInsertOrUpdateCompany" method="setUpForInsertOrUpdateCompany" class="springCompanyAction">
 			<result name="success">/pages/companyForm.jsp</result>
 		</action>
+		
 		<action name="insertOrUpdateCompany" method="insertOrUpdateCompany" class="springCompanyAction">
 			<result name="input">/pages/companyForm.jsp</result>
 			<result name="success">/pages/companyForm.jsp</result>
 		</action>
+		
 		<action name="deleteCompany" method="deleteCompany" class="springCompanyAction">
 			<result name="success" type="redirectAction">getAllCompanies</result>
 		</action>
-		<action  name="indexPageLoad" method="getAllCompanies" class="springCompanyAction">
-		</action>
+		
 	</package>
 </struts>
+
+
