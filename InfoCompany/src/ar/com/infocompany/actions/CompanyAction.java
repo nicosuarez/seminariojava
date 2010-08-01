@@ -1,8 +1,6 @@
 package ar.com.infocompany.actions;
 
-import java.util.Iterator;
 import java.util.List;
-
 import org.mcavallo.opencloud.Cloud;
 import org.mcavallo.opencloud.Tag;
 
@@ -22,6 +20,62 @@ public class CompanyAction extends ActionSupport{
 	private List<Field> fields;
 	private String nameField; 
 	
+	private int integerA;
+	private int integerB;
+	private int integerC;
+	private String echo;
+	private String password;
+	private String username;
+	
+	public String getEcho() {
+		return echo;
+	}
+
+	public void setEcho(String echo) {
+		this.echo = echo;
+	}
+	
+	public String simpleecho() {
+		password="SEBA";
+		return "SUCCESS";
+	}
+	
+	public String TestAjax(){
+		String fullname = this.username + this.password;
+		this.echo = "la palabra al reves";
+		this.password = fullname;
+		return "SUCCESS";
+	}
+
+	public String calculateProduct() {
+		integerC = integerA * integerB;
+		return "success";
+	}
+	
+	public int getIntegerC() {
+		return integerC;
+	}
+
+	public void setIntegerC(int integerC) {
+		this.integerC = integerC;
+	}
+	
+	public int getIntegerA() {
+		return integerA;
+	}
+
+	public void setIntegerA(int integerA) {
+		this.integerA = integerA;
+	}
+
+	public int getIntegerB() {
+		return integerB;
+	}
+
+	public void setIntegerB(int integerB) {
+		this.integerB = integerB;
+	}
+
 	public Cloud getCloud() {
 		return cloud;
 	}
@@ -129,6 +183,22 @@ public class CompanyAction extends ActionSupport{
 				break;
 			}
 		}	
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUsername() {
+		return username;
 	}
 	
 	
