@@ -1,29 +1,55 @@
+/*
+ * Company
+ * 
+ */
 package ar.com.infocompany.model;
 
-import java.util.Set;
-
-import ar.com.infocompany.entities.Field;
+import java.util.List;
 
 public class Company {
 	
 	private int id;
 	private String name;
 	private Industry industry;
-	private Set<Critic> critics;
+	private List<Critic> critics;
 	
-	public Company(int id, String name, Field field) {
-		
+	public Company(int id, String name, Industry industry) {
+		this.id = id;
+		this.name = name;
+		this.industry = industry; 
 	}
-	
-	// getBestCritics(n)
-	
-	public int getRating() {
+		
+	public float calculateRating() {
 		int rating = 0;
-		for (Critic critic : this.critics) {
-			rating += (critic.getCompanyRating() * critic.getAuthor().getReputation());
-		}
+		//for (Critic critic : this.critics) {
+			//rating += (critic.getCompanyRating() * critic.getAuthor().getReputation());
+		//}
 		rating = (rating / this.critics.size());
 		return rating;
+	}
+	
+	public boolean addCritic(Critic critic) {
+		return this.addCritic(critic);
+	}
+	
+	public List<Critic> getBestCritics(int n) {
+		return this.getCritics(n, 1);
+	}
+	
+	public List<Critic> getWorstCritics(int n) {
+		return this.getCritics(n, 0);
+	}
+	
+	private List<Critic> getCritics(int n, int criteria) {
+		return null;
+	}
+
+	public List<Job>  getAsociatedJobs() {
+		return null;
+	}
+	
+	public List<Location>  getAsociatedLocations() {
+		return null;
 	}
 	
 	public Integer getId() {
@@ -32,10 +58,6 @@ public class Company {
 	
 	public String getName() {
 		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public Industry getIndustry() {

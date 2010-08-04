@@ -1,49 +1,53 @@
 package ar.com.infocompany.model;
 
 import java.sql.Date;
-import java.util.Set;
+import java.util.List;
 
 public class Critic {
 	
 	private User author;
-	private Company company;
-	private Job job;
+	private Target target;
 	private int salary;
 	private Comment comment;
-	private Set<Item> items;
+	private List<Comment> replies;
+	private List<Item> items;
 	private Date date;
-	
-	public User getAuthor() {
-		return this.author;
-	}
 	
 	public float getCompanyRating() {
 		// tener en cuenta reputacion usuario
 		return 5;
 	}
 	
+	public User getAuthor() {
+		return this.author;
+	}
+	
+	public Target getTarget() {
+		return this.target;
+	}
+	
+	public Date getDate() {
+		return this.date;
+	}
+	
 	public Comment getComment() {
 		return this.comment;
-	}
-	
-	public Company getCompany() {
-		return this.company;
-	}
-	
-	public Job getJob() {
-		return this.job;
 	}
 	
 	public int getSalary() {
 		return this.salary;
 	}
 	
-	public Set<Item> getItems() {
+	public List<Item> getItems() {
 		return this.items;
 	}
 	
-	public void setItems(Set<Item> items) {
-		this.items = items;
+	public List<Comment> getReplies() {
+		return this.replies;
+	}
+	
+	public boolean addReply(Comment reply) {
+		return this.replies.add(reply);
 	}
 	
 }

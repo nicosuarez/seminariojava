@@ -1,34 +1,34 @@
+/*
+ * User
+ * 
+ */
 package ar.com.infocompany.model;
 
 import java.util.Date;
-import java.util.Set;
-
-/*
- * This class represents a user of the InfoCompany system.  This is one of 
- * our applications main domain objects.
- */
+import java.util.List;
 
 public class User {
 	
 	private Integer id;
-	private String name;
 	private String password;
-	private Date creationDate;
 	private String email;
 	private Job job;
 	private Location location;
-	private Set<Critic> critics;
+	private List<Critic> critics;
 	private int reputation;
 	
-	/*
-	 * Comments associated to the user,
-	 * recived or sent.
-	 */
-	private Set<Comment> comments;
 	
 	public User(int id, String name, String password, Date creationDate,
 			String email, Job job, Location location) {
 		this.email = email;
+	}
+	
+	public Critic makeCritic() {
+		return null;
+	}
+	
+	public boolean isActive() {
+		return true;
 	}
 	
 	public Integer getId() {
@@ -51,51 +51,37 @@ public class User {
 		this.password = password;
 	}
 	
-	public String getName() {
-		return this.name;
+	/*
+	public Critic getCompanyLastCritic(Company company) {
+		Critic lastCritic = null;
+		for (Critic critic: this.critics) {
+			if ((critic.getTarget().getCompany().equals(company))
+					&& ((lastCritic == null) 
+						|| (critic.getDate().before(lastCritic.getDate())))) {
+				lastCritic = critic;
+			}
+		}
+		return lastCritic;
 	}
+	*/
 	
-	public void setName(String userName) {
-			this.name = userName;
-	}
-	
-	public Date getCreationDate() {
-		return this.creationDate;
-	}
-		
-	public Set<Critic> getCritics()	{
+	public List<Critic> getCritics()	{
 		return this.critics;
 	}
-	
-	public boolean addCritic(Critic critic) {
-		return this.critics.add(critic);
-	}
-	
+		
 	public Job getJob() {
 		return this.job;
-	}
-	
-	public Set<Comment> getComments() {
-		return this.comments;
-	}
-	
-	public Set<Comment> getMyComments() {
-		return this.comments;
-	}
-	
-	public Set<Comment> getReplies() {
-		return this.comments;
 	}
 	
 	public int getReputation() {
 		return this.reputation;
 	}
 	
-	public int incReputation() {
+	public int increaseReputation() {
 		return ++this.reputation;
 	}
 	
-	public int decReputation() {
+	public int decreaseReputation() {
 		return --this.reputation;
 	}
 	
@@ -108,3 +94,5 @@ public class User {
 	}
 	
 }
+
+// eof
