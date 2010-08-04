@@ -1,3 +1,8 @@
+/*
+ * Job
+ * 
+ */
+
 package ar.com.infocompany.model;
 
 public class Job {
@@ -9,3 +14,5 @@ public class Job {
 	}
 	
 }
+
+// eof
