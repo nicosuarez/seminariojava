@@ -5,7 +5,6 @@
 package ar.com.infocompany.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class User {
 	
@@ -14,7 +13,6 @@ public class User {
 	private String email;
 	private Job job;
 	private Location location;
-	private List<Critic> critics;
 	private int reputation;
 	
 	
@@ -49,24 +47,6 @@ public class User {
 	
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	/*
-	public Critic getCompanyLastCritic(Company company) {
-		Critic lastCritic = null;
-		for (Critic critic: this.critics) {
-			if ((critic.getTarget().getCompany().equals(company))
-					&& ((lastCritic == null) 
-						|| (critic.getDate().before(lastCritic.getDate())))) {
-				lastCritic = critic;
-			}
-		}
-		return lastCritic;
-	}
-	*/
-	
-	public List<Critic> getCritics()	{
-		return this.critics;
 	}
 		
 	public Job getJob() {
