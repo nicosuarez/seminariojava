@@ -1,6 +1,6 @@
 package ar.com.infocompany.model;
 
-public class Auditor {
+public class AuditService {
 	
 	public Comment audit(Comment comment) {
 		if (!this.isLegal(comment)) {
