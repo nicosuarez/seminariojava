@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping>
+    <class name="ar.com.infocompany.model.Company" table="Company" lazy="false">
+        <id name="Id" column="Id" unsaved-value="0">
+            <generator class="native"></generator>
+        </id>
+        <property name="Name" type="string">
+            <column name="Name" not-null="true" />
+        </property>
+        <component name="Industry" class="ar.com.infocompany.model.Industry" >
+        	<property name="value" access="field" type="string">
+	            <column name="Industry" not-null="true" />
+	        </property>	
+        </component>
+        <bag 
+        	name="critics"
+        	access="field"
+        	inverse="true"
+        	cascade="all"
+			lazy="false">
+			<key column="CompanyId"/>
+			<one-to-many class="ar.com.infocompany.model.Critic"/>
+        </bag>
+        
+    </class>
+</hibernate-mapping>

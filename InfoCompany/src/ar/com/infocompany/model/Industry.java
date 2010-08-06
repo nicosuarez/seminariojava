@@ -3,8 +3,12 @@ package ar.com.infocompany.model;
 
 public class Industry {
 	
-	private final String value;
-
+	private String value;
+	
+	public Industry() {
+		
+	}
+	
 	public Industry(String value) {
 		this.value = value;
 	}
@@ -12,6 +16,8 @@ public class Industry {
 	public String getValue() {
 		return this.value;
 	}
+
+	//TODO ver porque me obliga a definir un seter de value
 	
 }
 

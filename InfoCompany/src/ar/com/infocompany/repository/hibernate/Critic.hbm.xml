@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping>
+    <class name="ar.com.infocompany.model.Critic" table="Critic">
+        <id name="Id" column="Id" unsaved-value="0">
+            <generator class="native"></generator>
+        </id>
+
+        <property name="Salary" type="integer">
+            <column name="Salary" />
+        </property>
+         
+   		<one-to-one 
+         	name="Comment"
+         	class="ar.com.infocompany.model.Comment"
+         	cascade="all"/>
+         	              
+        <many-to-one 
+        	name="company" 
+        	class="ar.com.infocompany.model.Company" 
+        	column="CompanyId"
+        	not-null="true" 
+        	/>
+        
+    </class>
+</hibernate-mapping>
