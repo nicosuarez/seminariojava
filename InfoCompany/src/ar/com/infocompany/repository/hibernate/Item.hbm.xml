@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="ar.com.infocompany.model">
+    <class name="Item" table="CriticItems">
+        <id name="id" access="field" column="Id" unsaved-value="0">
+            <generator class="native"></generator>
+        </id>
+        
+        <property name="tag" access="field" column="Tag"></property>
+        <property name="score" access="field" column="Score"></property>
+        
+        <!-- <many-to-one name="critic" class="Critic" access="field" column="CriticId" not-null="true" cascade="all"/> -->
+    </class>
+</hibernate-mapping>

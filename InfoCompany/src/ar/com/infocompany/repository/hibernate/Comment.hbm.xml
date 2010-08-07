@@ -3,10 +3,13 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
-<hibernate-mapping>
-    <class name="ar.com.infocompany.model.Comment" table="Comment">
-        <id name="Id" column="Id" unsaved-value="0">
-            <generator class="native"></generator>
+<hibernate-mapping package="ar.com.infocompany.model">
+    <class name="Comment" table="Comment">
+        <id name="id" access="field" column="Id" unsaved-value="0">
+         	<generator class="native"></generator>
+            <!-- <generator class="foreign">
+                <param name="property">criticAuthor</param>
+            </generator> -->
         </id>
 
         <property name="text" type="string" access="field">
@@ -16,5 +19,16 @@
         <property name="abuseCount" type="integer" access="field">
             <column name="AbuseCount" />
         </property>       
+        
+        <!-- <one-to-one name="criticAuthor" class="Critic" constrained="true"></one-to-one> -->
+        
+        <many-to-one name="critic" access="field" class="Critic" fetch="select">
+            <column name="CriticId" not-null="true" />
+        </many-to-one>
+         	
+        <many-to-one name="author" access="field" class="User" fetch="select">
+            <column name="UserId" not-null="true" />
+        </many-to-one>
+         	
     </class>
 </hibernate-mapping>

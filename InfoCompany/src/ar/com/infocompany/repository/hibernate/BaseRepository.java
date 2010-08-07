@@ -3,14 +3,18 @@ package ar.com.infocompany.repository.hibernate;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.infrastructure.IAggregateRoot;
 import ar.com.infocompany.infrastructure.IRepository;
+import ar.com.infocompany.infrastructure.IUnitOfWork;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 
 public class BaseRepository<T extends IAggregateRoot > implements IRepository<T> {
 
 	private Class<T> persistentClass;
+	private IUnitOfWork unitOfWotk;
 	
 	@SuppressWarnings("unchecked")
 	public BaseRepository()
@@ -36,37 +40,59 @@ public class BaseRepository<T extends IAggregateRoot > implements IRepository<T>
 	@SuppressWarnings("unchecked")
 	@Override
 	public T findBy(int id) {
+		Transaction transaction = SessionFactory.getCurrentSession().beginTransaction();
 		return (T) SessionFactory.getCurrentSession().get(getPersistentClass(),id);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> findBy(Query query) {
+		Transaction transaction = SessionFactory.getCurrentSession().beginTransaction();
+		org.hibernate.Criteria criteria = SessionFactory.getCurrentSession().createCriteria(getPersistentClass());
+		return QueryTranslator.getCriteriaFrom(criteria, query).list();
+	}
+	
 	@Override
 	public void remove(T entity) {
-		Transaction transaction = SessionFactory.getCurrentSession().beginTransaction();
-		SessionFactory.getCurrentSession().delete(entity);
-		try 
-		{
-			transaction.commit();	
-		} 
-		catch (HibernateException e) {
-			transaction.rollback();
-			//TODO: Log exception.
-			throw e;
+		if(this.unitOfWotk == null) {
+			Transaction transaction = SessionFactory.getCurrentSession().beginTransaction();
+			SessionFactory.getCurrentSession().delete(entity);
+			try 
+			{
+				transaction.commit();	
+			} 
+			catch (HibernateException hex) {
+				transaction.rollback();
+				//TODO: Log exception.
+				throw hex;
+			}
+		}else {
+			this.unitOfWotk.delete(entity);
 		}
 	}
 
 	@Override
 	public void save(T entity) {
-		Transaction transaction = SessionFactory.getCurrentSession().beginTransaction();
-		SessionFactory.getCurrentSession().saveOrUpdate(entity);
-		try 
-		{
-			transaction.commit();	
-		} 
-		catch (HibernateException e) {
-			transaction.rollback();
-			//TODO: Log exception.
-			throw e;
+		if(this.unitOfWotk == null) {
+			Transaction transaction = SessionFactory.getCurrentSession().beginTransaction();
+			SessionFactory.getCurrentSession().saveOrUpdate(entity);
+			try 
+			{
+				transaction.commit();	
+			} 
+			catch (HibernateException hex) {
+				transaction.rollback();
+				//TODO: Log exception.
+				throw hex;
+			}
+		}else {
+			this.unitOfWotk.delete(entity);
 		}
+	}
+
+	@Override
+	public void inyect(IUnitOfWork unitOfWork) {
+		this.unitOfWotk = unitOfWork;
 		
 	}
 

@@ -1,24 +1,35 @@
 package ar.com.infocompany.model;
 
+import ar.com.infocompany.infrastructure.BusinessBase;
+import ar.com.infocompany.infrastructure.IAggregateRoot;
 
-public class Industry {
+public class Industry extends BusinessBase<Industry> implements IAggregateRoot {
 	
-	private String value;
+	private String name;
 	
 	public Industry() {
 		
 	}
 	
-	public Industry(String value) {
-		this.value = value;
+	public Industry(String name) {
+		this.name = name;
 	}
 		
-	public String getValue() {
-		return this.value;
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	//TODO ver porque me obliga a definir un seter de value
-	
+	@Override
+	protected void validate() {
+		if(isNullOrEmpty(name)) {
+			this.addBrokenRule("Name", "El nombre de la industria es requerido.");
+		}
+	}
+
 }
 
 // eof

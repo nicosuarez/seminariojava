@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<type-mapping>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	</type-mapping>
+	<table-filter match-catalog="InfoCompany" match-name="Comment" />
+	<table-filter match-catalog="InfoCompany" match-name="Company" />
+	<table-filter match-catalog="InfoCompany" match-name="Critic" />
+	<table-filter match-catalog="InfoCompany" match-name="User" />
+	<table catalog="InfoCompany" name="User"></table>
+	<table catalog="InfoCompany" name="Company"></table>
+	<table catalog="InfoCompany" name="Critic"></table>
+	<table catalog="InfoCompany" name="Comment"></table>
+</hibernate-reverse-engineering>

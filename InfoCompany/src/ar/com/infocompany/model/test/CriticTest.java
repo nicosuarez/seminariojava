@@ -19,12 +19,12 @@ public class CriticTest {
 		System.out.println("exec before");
 	}
 	
-	@Test
-	public void testPersistCritic() {
-		Critic critic = new Critic( 100, new Company("Coto", new Industry("IT")), new Comment("LALALALALALA") );
-		ICriticRepository rep = new CriticRepository();
-		rep.save(critic);
-		Assert.assertTrue(critic.getId() != 0);
-    }
+//	@Test
+//	public void testPersistCritic() {
+//		Critic critic = new Critic( 100, new Company("Coto", new Industry("IT")), new Comment("LALALALALALA") );
+//		ICriticRepository rep = new CriticRepository();
+//		rep.save(critic);
+//		Assert.assertTrue(critic.getId() != 0);
+//    }
 	
 }

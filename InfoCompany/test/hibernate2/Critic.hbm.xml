@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 6, 2010 3:10:54 AM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="Critic" table="Critic" catalog="InfoCompany">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="User" fetch="select">
+            <column name="UserId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="company" class="Company" fetch="select">
+            <column name="CompanyId" not-null="true" />
+        </many-to-one>
+        <property name="salary" type="int">
+            <column name="Salary" not-null="true" />
+        </property>
+        <set name="commentsForCriticId" inverse="true" lazy="true" table="Comment" fetch="select">
+            <key>
+                <column name="CriticId" not-null="true" />
+            </key>
+            <one-to-many class="Comment" />
+        </set>
+        <one-to-one name="commentById" class="Comment"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="ar.com.infocompany.model">
+     <class name="User" table="User">
+        <id name="id" access="field" column="Id" unsaved-value="0">
+            <generator class="native"></generator>
+        </id>
+        <property name="userName" access="field" type="string">
+            <column name="UserName" length="10" not-null="true" />
+        </property>
+        <property name="password" access="field" type="string">
+            <column name="Password" length="20" not-null="true" />
+        </property>
+        <property name="email" access="field" type="string">
+            <column name="Email" length="30" not-null="true" />
+        </property>
+        <property name="creationDate" access="field" type="date">
+            <column name="CreationDate" length="10" />
+        </property>
+        <property name="reputation" access="field" type="integer">
+            <column name="Reputation"/>
+        </property>
+        <property name="birthdayYear" access="field" type="integer">
+            <column name="BirthdayYear"/>
+        </property>
+        
+        <!-- No funciona componentes dentro de otros
+        <component name="job" access="field" class="Job">
+        	<component name="industry" access="field" class="Industry">
+        		<property name="industry" access="field" column="Industry"></property>
+        	</component>
+        	<property name="name" access="field" column="JobName"></property>
+        </component>
+          -->
+        
+        <!-- TODO: sacar cascade="all"  ver hay que hacer el repositorio de job -->
+        <many-to-one name="job" cascade="all" class="Job" access="field" column="JobId" not-null="true" />
+        
+         <component name="location" access="field" class="Location">
+        	<property name="country" access="field" column="Country"></property>
+        	<property name="state" access="field" column="State"></property>
+         </component>
+        
+        <bag name="comments" cascade="all" access="field" inverse="true" lazy="true" table="Comment" fetch="select">
+            <key>
+                <column name="UserId" not-null="true" />
+            </key>
+            <one-to-many class="Comment"/>
+        </bag>
+        <bag name="critics" cascade="all" access="field" inverse="true" lazy="true" table="Critic" fetch="select">
+            <key>
+                <column name="UserId" not-null="true" />
+            </key>
+            <one-to-many class="Critic" />
+        </bag>
+    </class>
+</hibernate-mapping>
