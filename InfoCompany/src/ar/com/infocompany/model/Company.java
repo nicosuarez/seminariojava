@@ -29,11 +29,6 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 	{
 		return this.critics;
 	}
-	
-	private void setCritics(List<Critic> critics)
-	{
-		this.critics = critics;
-	}
 			
 //	public float calculateRating() {
 //		int rating = 0;
@@ -48,14 +43,6 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		return this.critics.add(critic);
 	}
 	
-	private void setIndustry(Industry industry) {
-		this.industry = industry;
-	}
-
-	private void setName(String name) {
-		this.name = name;
-	}
-
 	public List<Critic> getBestCritics(int n) {
 		return this.getCritics(n, 1);
 	}
@@ -103,7 +90,6 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		return lastComment;
 	}
 
-	
 	protected void validate() {
 		if(isNullOrEmpty(name)) {
 			this.addBrokenRule("Name", "El nombre de la compania es requerido.");
@@ -121,6 +107,21 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 				this.addBrokenRule(critic.getBrokenRules());
 			}
 		}
+	}
+	
+	@SuppressWarnings("unused")
+	private void setCritics(List<Critic> critics) {
+		this.critics = critics;
+	}
+	
+	@SuppressWarnings("unused")
+	private void setIndustry(Industry industry) {
+		this.industry = industry;
+	}
+
+	@SuppressWarnings("unused")
+	private void setName(String name) {
+		this.name = name;
 	}
 
 }
