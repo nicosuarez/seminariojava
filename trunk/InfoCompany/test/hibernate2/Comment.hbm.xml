@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 6, 2010 3:10:54 AM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="Comment" table="Comment" catalog="InfoCompany">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="foreign">
+                <param name="property">criticById</param>
+            </generator>
+        </id>
+        <one-to-one name="criticById" class="Critic" constrained="true"></one-to-one>
+        <many-to-one name="criticByCriticId" class="Critic" fetch="select">
+            <column name="CriticId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="User" fetch="select">
+            <column name="UserId" not-null="true" />
+        </many-to-one>
+        <property name="text" type="string">
+            <column name="Text" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

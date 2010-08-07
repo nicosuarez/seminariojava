@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 6, 2010 3:10:54 AM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="Company" table="Company" catalog="InfoCompany">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="20" not-null="true" />
+        </property>
+        <set name="critics" inverse="true" lazy="true" table="Critic" fetch="select">
+            <key>
+                <column name="CompanyId" not-null="true" />
+            </key>
+            <one-to-many class="Critic" />
+        </set>
+        <set name="critics_1" inverse="true" lazy="true" table="Critic" fetch="select">
+            <key>
+                <column name="CompanyId" not-null="true" />
+            </key>
+            <one-to-many class="Critic" />
+        </set>
+    </class>
+</hibernate-mapping>

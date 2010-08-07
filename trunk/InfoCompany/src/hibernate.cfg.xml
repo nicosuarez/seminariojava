@@ -31,5 +31,10 @@
 		<mapping resource="ar/com/infocompany/repository/hibernate/Company.hbm.xml"/>
 		<mapping resource="ar/com/infocompany/repository/hibernate/Critic.hbm.xml"/>
 		<mapping resource="ar/com/infocompany/repository/hibernate/Comment.hbm.xml"/>
+		<mapping resource="ar/com/infocompany/repository/hibernate/User.hbm.xml"/>
+		<mapping resource="ar/com/infocompany/repository/hibernate/Job.hbm.xml"/>
+		<mapping resource="ar/com/infocompany/repository/hibernate/Industry.hbm.xml"/>
+		<mapping resource="ar/com/infocompany/repository/hibernate/Item.hbm.xml"/>
+
 	</session-factory>
 </hibernate-configuration>

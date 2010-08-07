@@ -3,19 +3,12 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
-<hibernate-mapping>
-    <class name="ar.com.infocompany.model.Company" table="Company">
-        <id name="id" type="integer" unsaved-value="null">
-            <column name="CompanyId" length="11" />
+<hibernate-mapping package="ar.com.infocompany.model">
+    <class name="Industry" table="Industry">
+        <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
-        <property name="name" type="string">
-            <column name="Name" />
-        </property>
-        <component name="industry" class="Industry" >
-        	<property name="value" type="string">
-	            <column name="Industry" not-null="true" />
-	        </property>	
-        </component>
+        <property name="name" access="field" column="name"/>
+        
     </class>
 </hibernate-mapping>

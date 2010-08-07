@@ -3,27 +3,31 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
-<hibernate-mapping>
-    <class name="ar.com.infocompany.model.Company" table="Company" lazy="false">
-        <id name="Id" column="Id" unsaved-value="0">
+<hibernate-mapping package="ar.com.infocompany.model">
+    <class name="Company" table="Company" lazy="false">
+        <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
         <property name="Name" type="string">
-            <column name="Name" not-null="true" />
+            <column name="Name" length="50" not-null="true" />
         </property>
-        <component name="Industry" class="ar.com.infocompany.model.Industry" >
+        <!-- 
+        <component name="Industry" class="Industry" >
         	<property name="value" access="field" type="string">
 	            <column name="Industry" not-null="true" />
 	        </property>	
         </component>
+         -->
+        <many-to-one name="industry" lazy="false" class="Industry" access="field" column="IndustryId" />
         <bag 
         	name="critics"
         	access="field"
         	inverse="true"
         	cascade="all"
-			lazy="false">
+			lazy="false"
+			fetch="select">
 			<key column="CompanyId"/>
-			<one-to-many class="ar.com.infocompany.model.Critic"/>
+			<one-to-many class="Critic"/>
         </bag>
         
     </class>

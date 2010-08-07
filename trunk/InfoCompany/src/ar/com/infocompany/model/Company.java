@@ -7,12 +7,11 @@ package ar.com.infocompany.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.com.infocompany.infrastructure.BusinessBase;
 import ar.com.infocompany.infrastructure.IAggregateRoot;
-import ar.com.infocompany.infrastructure.IEntity;
 
-public class Company implements IEntity, IAggregateRoot {
+public class Company extends BusinessBase<Company> implements IAggregateRoot {
 	
-	private int id;
 	private String name;
 	private Industry industry;
 	private List<Critic> critics;
@@ -20,10 +19,6 @@ public class Company implements IEntity, IAggregateRoot {
 	public Company() {
 		 
 	}
-	
-//	public Company(String name) {
-//		this.name = name;
-//	}
 	
 	public Company(String name, Industry industry) {
 		this.name = name;
@@ -81,20 +76,51 @@ public class Company implements IEntity, IAggregateRoot {
 		return null;
 	}
 	
-	public int getId() {
-		return this.id;
-	}
-	
-	private void setId(int id) {
-		this.id=id;
-	}
-	
 	public String getName() {
 		return name;
 	}
 	
 	public Industry getIndustry() {
 		return this.industry;
+	}
+
+	public Critic getLastCritic() {
+		Critic critic = null;
+		if(this.critics.size() > 0)
+		{
+			critic = this.critics.get(this.critics.size() - 1);
+		}
+		return critic;
+	}
+	
+	public Comment getLastComment() {
+		Critic critic = getLastCritic();
+		Comment lastComment = null;
+		if( critic != null )
+		{
+			lastComment = critic.getComment();
+		}
+		return lastComment;
+	}
+
+	
+	protected void validate() {
+		if(isNullOrEmpty(name)) {
+			this.addBrokenRule("Name", "El nombre de la compania es requerido.");
+		}
+		
+		if(this.industry == null) {
+			this.addBrokenRule("Industry", "La industria de la compania es requerida.");
+		}
+		else {
+			this.addBrokenRule(industry.getBrokenRules());
+		}
+		
+		if(this.critics != null) {
+			for (Critic critic : this.critics) {
+				this.addBrokenRule(critic.getBrokenRules());
+			}
+		}
 	}
 
 }

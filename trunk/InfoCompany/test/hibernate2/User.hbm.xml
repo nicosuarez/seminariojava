@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 6, 2010 3:10:54 AM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="User" table="User" catalog="InfoCompany">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="UserName" length="10" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="20" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LastName" length="20" not-null="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="20" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="30" not-null="true" />
+        </property>
+        <property name="creationDate" type="date">
+            <column name="CreationDate" length="10" not-null="true" />
+        </property>
+        <set name="comments" inverse="true" lazy="true" table="Comment" fetch="select">
+            <key>
+                <column name="UserId" not-null="true" />
+            </key>
+            <one-to-many class="Comment" />
+        </set>
+        <set name="critics" inverse="true" lazy="true" table="Critic" fetch="select">
+            <key>
+                <column name="UserId" not-null="true" />
+            </key>
+            <one-to-many class="Critic" />
+        </set>
+    </class>
+</hibernate-mapping>
