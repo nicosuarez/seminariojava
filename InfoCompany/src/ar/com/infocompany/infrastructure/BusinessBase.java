@@ -6,13 +6,14 @@ import java.util.Collections;
 import java.util.List;
 import ar.com.infocompany.infrastructure.IEntity;
 
-public abstract class BusinessBase <T extends IEntity> implements IEntity 
-{ 
+public abstract class BusinessBase <T extends IEntity> implements IEntity {
+	
+	private int id;
+	private List<BrokenRule> brokenRules; 
 	private Class<T> persistentClass;
 	
 	@SuppressWarnings("unchecked")
-	public BusinessBase()
-	{
+	public BusinessBase() {
 		 this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
 	                .getGenericSuperclass()).getActualTypeArguments()[0];
 		 this.id = 0;
@@ -22,10 +23,6 @@ public abstract class BusinessBase <T extends IEntity> implements IEntity
         return persistentClass;
     }
 
-	private List<BrokenRule> brokenRules; 
-    private int id; 
-	
-
 	public int getId() {
 		return id;
 	}
@@ -33,7 +30,7 @@ public abstract class BusinessBase <T extends IEntity> implements IEntity
 	//Equality Overrides
 	
     @SuppressWarnings("unchecked")
-	public boolean equals( Object obj ) { 
+	public boolean equals(Object obj) { 
         if ( !( obj == null ) && obj.getClass() == persistentClass ) { 
             
             if ( this.hasSameIdentifierAs( ( ( T )( obj ) ) ) ) { 
@@ -55,7 +52,7 @@ public abstract class BusinessBase <T extends IEntity> implements IEntity
     } 
         
     public boolean isTransient() { 
-        return this.id == 0; 
+        return (this.id == 0); 
     } 
     
     private boolean hasSameIdentifierAs( T entityToCompare ) { 
@@ -78,7 +75,7 @@ public abstract class BusinessBase <T extends IEntity> implements IEntity
     
     private boolean hasDifferentPersistanceContextAs( T entityToCompare ) { 
         return !( ( isTransient() == entityToCompare.isTransient() ) ); 
-    } 
+    }
     
     //Entity Validation 
     
