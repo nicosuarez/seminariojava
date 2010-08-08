@@ -1,5 +1,7 @@
 package ar.com.infocompany.model.test;
 
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.junit.AfterClass;
@@ -79,5 +81,49 @@ public class CriticTest {
 
 		Assert.assertTrue(critic.getId() != 0);
     }
-	
+    
+    @Test
+    public void testFindCritic() {
+    	Company company = comRep.findBy(1);
+    	Critic critic = company.getLastCritic();
+    	System.out.println("Comentario de la critica: " + critic.getAuthorComment().getText());
+		Assert.assertTrue(critic.getId() != 0);
+    }    
+    
+    @Test
+    public void testAddReply() {
+		User user = null;
+		try {
+			user = new User("Juancito", 
+								"password", 
+								"juancito@hotmail.com", 
+								new Job( new Industry("IT"),"Programador" ), 
+								new Location("Argentina","Capital Federal"), 
+								1984);
+		} catch (InvalidLocationException e) {
+			e.printStackTrace();
+		}
+		usrRep.save(user);
+		
+		Comment comment = new Comment(user, "Tu comentario es una poronga");
+    	Company company = comRep.findBy(1);
+    	Critic critic = company.getLastCritic();
+    	critic.addReply(comment);
+    	criRep.save(critic);
+    	Assert.assertTrue(comment.getId() != 0 );
+    }
+    
+    @Test
+    public void testFindReply() {
+    	Company company = comRep.findBy(1);
+    	Critic critic = company.getLastCritic();
+    	System.out.println("Comentario de la critica (" + critic.getAuthorComment().getAuthor().getUserName() + ") : " + critic.getAuthorComment().getText());
+    	
+    	List<Comment> replies = critic.getReplies();
+    	
+    	for(Comment comment : replies )
+    		System.out.println("Respuesta (" + comment.getAuthor().getUserName() + ") : " + comment.getText());
+    	
+    	Assert.assertTrue(replies.size() == 1 );
+    }
 }
