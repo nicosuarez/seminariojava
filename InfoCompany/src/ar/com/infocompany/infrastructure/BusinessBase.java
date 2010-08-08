@@ -10,18 +10,18 @@ public abstract class BusinessBase <T extends IEntity> implements IEntity {
 	
 	private int id;
 	private List<BrokenRule> brokenRules; 
-	private Class<T> persistentClass;
+//	private Class<T> persistentClass;
 	
 	@SuppressWarnings("unchecked")
 	public BusinessBase() {
-		 this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
-	                .getGenericSuperclass()).getActualTypeArguments()[0];
+//		 this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
+//	                .getGenericSuperclass()).getActualTypeArguments()[0];
 		 this.id = 0;
 	}
 	
-	public Class<T> getPersistentClass() {
-        return persistentClass;
-    }
+//	public Class<T> getPersistentClass() {
+//        return persistentClass;
+//    }
 
 	public int getId() {
 		return id;
@@ -31,7 +31,7 @@ public abstract class BusinessBase <T extends IEntity> implements IEntity {
 	
     @SuppressWarnings("unchecked")
 	public boolean equals(Object obj) { 
-        if ( !( obj == null ) && obj.getClass() == persistentClass ) { 
+        if ( !( obj == null ) && obj.getClass() == this.getClass() ) { 
             
             if ( this.hasSameIdentifierAs( ( ( T )( obj ) ) ) ) { 
                 //  Both entities are persistant so we are able to 

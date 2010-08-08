@@ -4,7 +4,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
 <hibernate-mapping package="ar.com.infocompany.model">
-    <class name="Job" table="Job">
+    <class name="Job" table="Job" lazy="true">
         <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
