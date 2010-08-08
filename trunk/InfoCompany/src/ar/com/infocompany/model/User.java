@@ -57,8 +57,8 @@ public class User extends BusinessBase implements IAggregateRoot{
 		return this.reputation;
 	}
 	
-	public boolean isActive() {
-		return true;
+	public boolean isActive() {	
+		return (this.reputation < BusinessRules.USER_ACTIVE_TRESHOLD);
 	}
 	
 	public String getEmail() {
@@ -105,7 +105,6 @@ public class User extends BusinessBase implements IAggregateRoot{
 		this.birthdayYear = birthdayYear;
 	}
 	
-	@Override
 	protected void validate() {
      	if (isVoid(this.password.trim())) {
 			this.addBrokenRule("Password", "El password es requerido.");

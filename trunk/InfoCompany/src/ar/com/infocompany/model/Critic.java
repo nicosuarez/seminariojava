@@ -110,7 +110,6 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		return this.items.add(criticItem);
 	}
 
-	@Override
 	protected void validate() {	
 		if(this.job == null) {
 			this.addBrokenRule("Job", "El trabajo es requerido.");
