@@ -25,19 +25,20 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		this.industry = industry;
 		this.critics = new ArrayList<Critic>();
 	}
-	public List<Critic> getCritics()
-	{
+	public List<Critic> getCritics() {
 		return this.critics;
 	}
 			
-//	public float calculateRating() {
-//		int rating = 0;
-//		//for (Critic critic : this.critics) {
-//			//rating += (critic.getCompanyRating() * critic.getAuthor().getReputation());
-//		//}
-//		rating = (rating / this.critics.size());
-//		return rating;
-//	}
+	public float calculateRating() {
+		int rating = 0;
+		/*
+		for (Critic critic : this.critics) {
+			rating += (critic.getCompanyRating() * critic.getAuthor().getReputation());
+		}
+		rating = (rating / this.critics.size());
+		*/
+		return rating;
+	}
 	
 	public boolean addCritic(Critic critic) {
 		return this.critics.add(critic);

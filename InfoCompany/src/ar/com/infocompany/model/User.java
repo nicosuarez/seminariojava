@@ -23,6 +23,10 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 	private int reputation;
 	private List<Comment> comments;
 	
+	public User() {
+		// Hibernate requirement
+	}
+	
 	public User(String userName, String password, 
 			String email, Job job, Location location, int birthdayYear) {
 		this.email = email;
@@ -33,10 +37,14 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 		this.setBirthdayYear(birthdayYear);
 	}
 	
-	public Critic makeCritic() {
-		return null;
+	public Critic makeCritic(Company company, String commentText, Job job, int salary) {
+		return new Critic(this, company, this.comment(commentText), job, salary);
 	}
 	
+	public Comment comment(String text) {
+		return new Comment();
+	}
+		
 	public int increaseReputation() {
 		return ++this.reputation;
 	}
@@ -103,27 +111,24 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 	
 	@Override
 	protected void validate() {
-     	if (isNullOrEmpty(password.trim())) {
+     	if (isNullOrEmpty(this.password.trim())) {
 			this.addBrokenRule("Password", "El password es requerido.");
 		}
 		else {
-			if ((password.length() < 6) || (password.length() > 20)) {
+			if ((this.password.length() < 6) || (this.password.length() > 20)) {
 				this.addBrokenRule("Password", "El password debe tener como maximo 20 caracteres.");
 			}
 		}
      
-     	if(isNullOrEmpty(email.trim())) {
+     	if(isNullOrEmpty(this.email.trim())) {
 			this.addBrokenRule("Email", "El email es requerido.");
-		}
-		else {
-			if (userName.length() > 10) {
+		} else {
+			if (this.email.length() > 30) {
 				this.addBrokenRule("Email", "El email debe tener como maximo 30 caracteres.");
 			}
-			
 			Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
 		    Matcher m = p.matcher(email);
-	        boolean matchFound = m.matches();
-			if (!matchFound) {
+			if (!m.matches()) {
 			  this.addBrokenRule("Email", "El email tiene formato invalido.");
 			}
 		}
@@ -139,11 +144,11 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 				
 		if (this.job == null) {
 			this.addBrokenRule("Job", "El trabajo actual del usuario es requerido.");
-		}else {
+		} else {
 			this.addBrokenRule(this.job.getBrokenRules());
 		}
 		
-		if (this.birthdayYear >= 1900 && this.birthdayYear < Calendar.getInstance().get(Calendar.YEAR) - 10) {
+		if (this.birthdayYear >= 1950 && this.birthdayYear < Calendar.getInstance().get(Calendar.YEAR) - 10) {
 			this.addBrokenRule("BirthdayYear", "El año de nacimiento es invalido.");
 		}	
 		
@@ -153,11 +158,7 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 			}
 		}
 	}
-	
-	@SuppressWarnings("unused")
-	private User() {
-		// Hibernate requirement
-	}	
+		
 }
 
 // eof
