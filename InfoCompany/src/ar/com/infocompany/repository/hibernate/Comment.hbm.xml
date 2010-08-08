@@ -19,13 +19,7 @@
         <property name="abuseCount" type="integer" access="field">
             <column name="AbuseCount" />
         </property>       
-        
-        <!-- <one-to-one name="criticAuthor" class="Critic" constrained="true"></one-to-one> -->
-        
-        <many-to-one name="critic" access="field" class="Critic" fetch="select">
-            <column name="CriticId" not-null="true" />
-        </many-to-one>
-         	
+                        	
         <many-to-one name="author" access="field" class="User" fetch="select">
             <column name="UserId" not-null="true" />
         </many-to-one>

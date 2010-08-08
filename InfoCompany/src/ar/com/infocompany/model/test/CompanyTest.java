@@ -137,8 +137,8 @@ public class CompanyTest {
 
 			for(Critic critic : company.getCritics())
 			{
-				Assert.assertTrue(critic.getComment() != null);
-				System.out.println(critic.getComment().getText());
+				Assert.assertTrue(critic.getAuthorComment() != null);
+				System.out.println(critic.getAuthorComment().getText());
 			}
 			i++;
 		}
@@ -294,9 +294,9 @@ public class CompanyTest {
 		Assert.assertNotNull(newCompany);
 		Assert.assertNotNull(newCompany.getLastComment());
 		Assert.assertNotNull(newCompany.getLastComment().getText());
-		System.out.println(newCompany.getLastCritic().getComment().getText());
+		System.out.println(newCompany.getLastCritic().getAuthorComment().getText());
 		System.out.println(newCompany.getLastCritic().getReplies().get(1).getText());
-		Assert.assertEquals(newCompany.getLastCritic().getComment().getText() , "hola mundo");
+		Assert.assertEquals(newCompany.getLastCritic().getAuthorComment().getText() , "hola mundo");
 		Assert.assertEquals(newCompany.getLastCritic().getReplies().get(1).getText() , "Que buena empresa!!");
     }
 	

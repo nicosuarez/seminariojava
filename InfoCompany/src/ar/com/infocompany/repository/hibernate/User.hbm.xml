@@ -40,12 +40,13 @@
         	<property name="country" access="field" column="Country"></property>
         	<property name="state" access="field" column="State"></property>
          </component>
-        
+      <!--    
         <bag name="comments" cascade="all" access="field" inverse="true" lazy="false" table="Comment" fetch="select">
             <key>
                 <column name="UserId" not-null="true" />
             </key>
             <one-to-many class="Comment"/>
         </bag>
+       -->
     </class>
 </hibernate-mapping>

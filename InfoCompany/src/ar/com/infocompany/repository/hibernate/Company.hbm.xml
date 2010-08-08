@@ -8,7 +8,7 @@
         <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
-        <property name="Name" type="string">
+        <property name="name" type="string" access="field">
             <column name="Name" length="50" not-null="true" />
         </property>
         <!-- 
@@ -19,14 +19,9 @@
         </component>
          -->
         <many-to-one name="industry" lazy="false" class="Industry" access="field" column="IndustryId" />
-        <bag 
-        	name="critics"
-        	access="field"
-        	inverse="true"
-        	cascade="all"
-			lazy="false"
-			fetch="select">
-			<key column="CompanyId"/>
+        
+        <bag name="critics"	access="field" cascade="all" lazy="false" fetch="select" table = "Critic">
+			<key column="CompanyId" not-null="true"/>
 			<one-to-many class="Critic"/>
         </bag>
         
