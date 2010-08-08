@@ -7,7 +7,6 @@ import junit.framework.Assert;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.opensymphony.xwork2.interceptor.annotations.After;
@@ -22,7 +21,6 @@ import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.model.*;
 
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
-import ar.com.infocompany.repository.hibernate.CriticRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 
 

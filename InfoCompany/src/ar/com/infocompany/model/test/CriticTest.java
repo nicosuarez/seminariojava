@@ -5,12 +5,9 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import ar.com.infocompany.infraestructure.BusinessBase;
 import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationException;
 import ar.com.infocompany.model.Comment;
 import ar.com.infocompany.model.Company;
