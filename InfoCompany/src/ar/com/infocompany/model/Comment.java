@@ -4,6 +4,9 @@
  */
 package ar.com.infocompany.model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import ar.com.infocompany.infraestructure.BusinessBase;
 
 /**
@@ -15,13 +18,15 @@ public class Comment extends BusinessBase {
 	private User author;
 	private String text;
 	private int abuseCount;
-		
+	private Date date;
+	
 	public Comment() {
 	}
 
 	public Comment(User author, String text) {
 		this.author = author;
 		this.text = text;
+		this.date = Calendar.getInstance().getTime();
 	}
 
 	public int incAbuseCount() {
@@ -38,6 +43,10 @@ public class Comment extends BusinessBase {
 	
 	public User getAuthor() {
 		return author;
+	}
+	
+	public Date getDate() {
+		return this.date;
 	}
 	
 	public String getText() {

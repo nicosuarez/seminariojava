@@ -1,6 +1,7 @@
 package ar.com.infocompany.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
@@ -13,7 +14,6 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	private int salary;
 	private List<Comment> comments;
 	private List<Item> items;
-//	private Date date;
 	private int postiveScore;
 	private int negativeScore;
 	
@@ -64,6 +64,10 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	
 	public User getAuthor() {
 		return this.author;
+	}
+	
+	public Date getDate() {
+		return this.getAuthorComment().getDate();
 	}
 	
 	public Job getJob() {
