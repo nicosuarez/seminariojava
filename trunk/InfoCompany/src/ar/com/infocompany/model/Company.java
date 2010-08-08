@@ -5,6 +5,7 @@
 package ar.com.infocompany.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -64,9 +65,17 @@ public class Company extends BusinessBase implements IAggregateRoot {
 	}
 	
 	public List<Critic> getCritics(int n, int criteria) {
-		return null;
+		if (criteria == 1) {
+			Collections.sort(this.critics,
+					Collections.reverseOrder(Critic.comparator));
+		} else {
+			Collections.sort(this.critics, Critic.comparator);
+		}
+		int upperbound = this.critics.size();
+		upperbound = (n > upperbound) ? upperbound : n;
+		return this.critics.subList(0, upperbound);
 	}
-
+	
 	public List<Critic> getCritics() {
 		return this.critics;
 	}
