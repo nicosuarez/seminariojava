@@ -11,8 +11,7 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 	private User author;
 	private Job job;
 	private int salary;
-	private Comment comment;
-	private List<Comment> replies;
+	private List<Comment> comments;
 	private List<Item> items;
 //	private Date date;
 	private int postiveScore;
@@ -26,19 +25,19 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 		this.author = author;
 		this.salary = salary;
 		this.job = job;
-		this.comment = comment;
 		this.postiveScore = 0;
 		this.negativeScore = 0;
 		this.items = new ArrayList<Item>();
-		this.replies = new ArrayList<Comment>();
+		this.comments = new ArrayList<Comment>();
+		this.comments.add(comment);
 	}
 
 	public Critic(User author, Comment comment,
 			Job job, int salary, List<Item> items) {
 		this.author = author;
 		this.salary = salary;
-		this.replies = new ArrayList<Comment>();
-		this.comment = comment;
+		this.comments = new ArrayList<Comment>();
+		this.comments.add(comment);
 		this.job = job;
 		this.items = items;
 	}
@@ -71,8 +70,8 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 		return this.job;
 	}
 	
-	public Comment getComment() {
-		return this.comment;
+	public Comment getAuthorComment() {
+		return this.comments.get(0);
 	}
 	
 	public int getSalary() {
@@ -84,11 +83,12 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 	}
 	
 	public List<Comment> getReplies() {
-		return this.replies;
+		List<Comment> replies = this.comments.subList( 1, comments.size()-1 ); 
+		return replies;
 	}
 	
 	public boolean addReply(Comment reply) {
-		return this.replies.add(reply);
+		return this.comments.add(reply);
 	}
 		
 	public boolean addItem(Item criticItem) {

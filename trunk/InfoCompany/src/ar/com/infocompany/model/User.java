@@ -40,7 +40,7 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 	}
 	
 	public Comment comment(String text) {
-		return new Comment();
+		return new Comment(this, text);
 	}
 		
 	public int increaseReputation() {

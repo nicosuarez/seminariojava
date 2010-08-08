@@ -68,7 +68,7 @@ public class CriticTest {
 		}
 		
 		Job job = new Job(industry, "trabajo a criticar");
-							
+		
 		Critic critic = user.makeCritic("mi comentario es grosso", job, 1200);
 		critic.addItem(workEnviromentItem);
 		company.addCritic(critic);

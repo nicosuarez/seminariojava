@@ -78,7 +78,7 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		Comment lastComment = null;
 		if( critic != null )
 		{
-			lastComment = critic.getComment();
+			lastComment = critic.getAuthorComment();
 		}
 		return lastComment;
 	}
