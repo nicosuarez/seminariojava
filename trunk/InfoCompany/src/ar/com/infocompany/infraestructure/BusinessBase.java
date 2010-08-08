@@ -1,10 +1,11 @@
-package ar.com.infocompany.infrastructure;
+package ar.com.infocompany.infraestructure;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import ar.com.infocompany.infrastructure.IEntity;
+
+import ar.com.infocompany.infraestructure.IEntity;
 
 public abstract class BusinessBase <T extends IEntity> implements IEntity {
 	

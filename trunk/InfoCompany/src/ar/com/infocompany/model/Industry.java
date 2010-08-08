@@ -1,7 +1,7 @@
 package ar.com.infocompany.model;
 
-import ar.com.infocompany.infrastructure.BusinessBase;
-import ar.com.infocompany.infrastructure.IAggregateRoot;
+import ar.com.infocompany.infraestructure.BusinessBase;
+import ar.com.infocompany.infraestructure.IAggregateRoot;
 
 public class Industry extends BusinessBase<Industry> implements IAggregateRoot {
 	

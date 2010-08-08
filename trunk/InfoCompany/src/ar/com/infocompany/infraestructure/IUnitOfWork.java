@@ -1,4 +1,4 @@
-package ar.com.infocompany.infrastructure;
+package ar.com.infocompany.infraestructure;
 
 import ar.com.infocompany.infraestructure.custom_exceptions.ConcurrencyException;
 
