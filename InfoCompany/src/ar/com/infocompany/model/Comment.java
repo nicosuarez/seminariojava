@@ -4,8 +4,8 @@
  */
 package ar.com.infocompany.model;
 
-import ar.com.infocompany.infrastructure.BusinessBase;
-import ar.com.infocompany.infrastructure.IEntity;
+import ar.com.infocompany.infraestructure.BusinessBase;
+import ar.com.infocompany.infraestructure.IEntity;
 
 /**
  * Comment

@@ -3,10 +3,10 @@ package ar.com.infocompany.repository.hibernate;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import ar.com.infocompany.infraestructure.IAggregateRoot;
+import ar.com.infocompany.infraestructure.IRepository;
+import ar.com.infocompany.infraestructure.IUnitOfWork;
 import ar.com.infocompany.infraestructure.query.Query;
-import ar.com.infocompany.infrastructure.IAggregateRoot;
-import ar.com.infocompany.infrastructure.IRepository;
-import ar.com.infocompany.infrastructure.IUnitOfWork;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;

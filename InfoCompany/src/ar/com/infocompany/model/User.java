@@ -8,8 +8,8 @@ import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ar.com.infocompany.infrastructure.BusinessBase;
-import ar.com.infocompany.infrastructure.IAggregateRoot;
+import ar.com.infocompany.infraestructure.BusinessBase;
+import ar.com.infocompany.infraestructure.IAggregateRoot;
 
 public class User extends BusinessBase<User> implements IAggregateRoot{
 	

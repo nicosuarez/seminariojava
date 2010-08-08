@@ -5,7 +5,7 @@
 
 package ar.com.infocompany.model;
 
-import ar.com.infocompany.infrastructure.BusinessBase;
+import ar.com.infocompany.infraestructure.BusinessBase;
 
 public class Job extends BusinessBase<Comment> {
 

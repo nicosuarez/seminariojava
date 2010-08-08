@@ -7,8 +7,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import ar.com.infocompany.infraestructure.BusinessBase;
 import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationException;
-import ar.com.infocompany.infrastructure.BusinessBase;
 import ar.com.infocompany.model.Comment;
 import ar.com.infocompany.model.Company;
 import ar.com.infocompany.model.Critic;

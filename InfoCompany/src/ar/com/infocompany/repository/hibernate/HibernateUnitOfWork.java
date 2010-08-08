@@ -4,9 +4,9 @@ import org.hibernate.Session;
 import org.hibernate.StaleObjectStateException;
 import org.hibernate.Transaction;
 
+import ar.com.infocompany.infraestructure.IAggregateRoot;
+import ar.com.infocompany.infraestructure.IUnitOfWork;
 import ar.com.infocompany.infraestructure.custom_exceptions.ConcurrencyException;
-import ar.com.infocompany.infrastructure.IAggregateRoot;
-import ar.com.infocompany.infrastructure.IUnitOfWork;
 
 public class HibernateUnitOfWork implements IUnitOfWork {
 

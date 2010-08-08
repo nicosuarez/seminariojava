@@ -1,4 +1,4 @@
-package ar.com.infocompany.infrastructure;
+package ar.com.infocompany.infraestructure;
 
 public interface IEntity {
 	public int getId();

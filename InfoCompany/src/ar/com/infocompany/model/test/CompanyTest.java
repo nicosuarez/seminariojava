@@ -12,8 +12,8 @@ import org.junit.Test;
 import com.opensymphony.xwork2.interceptor.annotations.After;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
+import ar.com.infocompany.infraestructure.IUnitOfWork;
 import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationException;
-import ar.com.infocompany.infrastructure.IUnitOfWork;
 import ar.com.infocompany.model.*;
 
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
