@@ -25,10 +25,7 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		this.industry = industry;
 		this.critics = new ArrayList<Critic>();
 	}
-	public List<Critic> getCritics() {
-		return this.critics;
-	}
-			
+	
 	public float calculateRating() {
 		int rating = 0;
 		/*
@@ -40,10 +37,6 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		return rating;
 	}
 	
-	public boolean addCritic(Critic critic) {
-		return this.critics.add(critic);
-	}
-	
 	public List<Critic> getBestCritics(int n) {
 		return this.getCritics(n, 1);
 	}
@@ -52,33 +45,32 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		return this.getCritics(n, 0);
 	}
 	
+	public Critic getLastCritic() {
+		Critic critic = null;
+		if (this.critics.size() > 0) {
+			critic = this.critics.get(this.critics.size() - 1);
+		}
+		return critic;
+	}
+		
+	public boolean addCritic(Critic critic) {
+		return this.critics.add(critic);
+	}
+	
 	public List<Critic> getCritics(int n, int criteria) {
 		return null;
 	}
 
+	public List<Critic> getCritics() {
+		return this.critics;
+	}
+	
 	public List<Job>  getAsociatedJobs() {
 		return null;
 	}
-	
+
 	public List<Location>  getAsociatedLocations() {
 		return null;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public Industry getIndustry() {
-		return this.industry;
-	}
-
-	public Critic getLastCritic() {
-		Critic critic = null;
-		if(this.critics.size() > 0)
-		{
-			critic = this.critics.get(this.critics.size() - 1);
-		}
-		return critic;
 	}
 	
 	public Comment getLastComment() {
@@ -90,17 +82,24 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		}
 		return lastComment;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public Industry getIndustry() {
+		return this.industry;
+	}
 
 	protected void validate() {
-		if(isNullOrEmpty(name)) {
+		if (this.isVoid(this.name)) {
 			this.addBrokenRule("Name", "El nombre de la compania es requerido.");
 		}
 		
 		if(this.industry == null) {
 			this.addBrokenRule("Industry", "La industria de la compania es requerida.");
-		}
-		else {
-			this.addBrokenRule(industry.getBrokenRules());
+		} else {
+			this.addBrokenRule(this.industry.getBrokenRules());
 		}
 		
 		if(this.critics != null) {
@@ -110,21 +109,6 @@ public class Company extends BusinessBase<Company> implements IAggregateRoot {
 		}
 	}
 	
-	@SuppressWarnings("unused")
-	private void setCritics(List<Critic> critics) {
-		this.critics = critics;
-	}
-	
-	@SuppressWarnings("unused")
-	private void setIndustry(Industry industry) {
-		this.industry = industry;
-	}
-
-	@SuppressWarnings("unused")
-	private void setName(String name) {
-		this.name = name;
-	}
-
 }
 
 // eof

@@ -26,27 +26,23 @@ public class Location {
 		
 		StringBuilder sbBrokenRules = new StringBuilder();
 		
-		if (isNullOrEmpty(country.trim())) {
+		if (this.isVoid(country.trim())) {
 			sbBrokenRules.append("El pais es requerido.");
-		}
-		else {
+		} else {
 			if(country.length() > 50) {
 				sbBrokenRules.append("El pais debe tener 50 caracteres o menos");
 			}
 		}
 			
-		if(isNullOrEmpty(state)) {
+		if (this.isVoid(state)) {
 			sbBrokenRules.append("El estado/provincia es requerido.");
-		}else {
-			if(state.length() > 50) {
+		} else if (state.length() > 50) {
 				sbBrokenRules.append("El estado/provincia debe tener 50 caracteres o menos");
-			}
 		}
 			
-		if(!(isNullOrEmpty(sbBrokenRules.toString()))) {
+		if(!(isVoid(sbBrokenRules.toString()))) {
 			String errorMessage = "Error de reglas en Ubicacion, porfavor verifique los siguientes errores: ";
-			
-			throw new InvalidLocationException(String.format("%s%s%s",errorMessage,"\n",sbBrokenRules.toString()));
+			throw new InvalidLocationException(String.format("%s%s%s", errorMessage, "\n", sbBrokenRules.toString()));
 		}
 	}
 
@@ -58,7 +54,7 @@ public class Location {
 		return this.state;
 	}
 	
-	protected boolean isNullOrEmpty(String value) {
+	protected boolean isVoid(String value) {
     	return (value.isEmpty() || (value == null));
     }
 	

@@ -34,13 +34,13 @@ public class Job extends BusinessBase<Comment> {
 
 	@Override
 	protected void validate() {
-		if(this.industry == null) {
+		if (this.industry == null) {
 			this.addBrokenRule("Industry", "La industria del trabajo es requerida.");
-		}else {
+		} else {
 			this.addBrokenRule(this.industry.getBrokenRules());
 		}
 		
-		if(isNullOrEmpty(name)) {
+		if(this.isVoid(name)) {
 			this.addBrokenRule("Name", "El nombre del trabajo es requerido.");
 		}
 	}

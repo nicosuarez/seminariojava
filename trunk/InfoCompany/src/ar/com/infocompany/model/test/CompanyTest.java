@@ -1,11 +1,9 @@
 package ar.com.infocompany.model.test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Assert;
 
-import org.hibernate.SessionFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -19,7 +17,6 @@ import ar.com.infocompany.infrastructure.IUnitOfWork;
 import ar.com.infocompany.model.*;
 
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
-import ar.com.infocompany.repository.hibernate.HibernateUnitOfWork;
 import ar.com.infocompany.repository.hibernate.IndustryRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 
@@ -46,7 +43,6 @@ public class CompanyTest {
       
     @Before  
     public void setUp() {  
-    	IUnitOfWork unitOfWork = new HibernateUnitOfWork();
     	
     }  
       
@@ -206,7 +202,7 @@ public class CompanyTest {
 		}
 		Job job = new Job(industry, "trabajo a criticar");
 							
-		Critic critic = new Critic(user, company, "hola mundo", job, 3333);
+		Critic critic = user.makeCritic("esta company es barata", job, 2800);
 		
 		company.addCritic(critic);
 		comRep.save(company);
@@ -257,7 +253,7 @@ public class CompanyTest {
 		
 		Job job = new Job(industry, "trabajo a criticar");
 							
-		Critic critic = new Critic(user, company, "hola mundo", job, 3333);
+		Critic critic = user.makeCritic("me gusta criticar", job, 3333);
 		critic.addItem(workEnviromentItem);
 		company.addCritic(critic);
 		
@@ -273,18 +269,18 @@ public class CompanyTest {
 		
 		testUserPersistCompanyWithCritic();
 		
-		User newUser = new User("scamjayi", 
+		User user = new User("scamjayi", 
 				"password", 
 				"scamjayi@hotmail.com", 
 				new Job(new Industry("ITMM"),"Programador"), 
 				new Location("Argentina","Buenos Aires"), 
 				1984);
 		
-		usrRep.save(newUser);
+		usrRep.save(user);
 		
-		Company newCompany = comRep.findBy(1);
-		newCompany.getLastCritic().addReply(newUser, "Que buena empresa!!");		
-		comRep.save(newCompany);
+		Company company = comRep.findBy(1);
+		company.getLastCritic().addReply(user.comment("Que buena empresa!!"));		
+		comRep.save(company);
 		
 		Assert.assertTrue(true);
     }

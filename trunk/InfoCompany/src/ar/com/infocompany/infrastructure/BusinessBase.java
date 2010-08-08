@@ -111,7 +111,7 @@ public abstract class BusinessBase <T extends IEntity> implements IEntity {
         return Collections.unmodifiableList(this.brokenRules); 
     } 
     
-    public boolean isNullOrEmpty(String value) {
+    public boolean isVoid(String value) {
     	return (value.isEmpty() || (value == null));
     }
     

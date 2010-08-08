@@ -5,7 +5,6 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.hibernate.SessionFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
