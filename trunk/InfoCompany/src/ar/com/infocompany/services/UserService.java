@@ -1,7 +1,7 @@
 /*
  * UserService
  */
-package ar.com.infocompany.model;
+package ar.com.infocompany.services;
 
 import java.util.List;
 
@@ -10,6 +10,8 @@ import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException
 import ar.com.infocompany.infraestructure.query.Criteria;
 import ar.com.infocompany.infraestructure.query.CriteriaOperator;
 import ar.com.infocompany.infraestructure.query.Query;
+import ar.com.infocompany.model.IUserRepository;
+import ar.com.infocompany.model.User;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 
 public class UserService {

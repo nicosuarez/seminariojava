@@ -12,6 +12,8 @@ import ar.com.infocompany.infraestructure.IAggregateRoot;
 
 public class Company extends BusinessBase implements IAggregateRoot {
 	
+	public static final String NAME = "name";
+	
 	private String name;
 	private Industry industry;
 	private List<Critic> critics;
@@ -47,9 +49,6 @@ public class Company extends BusinessBase implements IAggregateRoot {
 	
 	public Critic getLastCritic() {
 		Critic critic = null;
-		if (this.critics.size() > 0) {
-			critic = this.critics.get(this.critics.size() - 1);
-		}
 		return critic;
 	}
 		
