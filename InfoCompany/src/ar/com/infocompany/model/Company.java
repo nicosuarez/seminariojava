@@ -5,6 +5,7 @@
 package ar.com.infocompany.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
@@ -28,14 +29,12 @@ public class Company extends BusinessBase implements IAggregateRoot {
 		this.critics = new ArrayList<Critic>();
 	}
 	
-	public float calculateRating() {
-		int rating = 0;
-		/*
+	public float getRating() {
+		float rating = 0;
 		for (Critic critic : this.critics) {
-			rating += (critic.getCompanyRating() * critic.getAuthor().getReputation());
+			rating += critic.getScore();
 		}
-		rating = (rating / this.critics.size());
-		*/
+		rating /= this.critics.size();
 		return rating;
 	}
 	
@@ -72,23 +71,31 @@ public class Company extends BusinessBase implements IAggregateRoot {
 		return this.critics;
 	}
 	
-	public List<Job>  getAsociatedJobs() {
-		return null;
+	public List<Job>  getRelatedJobs() {
+		List<Job> jobs = new LinkedList<Job>();
+		Job criticJob = null;
+		for (Critic critic : this.critics) {
+			criticJob = critic.getJob();
+			if (!jobs.contains(criticJob)) {
+				jobs.add(criticJob);
+			}
+		}
+		return jobs;
 	}
 
-	public List<Location>  getAsociatedLocations() {
-		return null;
-	}
-	
-	public Comment getLastComment() {
-		Critic critic = getLastCritic();
-		Comment lastComment = null;
-		if( critic != null )
-		{
-			lastComment = critic.getAuthorComment();
+	/*
+	public List<Location>  getRelatedLocations() {
+		List<Location> locations = new LinkedList<Location>();
+		Job criticLocation = null;
+		for (Critic critic : this.critics) {
+			criticLocation = critic.getLocation();
+			if (!jobs.contains(criticJob)) {
+				jobs.add(criticJob);
+			}
 		}
-		return lastComment;
+		return jobs;
 	}
+	*/
 	
 	public String getName() {
 		return name;

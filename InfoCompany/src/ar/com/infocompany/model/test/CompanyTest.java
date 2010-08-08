@@ -292,8 +292,6 @@ public class CompanyTest {
 		
 		Company newCompany = comRep.findBy(1);
 		Assert.assertNotNull(newCompany);
-		Assert.assertNotNull(newCompany.getLastComment());
-		Assert.assertNotNull(newCompany.getLastComment().getText());
 		System.out.println(newCompany.getLastCritic().getAuthorComment().getText());
 		System.out.println(newCompany.getLastCritic().getReplies().get(1).getText());
 		Assert.assertEquals(newCompany.getLastCritic().getAuthorComment().getText() , "hola mundo");

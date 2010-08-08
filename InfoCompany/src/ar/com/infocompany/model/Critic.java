@@ -42,23 +42,32 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		this.items = items;
 	}
 	
-	public void increaseScore() {
+	public float getScore() {
+		float score = 0;
+		for (Item item : this.items) {
+			score += item.getScore(); 
+		}
+		score /= this.items.size();
+		return score;
+	}
+	
+	public void increaseCriticScore() {
 		++this.postiveScore;
 	}
 	
-	public void decreaseScore() {
+	public void decreaseCriticScore() {
 		++this.negativeScore;
 	}
 
-	public int getScore() {
-		return (this.getPositiveScore() - this.getNegativeScore());
+	public int getCriticScore() {
+		return (this.getPositiveCriticScore() - this.getNegativeCriticScore());
 	}
 
-	public int getPositiveScore() {
+	public int getPositiveCriticScore() {
 		return this.postiveScore;
 	}
 	
-	public int getNegativeScore() {
+	public int getNegativeCriticScore() {
 		return this.negativeScore;
 	}
 	
