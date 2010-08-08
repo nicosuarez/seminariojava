@@ -17,15 +17,13 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 //	private Date date;
 	private int postiveScore;
 	private int negativeScore;
-	private Company company;
 	
 	public Critic() {
 		
 	}
 		
-	public Critic(User author, Company company, Comment comment, Job job, int salary) {
+	public Critic(User author, Comment comment, Job job, int salary) {
 		this.author = author;
-		this.company = company;
 		this.salary = salary;
 		this.job = job;
 		this.comment = comment;
@@ -35,15 +33,12 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 		this.replies = new ArrayList<Comment>();
 	}
 
-	public Critic(User author, Company company, Comment comment,
+	public Critic(User author, Comment comment,
 			Job job, int salary, List<Item> items) {
 		this.author = author;
-		this.company = company;
 		this.salary = salary;
 		this.replies = new ArrayList<Comment>();
 		this.comment = comment;
-		this.postiveScore = 0;
-		this.negativeScore = 0;
 		this.job = job;
 		this.items = items;
 	}
@@ -95,25 +90,13 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 	public boolean addReply(Comment reply) {
 		return this.replies.add(reply);
 	}
-	
-	public boolean addReply(User user, String reply) {
-		return this.replies.add(new Comment(user, this, reply));
-	}
 		
-	public Company getCompany() {
-		return this.company;
-	}
-	
 	public boolean addItem(Item criticItem) {
 		return this.items.add(criticItem);
 	}
 
 	@Override
 	protected void validate() {	
-		if (this.company == null) {
-			this.addBrokenRule("Company", "La critica tiene que estar asociada a una compania.");
-		}
-		
 		if(this.job == null) {
 			this.addBrokenRule("Job", "El trabajo es requerido.");
 		}

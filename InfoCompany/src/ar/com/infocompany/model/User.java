@@ -5,7 +5,6 @@
 package ar.com.infocompany.model;
 
 import java.util.Calendar;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +20,6 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 	private Job job;
 	private Location location;
 	private int reputation;
-	private List<Comment> comments;
 	
 	public User() {
 		// Hibernate requirement
@@ -37,8 +35,8 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 		this.setBirthdayYear(birthdayYear);
 	}
 	
-	public Critic makeCritic(Company company, String commentText, Job job, int salary) {
-		return new Critic(this, company, this.comment(commentText), job, salary);
+	public Critic makeCritic(String commentText, Job job, int salary) {
+		return new Critic(this, this.comment(commentText), job, salary);
 	}
 	
 	public Comment comment(String text) {
@@ -97,10 +95,6 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 		return userName;
 	}
 	
-	public List<Comment> getComments() {
-		return comments;
-	}
-	
 	public int getBirthdayYear() {
 		return birthdayYear;
 	}
@@ -111,7 +105,7 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 	
 	@Override
 	protected void validate() {
-     	if (isNullOrEmpty(this.password.trim())) {
+     	if (isVoid(this.password.trim())) {
 			this.addBrokenRule("Password", "El password es requerido.");
 		}
 		else {
@@ -120,7 +114,7 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 			}
 		}
      
-     	if(isNullOrEmpty(this.email.trim())) {
+     	if(isVoid(this.email.trim())) {
 			this.addBrokenRule("Email", "El email es requerido.");
 		} else {
 			if (this.email.length() > 30) {
@@ -133,7 +127,7 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 			}
 		}
      
-		if (isNullOrEmpty(userName.trim())) {
+		if (isVoid(userName.trim())) {
 			this.addBrokenRule("UserName", "El nombre de usuario es requerido.");
 		}
 		else {
@@ -151,14 +145,8 @@ public class User extends BusinessBase<User> implements IAggregateRoot{
 		if (this.birthdayYear >= 1950 && this.birthdayYear < Calendar.getInstance().get(Calendar.YEAR) - 10) {
 			this.addBrokenRule("BirthdayYear", "El año de nacimiento es invalido.");
 		}	
-		
-		if (this.comments != null) {
-			for (Comment comment : this.comments) {
-				this.addBrokenRule(comment.getBrokenRules());
-			}
-		}
 	}
-		
+	
 }
 
 // eof

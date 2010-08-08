@@ -25,7 +25,7 @@ public class Industry extends BusinessBase<Industry> implements IAggregateRoot {
 
 	@Override
 	protected void validate() {
-		if(isNullOrEmpty(name)) {
+		if (isVoid(name)) {
 			this.addBrokenRule("Name", "El nombre de la industria es requerido.");
 		}
 	}

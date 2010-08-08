@@ -10,7 +10,6 @@ public class Item extends BusinessBase<Item> {
 	
 	String tag;
 	int score;
-	Critic critic;
 	
 	public Item(){
 		
@@ -30,16 +29,11 @@ public class Item extends BusinessBase<Item> {
 	}
 
 	protected void validate() {
-		
-		if(this.critic == null) {
-			this.addBrokenRule("Critic", "Un item debe tener asociada la critica.");
-		}
-		
-		if(isNullOrEmpty(tag)) {
+		if (this.isVoid(this.tag)) {
 			this.addBrokenRule("Tag", "El tag del item es requerido.");
 		}
 		
-		if(this.score >= 0 && this.score <=10) {
+		if(this.score < 0 && this.score > 10) {
 			this.addBrokenRule("Score", "El puntaje debe ser un valor entre 0-10");
 		}	
 	}
