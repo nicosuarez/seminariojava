@@ -19,7 +19,7 @@ public class UserService {
 	public void registerUser(User user) throws ApplicationException {
 		List<BrokenRule> brokenRules = user.getBrokenRules();
 		if (brokenRules.size() > 0) {
-			throw new ApplicationException("", brokenRules);
+			throw new ApplicationException("Error en el registro de usuario", brokenRules);
 		}
 		IUserRepository userRep = new UserRepository();
 		Query  query = new Query();
