@@ -60,6 +60,10 @@ public class Company extends BusinessBase implements IAggregateRoot {
 		return lastCritic;
 	}
 		
+	public void removeCritic(Critic critic) {
+		this.critics.remove(critic);
+	}
+	
 	public boolean addCritic(Critic critic) {
 		return this.critics.add(critic);
 	}

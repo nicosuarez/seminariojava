@@ -34,7 +34,7 @@
           -->
         
         <!-- TODO: sacar cascade="all"  ver hay que hacer el repositorio de job -->
-        <many-to-one name="job" cascade="all" class="Job" access="field" column="JobId" not-null="true" lazy="false"/>
+        <many-to-one name="job" cascade="save-update" class="Job" access="field" column="JobId" not-null="true" lazy="false"/>
         
          <component name="location" access="field" class="Location">
         	<property name="country" access="field" column="Country"></property>

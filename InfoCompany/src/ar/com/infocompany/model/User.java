@@ -14,7 +14,8 @@ import ar.com.infocompany.infraestructure.IAggregateRoot;
 public class User extends BusinessBase implements IAggregateRoot{
 	
 	public static final String NAME = "userName";
-		
+	public static final String EMAIL = "email";
+	
 	private String userName;
 	private String password;
 	private String email;

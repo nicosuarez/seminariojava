@@ -7,6 +7,7 @@ import junit.framework.Assert;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
@@ -42,12 +43,47 @@ public class CriticTest {
 		usrRep = new UserRepository();
 		indRep = new IndustryRepository();
 		criRep = new CriticRepository();
+		addCritics();
     }  
       
     @AfterClass  
     public static void tearDownClass() throws Exception {  
     	ar.com.infocompany.repository.hibernate.SessionFactory.getCurrentSession().close();
     }  
+      
+    public static void addCritics() {
+		String name = "Coca Cola";
+		Industry industry = new Industry("Alimentos");
+		Company company = new Company(name, industry);
+		
+		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
+		Item salaryItem = new Item("Salario", 5);
+		
+		User user = null;
+		try {
+			user = new User("Sebastian", 
+								"password", 
+								"seba@hotmail.com", 
+								new Job(industry,"Programador"), 
+								new Location("Argentina","Capital Federal"), 
+								1984);
+		} catch (InvalidLocationException e) {
+			e.printStackTrace();
+		}
+		
+		Job job = new Job(industry, "Desarrolador");
+		
+		Critic critic = user.makeCritic("Esta empresa es lo mejor", job, 5000);
+		critic.addItem(workEnviromentItem);
+		critic.addItem(salaryItem);
+		
+		company.addCritic(critic);
+		
+		indRep.save(industry);
+		usrRep.save(user);
+		comRep.save(company);
+    }
+   
     
     @Test
 	public void testUserCritic() {
@@ -56,6 +92,7 @@ public class CriticTest {
 		Company company = new Company(name, industry);
 		
 		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
+		Item salaryItem = new Item("Salario", 5);
 		
 		User user = null;
 		try {
@@ -69,10 +106,12 @@ public class CriticTest {
 			e.printStackTrace();
 		}
 		
-		Job job = new Job(industry, "trabajo a criticar");
+		Job job = new Job(industry, "Tester");
 		
 		Critic critic = user.makeCritic("mi comentario es grosso", job, 1200);
 		critic.addItem(workEnviromentItem);
+		critic.addItem(salaryItem);
+		
 		company.addCritic(critic);
 		
 		indRep.save(industry);
@@ -86,8 +125,14 @@ public class CriticTest {
     public void testFindCritic() {
     	Company company = comRep.findBy(1);
     	Critic critic = company.getLastCritic();
-    	System.out.println("Comentario de la critica: " + critic.getAuthorComment().getText());
-		Assert.assertTrue(critic.getId() != 0);
+    	System.out.println("Comentario: " + critic.getAuthorComment().getText());
+
+    	List<Item> items = critic.getItems();
+    	for(Item item : items)
+    		System.out.println(item.getTag() + ": " + item.getScore());
+    	
+		Assert.assertTrue( critic.getId() != 0 );
+		Assert.assertTrue( items.size() > 0 );
     }    
     
     @Test
@@ -125,5 +170,34 @@ public class CriticTest {
     		System.out.println("Respuesta (" + comment.getAuthor().getUserName() + ") : " + comment.getText());
     	
     	Assert.assertTrue(replies.size() == 1 );
+    }
+    
+    @Test
+    public void testFindAll() {
+    	List<Critic> critics = criRep.findAll();
+    	
+    	for(Critic critic : critics)
+    	{
+    		System.out.println("N°: " + critic.getId());
+    		System.out.println("Autor: " + critic.getAuthor().getUserName());
+    		System.out.println("Fecha: " + critic.getDate());
+    		System.out.println(critic.getJob().getName() + " (" + critic.getJob().getIndustry().getName() + ")");
+    		System.out.println("Salary: " + critic.getSalary());
+
+    		List<Item> items = critic.getItems();
+        	for(Item item : items)
+        		System.out.println("	"  + item.getTag() + ": " + item.getScore());
+        	System.out.println("Comentario: " + critic.getAuthorComment().getText());
+    	}
+    	Assert.assertTrue(critics.size() > 1 );
+    }
+    
+    @Test
+    public void testDeleteCritic() {
+    	Company company = comRep.findBy(1);
+    	Critic critic = company.getLastCritic();
+    	company.removeCritic(critic);
+    	comRep.save(company);
+    	Assert.assertEquals( null, criRep.findBy(critic.getId()) );
     }
 }

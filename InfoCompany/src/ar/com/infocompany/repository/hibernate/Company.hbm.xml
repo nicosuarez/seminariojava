@@ -18,9 +18,9 @@
 	        </property>	
         </component>
          -->
-        <many-to-one name="industry" lazy="false" class="Industry" access="field" column="IndustryId" />
+        <many-to-one name="industry" class="Industry" cascade="save-update" lazy="false" access="field" column="IndustryId" />
         
-        <bag name="critics"	access="field" cascade="all" lazy="false" fetch="select" table = "Critic">
+        <bag name="critics"	access="field" cascade="all,delete-orphan" lazy="false" fetch="select" table = "Critic">
 			<key column="CompanyId" not-null="true"/>
 			<one-to-many class="Critic"/>
         </bag>

@@ -21,6 +21,8 @@ import ar.com.infocompany.infraestructure.query.CriteriaOperator;
 import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.model.*;
 
+import ar.com.infocompany.repository.hibernate.CompanyRepository;
+import ar.com.infocompany.repository.hibernate.CriticRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 
 
@@ -28,6 +30,7 @@ public class UserTest {
 	private IUnitOfWork unitOfWork = null;
 	private static int amountUsers;
 	private static UserRepository rep = null;
+	private static CompanyRepository comRep = null;
 	
 	private static void createUsers() {
 		amountUsers = 5;
@@ -48,13 +51,12 @@ public class UserTest {
     		user = new User("Juan " + String.valueOf(i), "123456", "juan" + String.valueOf(i) + "@lopez.com", job, location, 1984);
     		rep.save(user);
     	}
-    	
-    	rep.save(new User("juan", "123456", "a@a.a", job, location, 1984) );
 	}
 	
 	@BeforeClass  
     public static void setUpClass() throws Exception {  
 //		ar.com.infocompany.repository.hibernate.SessionFactory.getNewSession();
+		comRep = new CompanyRepository();
     	createUsers();
     }  
       
@@ -76,7 +78,7 @@ public class UserTest {
     	}
     } 
 	
-    @Ignore
+    @Test
     public void testCreateUser() {
     	String username = "juan";
     	String password = "123456";
@@ -93,40 +95,24 @@ public class UserTest {
     	  	
     	User user = new User(username, password, email, job, location, year);
     	rep.save(user);
+    	amountUsers++;
+    	
+    	Company company = new Company("Adidas", industry);
+    	Critic critic = user.makeCritic("Este es un comentario", job, 1000);
+    	company.addCritic( critic );
+    	comRep.save(company);
+    	
     	Assert.assertTrue( user.getId() != 0 );
     }
     
-    @Ignore
-    public void testCreateUsers() {
-    	Location location = null;
-    	try {
-    		location = new Location("Argentina", "Buenos Aires");
-    	} catch(InvalidLocationException e) {
-    		
-    	}
-
-    	Industry industry = new Industry("IT");
-    	Job job = new Job(industry,"Programador");
-    	User user;
-    	int i;
-    	boolean success = true;
-    	for(i=0; i<5; i++)
-    	{
-    		user = new User("Juan " + String.valueOf(i), "123456", "juan" + String.valueOf(i) + "@lopez.com", job, location, 1984);
-    		rep.save(user);
-    		if(user.getId() == 0)
-    			success = false;
-    	}
-    	Assert.assertTrue( success );
-    }
-    
-    @Ignore
+   
+    @Test
     public void testFindAll() {
     	List<User> users = rep.findAll();
     	Assert.assertEquals(amountUsers, users.size());
     }
     
-    @Ignore
+    @Test
     public void testFindAllAndPrint() {
     	List<User> users = rep.findAll();
     	for(User user : users)
@@ -143,17 +129,29 @@ public class UserTest {
  
   @Test
     public void testValidateExistingUser() {
-    	String username = "juan";
-    	String email = "a@a.a";
+    	String username = "Juan 1";
+    	String email = "juan1@lopez.com";
     	
     	Query query = new Query();
     	List<Criteria> criterias = new ArrayList<Criteria>();
-    	criterias.add(new Criteria("userName", username, CriteriaOperator.Equals));
-    	criterias.add(new Criteria("email", email, CriteriaOperator.Equals));
+    	criterias.add(new Criteria(User.NAME, username, CriteriaOperator.Equals));
+    	criterias.add(new Criteria(User.EMAIL, email, CriteriaOperator.Equals));
     	query.setCriteria(criterias);
     	List<User> users = rep.findBy(query);
 
     	Assert.assertTrue( users.size() > 0 );
     }
+  
+  @Test
+  public void testDeleteAllUsers() {
+	  List<User> users = rep.findAll();
+	  
+	  for(User user : users)
+	  {
+		rep.remove(user);  
+	  }
+	  
+	  Assert.assertTrue(rep.findAll().size() == 0);
+  }
 
 }
