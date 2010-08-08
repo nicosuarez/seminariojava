@@ -11,8 +11,10 @@ import java.util.regex.Pattern;
 import ar.com.infocompany.infraestructure.BusinessBase;
 import ar.com.infocompany.infraestructure.IAggregateRoot;
 
-public class User extends BusinessBase<User> implements IAggregateRoot{
+public class User extends BusinessBase implements IAggregateRoot{
 	
+	public static final String NAME = "userName";
+		
 	private String userName;
 	private String password;
 	private String email;

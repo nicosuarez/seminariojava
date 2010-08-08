@@ -6,7 +6,7 @@ import ar.com.infocompany.infraestructure.query.Criteria;
 public class QueryTranslator {
 	
 	public static org.hibernate.Criteria getCriteriaFrom(org.hibernate.Criteria criteria, Query query) {
-		for ( Criteria c : query.getCriteria()){
+		for ( Criteria c : query.getCriteriaList()){
 			switch (c.getOperator()){
 				case Equals:
 					criteria.add(org.hibernate.criterion.Expression.eq(c.getPropertyName(), c.getValue()));

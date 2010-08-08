@@ -7,7 +7,7 @@ package ar.com.infocompany.model;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
 
-public class Job extends BusinessBase<Comment> {
+public class Job extends BusinessBase {
 
 	private Industry industry;
 	private String name;

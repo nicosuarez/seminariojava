@@ -6,7 +6,7 @@ import java.util.List;
 import ar.com.infocompany.infraestructure.BusinessBase;
 import ar.com.infocompany.infraestructure.IAggregateRoot;
 
-public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
+public class Critic extends BusinessBase implements IAggregateRoot{
 	
 	private User author;
 	private Job job;

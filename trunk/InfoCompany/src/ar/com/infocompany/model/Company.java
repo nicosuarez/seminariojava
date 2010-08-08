@@ -10,7 +10,7 @@ import java.util.List;
 import ar.com.infocompany.infraestructure.BusinessBase;
 import ar.com.infocompany.infraestructure.IAggregateRoot;
 
-public class Company extends BusinessBase<Company> implements IAggregateRoot {
+public class Company extends BusinessBase implements IAggregateRoot {
 	
 	private String name;
 	private Industry industry;
