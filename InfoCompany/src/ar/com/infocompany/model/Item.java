@@ -6,7 +6,7 @@ package ar.com.infocompany.model;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
 
-public class Item extends BusinessBase<Item> {
+public class Item extends BusinessBase {
 	
 	String tag;
 	int score;

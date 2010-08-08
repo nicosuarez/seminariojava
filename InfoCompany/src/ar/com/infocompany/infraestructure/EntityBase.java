@@ -6,13 +6,13 @@ import java.util.List;
 
 import ar.com.infocompany.infraestructure.IEntity;
 
-public abstract class BusinessBase implements IEntity {
+public abstract class EntityBase<T> implements IEntity {
 	
 	private int id;
 	private List<BrokenRule> brokenRules; 
 //	private Class<T> persistentClass;
 	
-	public BusinessBase() {
+	public EntityBase() {
 //		 this.persistentClass = (Class<T>) ((ParameterizedType) getClass()
 //	                .getGenericSuperclass()).getActualTypeArguments()[0];
 		 this.id = 0;
@@ -28,15 +28,16 @@ public abstract class BusinessBase implements IEntity {
 
 	public boolean equals(Object obj) {
     	boolean equals = false;
-        if (obj instanceof BusinessBase) {
-        	BusinessBase entity = (BusinessBase) obj;
+        if (obj instanceof EntityBase) {
+        	EntityBase entity = (EntityBase) obj;
             if (entity.getId() == this.getId()) { 
                 equals = true;
             }  
         } 
         return equals;
     } 
-        
+    
+		
     public boolean isTransient() { 
         return (this.id == 0); 
     } 

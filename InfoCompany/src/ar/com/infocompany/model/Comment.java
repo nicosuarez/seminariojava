@@ -5,13 +5,12 @@
 package ar.com.infocompany.model;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
-import ar.com.infocompany.infraestructure.IEntity;
 
 /**
  * Comment
  *
  */
-public class Comment extends BusinessBase<Comment> implements IEntity {
+public class Comment extends BusinessBase {
 
 	private User author;
 	private String text;

@@ -1,20 +1,30 @@
 package ar.com.infocompany.infraestructure.query;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Query {
-	private List<Criteria> criteria;
 	
-	public Query(){
-		this.setCriteria(new ArrayList<Criteria>());
+	private List<Criteria> criteriaList;
+	
+	public Query() {
+		this.setCriteria(new LinkedList<Criteria>());
 	}
-
-	public void setCriteria(List<Criteria> criteria) {
-		this.criteria = criteria;
+	
+	public Query(List<Criteria> criteriaList) {
+		this.criteriaList = criteriaList; 
 	}
-
-	public List<Criteria> getCriteria() {
-		return criteria;
+	
+	public boolean addCriteria(Criteria criteria) {
+		return this.criteriaList.add(criteria);
 	}
+	
+	public void setCriteria(List<Criteria> criteriaList) {
+		this.criteriaList = criteriaList;
+	}
+	
+	public List<Criteria> getCriteriaList() {
+		return this.criteriaList;
+	}
+	
 }

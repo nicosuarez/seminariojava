@@ -1,8 +1,14 @@
 package ar.com.infocompany.infraestructure.custom_exceptions;
 
+import java.util.List;
+
+import ar.com.infocompany.infraestructure.BrokenRule;
+
 
 public class ApplicationException extends Exception {
 
+	private static final long serialVersionUID = 3929189181743453926L;
+	
 	protected Throwable cause;
 
 	public ApplicationException() {
@@ -17,4 +23,9 @@ public class ApplicationException extends Exception {
 	       super(message);
 	       this.cause = cause;
 	}
+	
+	public ApplicationException(String msg, List<BrokenRule> brokenRules) {
+		super();
+	}
+	
 }
