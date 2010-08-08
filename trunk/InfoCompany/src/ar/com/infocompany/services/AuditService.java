@@ -1,4 +1,6 @@
-package ar.com.infocompany.model;
+package ar.com.infocompany.services;
+
+import ar.com.infocompany.model.Comment;
 
 public class AuditService {
 	
