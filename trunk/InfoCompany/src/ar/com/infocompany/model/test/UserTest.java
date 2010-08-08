@@ -142,19 +142,9 @@ public class UserTest {
     }
  
   @Test
-    public void testValidateAndCreateUser() {
+    public void testValidateExistingUser() {
     	String username = "juan";
-    	String password = "123456";
     	String email = "a@a.a";
-    	int year = 1984;
-    	Industry industry = new Industry("IT");
-    	Job job = new Job(industry,"Programador");
-    	Location location = null;
-    	try {
-    		location = new Location("Argentina", "Buenos Aires");
-    	} catch(InvalidLocationException e) {
-    		
-    	}
     	
     	Query query = new Query();
     	List<Criteria> criterias = new ArrayList<Criteria>();

@@ -18,6 +18,10 @@
 
         <property name="abuseCount" type="integer" access="field">
             <column name="AbuseCount" />
+        </property>
+        
+        <property name="date" type="date" access="field">
+        	<column name="Date"/>
         </property>       
                         	
         <many-to-one name="author" access="field" class="User" fetch="select">
