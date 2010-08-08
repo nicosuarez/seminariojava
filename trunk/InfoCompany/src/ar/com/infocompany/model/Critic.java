@@ -83,7 +83,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public List<Comment> getReplies() {
-		List<Comment> replies = this.comments.subList( 1, comments.size()-1 ); 
+		List<Comment> replies = this.comments.subList( 1, comments.size() ); 
 		return replies;
 	}
 	
