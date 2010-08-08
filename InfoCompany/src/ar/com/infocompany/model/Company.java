@@ -48,8 +48,16 @@ public class Company extends BusinessBase implements IAggregateRoot {
 	}
 	
 	public Critic getLastCritic() {
-		Critic critic = null;
-		return critic;
+		Critic lastCritic = null;
+		if (this.critics.size() > 0) {
+			lastCritic = this.critics.get(0);
+			for (Critic critic : this.critics) {
+				if (critic.getDate().before(lastCritic.getDate())) {
+					lastCritic = critic;
+				}
+			}
+		}
+		return lastCritic;
 	}
 		
 	public boolean addCritic(Critic critic) {
