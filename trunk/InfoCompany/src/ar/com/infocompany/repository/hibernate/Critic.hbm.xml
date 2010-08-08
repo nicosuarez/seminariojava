@@ -13,27 +13,19 @@
             <column name="Salary" />
         </property>
          
-        <bag name="comments" access="field" cascade="all" lazy="false" table="Comment" fetch="select">
+        <bag name="comments" access="field" cascade="all,delete-orphan" lazy="false" table="Comment" fetch="select">
             <key column="CriticId" not-null="true"/>
             <one-to-many class="Comment" />
         </bag>
         
-        <!--   	              
-        <many-to-one name="company" access="field" class="Company" fetch="select">
-            <column name="CompanyId" not-null="true" />
-        </many-to-one>
-        -->
         <many-to-one name="author" access="field" class="User" fetch="select" lazy="false">
             <column name="UserId" not-null="true" />
         </many-to-one>
         
-        <!-- TODO: sacar cascade="all"  ver hay que hacer el repositorio de job -->
-        <many-to-one name="job" cascade="all" access="field" class="Job" column="JobId" not-null="true"  />
+        <many-to-one name="job" cascade="save-update" access="field" class="Job" column="JobId" not-null="true"  />
         
-        <bag name="items" access="field" cascade="all" lazy="false" fetch="select">
-            <key>
-                <column name="CriticId" /> <!-- not-null="true"  -->
-            </key>
+        <bag name="items" access="field" cascade="all,delete-orphan" lazy="false" table="CriticItems" fetch="select">
+            <key column="CriticId" not-null="true"/>
             <one-to-many class="Item" />
         </bag>
         

@@ -1,5 +1,6 @@
 package ar.com.infocompany.model.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -14,6 +15,9 @@ import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 import ar.com.infocompany.infraestructure.IUnitOfWork;
 import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationException;
+import ar.com.infocompany.infraestructure.query.Criteria;
+import ar.com.infocompany.infraestructure.query.CriteriaOperator;
+import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.model.*;
 
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
@@ -53,58 +57,38 @@ public class CompanyTest {
     	}
     } 
 	
-//	public static List<Company> makeCompanies() {
-//    	Industry industry = new Industry("IT");
-//    	
-//        Company company = new Company("Sistran",industry);
-//        Critic critic = new Critic(50,company, new Comment("Comentario 1"));
-//        company.addCritic(critic);
-//
-//        Company company2 = new Company("Globant",industry);
-//        company2.addCritic(new Critic(100,company2, new Comment("Comentario 2-1")));
-//        company2.addCritic(new Critic(200,company2, new Comment("Comentario 2-2")));
-//        
-//        Industry industry3 = new Industry("Gastronomia");
-//        Company company3 = new Company("Plaza Mayor",industry3);
-//        company3.addCritic(new Critic(300,company3, new Comment("Comentario 3-1")));
-//        company3.addCritic(new Critic(400,company3, new Comment("Comentario 3-2")));
-//        company3.addCritic(new Critic(500,company3, new Comment("Comentario 3-3")));
-//        
-//        List<Company> companyList = new ArrayList<Company>();
-//        companyList.add(company);
-//        companyList.add(company2);
-//        companyList.add(company3);
-//        
-//        amountCompanies = companyList.size();
-//        
-//        return companyList;
-//	}
+	public static List<Company> makeCompanies() {
+    	Industry industry = new Industry("IT");
+    	
+        Company company = new Company("Sistran",industry);
+
+        Company company2 = new Company("Globant",industry);
+        
+        Industry industry3 = new Industry("Gastronomia");
+        Company company3 = new Company("Plaza Mayor",industry3);
+        
+        List<Company> companyList = new ArrayList<Company>();
+        companyList.add(company);
+        companyList.add(company2);
+        companyList.add(company3);
+        
+        comRep.save(company);
+        comRep.save(company2);
+        comRep.save(company3);
+        
+        amountCompanies = companyList.size();
+        
+        return companyList;
+	}
 	
-	public static List<Company> addCompanyTest(List<Company> companyList) {
 		
-		for (Company company : companyList) {
-			Assert.assertSame(company.getId(), 0);
-	        
-	        ICompanyRepository companyRepository = new CompanyRepository();
-	        companyRepository.save(company);
-	        
-	        Assert.assertNotSame(company.getId(), 0);   
-        }
-		return companyList;
+	@BeforeClass
+	public static void init() {
+
+		makeCompanies();
     }
 	
-//	public static List<Company> addCompanies()
-//	{
-//		return addCompanyTest(makeCompanies());
-//	}
-	
-//	@BeforeClass
-//	public static void init() {
-//
-//		addCompanies();
-//    }
-	
-	@Ignore	
+	@Test	
 	public void findAllCompaniesTest() {
 		//Find all them:
 		ICompanyRepository companyRepository = new CompanyRepository();
@@ -144,47 +128,7 @@ public class CompanyTest {
 		}
 	}
 	
-//	@Test
-//	public void testPersistCriticWithNullComment() {
-//		String name = "CompanyNullComment";
-//		Industry industry = new Industry("IT");
-//		Company company = new Company(name, industry);
-//		Critic critic = new Critic(1200, company);
-//		ICompanyRepository rep = new CompanyRepository();
-//		company.addCritic(critic);
-//		rep.save(company);
-//		
-//		Company retrivedCompany = rep.findBy(company.getId());
-//		Assert.assertNotNull(retrivedCompany.getLastCritic());
-//		Assert.assertNull(retrivedCompany.getLastComment());
-//    }
-//	
-//	@Test
-//	public void testPersistCriticWithComment() {
-//		
-//		testPersistCriticWithNullComment();
-//		
-//		String name = "CompanyComment";
-//		Industry industry = new Industry("IT");
-//		Company company = new Company(name, industry);
-//		Critic critic = new Critic(990, company, new Comment("hola"));
-//		ICompanyRepository rep = new CompanyRepository();
-//		company.addCritic(critic);
-//		rep.save(company);
-//		
-//		Company retrivedCompany = rep.findBy(company.getId());
-//		System.out.println(retrivedCompany.getId() + " " + retrivedCompany.getLastCritic().getId());
-//		Assert.assertEquals(critic.getComment().getText(), retrivedCompany.getLastCritic().getComment().getText());
-//		Assert.assertEquals(critic.getSalary(), retrivedCompany.getLastCritic().getSalary());
-//		Assert.assertEquals(critic.getCompany().getName(), retrivedCompany.getName());
-//		Assert.assertEquals(critic.getCompany().getIndustry().getValue(), retrivedCompany.getIndustry().getValue());
-//		Assert.assertEquals(critic.getComment().getText(), retrivedCompany.getLastCritic().getComment().getText());
-//		Assert.assertEquals(critic.getComment().getText(), retrivedCompany.getLastComment().getText());
-//		
-//		System.out.println(retrivedCompany.getLastCritic().getSalary());
-//    }
-	
-	@Ignore
+	@Test
 	public void testPersistCompany() {
 		String name = "Finnegans";
 		Industry industry = new Industry("IT");
@@ -197,6 +141,7 @@ public class CompanyTest {
 								new Job(industry,"Programador"), 
 								new Location("Argentina","Capital Federal"), 
 								1984);
+			usrRep.save(user);
 		} catch (InvalidLocationException e) {
 			e.printStackTrace();
 		}
@@ -209,31 +154,18 @@ public class CompanyTest {
 		Assert.assertTrue(company.getId() != 0);
     }
 	
-	@Ignore
+	@Test
 	public void testPersistCompanyWithoutCritic() {
-		String name = "Finnegans";
-		Industry industry = new Industry("IT");
+		String name = "Villa del Sur";
+		Industry industry = new Industry("Alimentos");
 		Company company = new Company(name, industry);
-		
-//		User user = new User("nsuarez", 
-//							"password", 
-//							"nsuarez@hotmail.com", 
-//							new Job(industry,"Programador"), 
-//							new Location("Argentina","Capital Federal"), 
-//							1984);
-//		Job job = new Job(industry, "trabajo a criticar");
-							
-//		Critic critic = new Critic(user, company, "hola mundo", job, 3333);
-		
-		indRep.save(industry);
-//		company.addCritic(critic);
 		comRep.save(company);
 		Assert.assertTrue(company.getId() != 0);
     }
 	
-	@Ignore
+	@Test
 	public void testUserPersistCompanyWithCritic() {
-		String name = "Finnegans";
+		String name = "HP";
 		Industry industry = new Industry("IT");
 		Company company = new Company(name, industry);
 		
@@ -241,9 +173,9 @@ public class CompanyTest {
 		
 		User user = null;
 		try {
-			user = new User("nsuarez", 
+			user = new User("scamjayi", 
 								"password", 
-								"nsuarez@hotmail.com", 
+								"scamjayi@hotmail.com", 
 								new Job(industry,"Programador"), 
 								new Location("Argentina","Capital Federal"), 
 								1984);
@@ -251,7 +183,7 @@ public class CompanyTest {
 			e.printStackTrace();
 		}
 		
-		Job job = new Job(industry, "trabajo a criticar");
+		Job job = new Job(industry, "Jefe de Sistemas");
 							
 		Critic critic = user.makeCritic("me gusta criticar", job, 3333);
 		critic.addItem(workEnviromentItem);
@@ -269,49 +201,66 @@ public class CompanyTest {
 		
 		testUserPersistCompanyWithCritic();
 		
-		User user = new User("scamjayi", 
+		User user = new User("jlopez", 
 				"password", 
-				"scamjayi@hotmail.com", 
+				"jlopez@hotmail.com", 
 				new Job(new Industry("ITMM"),"Programador"), 
 				new Location("Argentina","Buenos Aires"), 
 				1984);
 		
 		usrRep.save(user);
 		
-		Company company = comRep.findBy(1);
+    	Query query = new Query();
+    	List<Criteria> criterias = new ArrayList<Criteria>();
+    	criterias.add(new Criteria(Company.NAME, "HP", CriteriaOperator.Equals));
+    	query.setCriteria(criterias);
+    	Company company = comRep.findBy(query).get(0);
+    	
 		company.getLastCritic().addReply(user.comment("Que buena empresa!!"));		
 		comRep.save(company);
 		
 		Assert.assertTrue(true);
     }
 	
-	@Ignore
+	@Test
 	public void testRetriveCriticsByCompany() throws InvalidLocationException {
 		
 		testUserCriticReply();
 		
-		Company newCompany = comRep.findBy(1);
-		Assert.assertNotNull(newCompany);
-		System.out.println(newCompany.getLastCritic().getAuthorComment().getText());
-		System.out.println(newCompany.getLastCritic().getReplies().get(1).getText());
-		Assert.assertEquals(newCompany.getLastCritic().getAuthorComment().getText() , "hola mundo");
-		Assert.assertEquals(newCompany.getLastCritic().getReplies().get(1).getText() , "Que buena empresa!!");
+		Query query = new Query();
+    	List<Criteria> criterias = new ArrayList<Criteria>();
+    	criterias.add(new Criteria(Company.NAME, "HP", CriteriaOperator.Equals));
+    	query.setCriteria(criterias);
+    	Company company = comRep.findBy(query).get(0);
+    	
+		Assert.assertNotNull(company);
+		Assert.assertNotNull(company.getLastCritic());
+		Assert.assertNotNull(company.getLastCritic().getAuthorComment().getText());
+		
+		Comment reply = company.getLastCritic().getReplies().get(1);
+		
+		System.out.println(reply.getAuthor().getUserName());
+		System.out.println(reply.getText());
+		
+		Assert.assertEquals(reply.getAuthor().getUserName() , "jlopez");
+		Assert.assertEquals(reply.getText() , "Que buena empresa!!");
     }
 	
-	
-	
-//	@Ignore
-//	public void testPersistCompany2() {
-//		String name = "Finnegans";
-//		Industry industry = new Industry("IT");
-//		Company company = new Company(name, industry);
-//		Critic critic = new Critic(1200, company, new Comment("Comentario Lalala"));
-//		ICompanyRepository rep = new CompanyRepository();
-//		company.addCritic(critic);
-//		company.addCritic(new Critic(111, company, new Comment("Jojojojo")));
-//		company.addCritic(new Critic(222, company, new Comment("Jijijiji")));
-//		rep.save(company);
-//		Assert.assertTrue(company.getId() != 0);
-//    }
+	@Test
+	public void testDeleteCompany() {
+		Query query = new Query();
+    	List<Criteria> criterias = new ArrayList<Criteria>();
+    	criterias.add(new Criteria(Company.NAME, "HP", CriteriaOperator.Equals));
+    	query.setCriteria(criterias);
+    	List<Company> companies = comRep.findBy(query);
+    	
+    	for(Company company : companies)
+    	{
+    		comRep.remove(company);
+    	}
+    	
+    	Assert.assertTrue( comRep.findBy(query).size() == 0 );
+    	
+	}
 
 }
