@@ -9,6 +9,8 @@ import ar.com.infocompany.infraestructure.IAggregateRoot;
 
 public class Critic extends BusinessBase implements IAggregateRoot{
 	
+	public static final CriticComparator comparator = new CriticComparator();
+	
 	private User author;
 	private Job job;
 	private int salary;
