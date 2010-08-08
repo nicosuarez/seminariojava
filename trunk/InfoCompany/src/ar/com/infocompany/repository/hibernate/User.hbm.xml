@@ -17,9 +17,6 @@
         <property name="email" access="field" type="string">
             <column name="Email" length="30" not-null="true" />
         </property>
-        <property name="creationDate" access="field" type="date">
-            <column name="CreationDate" length="10" />
-        </property>
         <property name="reputation" access="field" type="integer">
             <column name="Reputation"/>
         </property>
@@ -37,24 +34,18 @@
           -->
         
         <!-- TODO: sacar cascade="all"  ver hay que hacer el repositorio de job -->
-        <many-to-one name="job" cascade="all" class="Job" access="field" column="JobId" not-null="true" />
+        <many-to-one name="job" cascade="all" class="Job" access="field" column="JobId" not-null="true" lazy="false"/>
         
          <component name="location" access="field" class="Location">
         	<property name="country" access="field" column="Country"></property>
         	<property name="state" access="field" column="State"></property>
          </component>
         
-        <bag name="comments" cascade="all" access="field" inverse="true" lazy="true" table="Comment" fetch="select">
+        <bag name="comments" cascade="all" access="field" inverse="true" lazy="false" table="Comment" fetch="select">
             <key>
                 <column name="UserId" not-null="true" />
             </key>
             <one-to-many class="Comment"/>
-        </bag>
-        <bag name="critics" cascade="all" access="field" inverse="true" lazy="true" table="Critic" fetch="select">
-            <key>
-                <column name="UserId" not-null="true" />
-            </key>
-            <one-to-many class="Critic" />
         </bag>
     </class>
 </hibernate-mapping>

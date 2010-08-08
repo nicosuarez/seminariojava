@@ -26,14 +26,14 @@
             <column name="CompanyId" not-null="true" />
         </many-to-one>
         
-        <many-to-one name="author" access="field" class="User" fetch="select">
+        <many-to-one name="author" access="field" class="User" fetch="select" lazy="false">
             <column name="UserId" not-null="true" />
         </many-to-one>
         
         <!-- TODO: sacar cascade="all"  ver hay que hacer el repositorio de job -->
         <many-to-one name="job" cascade="all" access="field" class="Job" column="JobId" not-null="true"  />
         
-        <bag name="items" access="field" cascade="all" lazy="true" fetch="select">
+        <bag name="items" access="field" cascade="all" lazy="false" fetch="select">
             <key>
                 <column name="CriticId" /> <!-- not-null="true"  -->
             </key>

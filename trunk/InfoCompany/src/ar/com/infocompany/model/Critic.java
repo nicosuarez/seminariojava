@@ -17,7 +17,6 @@ public class Critic extends BusinessBase<Critic> implements IAggregateRoot{
 //	private Date date;
 	private int postiveScore;
 	private int negativeScore;
-	private int id;
 	private Company company;
 	
 	public Critic()
