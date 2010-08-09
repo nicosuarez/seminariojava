@@ -11,10 +11,11 @@ import ar.com.infocompany.infraestructure.query.Criteria;
 import ar.com.infocompany.infraestructure.query.CriteriaOperator;
 import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.model.IUserRepository;
+import ar.com.infocompany.model.IUserService;
 import ar.com.infocompany.model.User;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 
-public class UserService {
+public class UserService implements IUserService {
 
 	public void registerUser(User user) throws ApplicationException {
 		List<BrokenRule> brokenRules = user.getBrokenRules();

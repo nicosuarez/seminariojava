@@ -4,9 +4,10 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	
 	<package name="infoCompany" extends="struts-default">
-	
+		<!--<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>-->
 		<global-results>
 			<result name="error">/pages/error.jsp</result>
 		</global-results>
@@ -17,12 +18,22 @@
 		</global-exception-mappings>
 		
 		<action name="simpleechoAction" method="simpleecho" class="springCompanyAction">
-			<result name="SUCCESS">/pages/test1.jsp</result>
+			<result  name="SUCCESS">/pages/userCreateForm.jsp</result>
+			<result name="input">/pages/userCreateForm.jsp</result>
+		</action>
+		
+		<action name="UserAction" class="ar.com.infocompany.presentation.UserAction">
+			<result name="input">/pages/userCreateForm.jsp</result>
+			<result type="redirectAction">UserCreateForm</result>
+			<result name="SUCCESS">/pages/index.jsp</result>
+			<result name="INPUT">/pages/userCreateForm.jsp</result>
 		</action>
 	</package>
 	
 	<package name="infoCompanyPublic" namespace="/pages" extends="struts-default">
-	
+		<!--<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
 		<global-results>
 			<result name="error">/pages/error.jsp</result>
 		</global-results>
@@ -30,7 +41,7 @@
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
 				result="error" />
-		</global-exception-mappings>
+		</global-exception-mappings>-->
 		
 		<action name="LoginForm">
 			<result>/pages/login.jsp</result>
@@ -51,9 +62,16 @@
 			<result name="input">/pages/login.jsp</result>
 		</action>
 		
-		<action name="userRegisterAction" method="createOrUpdateUser" class="springUserRegisterAction">
+		<!--<action name="userRegisterAction" method="createUser" class="springUserRegisterAction">
 			<result type="redirectAction">UserCreateForm</result>
-			<result name="input">/pages/index.jsp</result>
+			<result name="SUCCESS">/pages/userCreateForm.jsp</result>
+			<result name="error">/pages/userCreateForm.jsp</result>
+		</action>-->
+		<action name="UserAction" class="ar.com.infocompany.presentation.UserAction">
+			<result name="input">/pages/userCreateForm.jsp</result>
+			<result type="redirectAction">UserCreateForm</result>
+			<result name="SUCCESS">/pages/index.jsp</result>
+			<result name="INPUT">/pages/userCreateForm.jsp</result>
 		</action>
 		
 		<action name="setUpForInsertOrUpdateUser" method="setUpForInsertOrUpdateUser" class="springUserRegisterAction">
@@ -63,11 +81,19 @@
 		<action name="TestAjaxAction" method="TestAjax" class="springCompanyAction">
 				<result name="SUCCESS">/pages/test1.jsp</result>
 		</action>
+		
+		<action name="SearchCompanyAction" class="ar.com.infocompany.presentation.SearchCommpanyAction">
+				<result name="SUCCESS">/pages/test1.jsp</result>
+		</action>
+		
+		
 	
 	</package>
 	
 	<package name="infoCompanySecure" namespace="/pages/secure" extends="struts-default">
-		
+		<!--<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>-->
 		<interceptors>
 
 			<interceptor name="authenticationInterceptor"
