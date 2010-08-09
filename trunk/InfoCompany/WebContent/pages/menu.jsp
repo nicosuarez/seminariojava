@@ -1,12 +1,19 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-
-<body>
-	  <ul>
-	      <li><a href="<s:url action='getAllCompanies' namespace='/pages/secure'/>">Companies</a></li>
-	      <li><a href="<s:url action='LoginAction' namespace='/pages/'/>">Login</a></li>
-	      <li><a href="<s:url action='UserCreateForm' namespace='/pages/'/>">Registrarse</a></li>
-      </ul>
-</body>
-</html>
+ <div id="menu">
+    <ul>
+        <li class="current_page_item">
+            <a href="#">home</a>
+        </li>
+        <li>
+            <a href="#">Companias</a>
+        </li>
+        <li>
+            <a href="#">Log-in</a>
+        </li>
+        <li>
+            <a href="#">Mi cuenta</a>
+        </li>
+        <li>
+            <a href="#">Noticias</a>
+        </li>
+    </ul>
+</div>

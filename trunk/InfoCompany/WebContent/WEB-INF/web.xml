@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
 	<display-name>InfoCompany</display-name>
+	
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>

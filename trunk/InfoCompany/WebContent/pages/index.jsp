@@ -1,38 +1,59 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<html>
-	<head>
-		<link href="resources/style.css" rel="stylesheet" type="text/css" />
-  		<title>InfoCompany v1.0 | 2010 project...</title>
-	</head>	
-	<body>
-	  	<div id="nav">
-	  	 <%@ include file="/pages/menu.jsp" %>
-	  	</div>
-	
-		<div id="content">
-		    <div id="right">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<center><h1>Pagina de Inicio</h1></center>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-		    </div>
-	 	 </div>
-	 
-		<br class="clear" />
-		<div id="footer">
-			<center>
-			<p>Project 2010 Seminario de ingenieria en informatica | Universidad de Buenos Aires 
-			</p>
-			</center>
-		</div>
-	</body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <jsp:include page="/pages/head.jsp"></jsp:include>
+    <body>
+    	<jsp:include page="/pages/header.jsp"></jsp:include>
+        <div id="page">
+            <div id="content">
+                <div id="latest-post" class="post">
+                    <h2 class="title">Bienvenidos a infocompany 
+                        
+                    </h2>
+                    <div class="entry">
+                        <p>
+                            Infocompany sirve como guia a aquellas personas que inician una
+                            busqueda laboral o necesitan informacion del mercado, en base a la 
+                            experiencia y opinion de la comunidad. 
+                            <br/>
+                            El objetivo es que podamos tener una herramienta mas al momento de
+                            decidir en que empresa queremos trabajar, que opiniones tienen los
+                            demas de la empresa en que trabajo, saber si me estan pagando lo que se
+                            esta pagando en el mercado, cual ofrece mejores beneficios, crecimiento 
+                            profesional, ambiente laboral ... y mas. 
+                            <br/>
+                            Por eso te invitamos a que nos cuentes tu experiencia calificando la 
+                            empresa, es facil, rapido y anonimo. 
+                            <br/>
+                            Desde ya gracias por sumar tu experiencia, nos sirve a todos! 
+                            <br/>
+                        </p>
+                        
+                    </div>
+                    <h2 class="title">Empresas de moda/populares 
+                        <br/>
+                    </h2>
+                    <div class="entry">
+                        <p>
+                            Free css. Cras at nibh. Aliquam fermentum. Nunc aliquet tempus dui.
+                            Duis ultrices aliquet elit. Vestibulum id metus vel mi semper laoreet.
+                            Nullam adipiscing consectetuer nisl. Lorem ipsum dolorede. Proin et
+                            libero sed enim vehicula ornare. Etiam nec lacus. Proin id elit. Duis 
+                            at massa. Suspendisse in dui eu magna viverra condimentum. 
+                        </p>
+                        <p class="meta">
+                            <span class="posted">Posted on March 4, 2008 by <a href="#">Someone</a></span>
+                            <a href="#" class="permalink">More</a>
+                            <a href="#" class="comments">64</a>
+                        </p>
+                    </div>
+                </div>
+                <jsp:include page="/pages/sidebar.jsp"></jsp:include>
+                <jsp:include page="/pages/divFooter.jsp"></jsp:include>
+            </div> 
+        </div> 
+        <jsp:include page="/pages/footer.jsp"></jsp:include>
+        <!-- end page -->
+    </body>
 </html>

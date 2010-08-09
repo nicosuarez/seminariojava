@@ -85,7 +85,7 @@ public abstract class BusinessBase implements IEntity {
     }
     
     protected boolean addBrokenRule(BrokenRule rule) {
-    	return this.getBrokenRules().add(rule);
+    	return this.getBrokenRulesWritable().add(rule);
     }
     
     protected boolean addBrokenRule(String relatesToProperty , String rule) {
@@ -94,7 +94,7 @@ public abstract class BusinessBase implements IEntity {
     }
     
     public List<BrokenRule> getBrokenRules() { 
-        this.brokenRules.clear(); 
+        this.getBrokenRulesWritable().clear(); 
         this.validate(); 
         return Collections.unmodifiableList(this.brokenRules); 
     } 

@@ -35,7 +35,7 @@ public class User extends BusinessBase implements IAggregateRoot{
 		this.password = password;
 		this.job = job;
 		this.location = location;
-		this.setBirthdayYear(birthdayYear);
+		this.birthdayYear = birthdayYear;
 	}
 	
 	public Critic makeCritic(String commentText, Job job, int salary) {
@@ -98,12 +98,25 @@ public class User extends BusinessBase implements IAggregateRoot{
 		return userName;
 	}
 	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	public int getBirthdayYear() {
 		return birthdayYear;
 	}
 
 	public void setBirthdayYear(int birthdayYear) {
 		this.birthdayYear = birthdayYear;
+	}
+	
+	public void setBirthdayYear(String birthdayYear) {
+		if(!isVoid(birthdayYear)) {
+			this.birthdayYear = Integer.valueOf(birthdayYear);
+		}
+		else {
+			this.birthdayYear = 0;
+		}
 	}
 	
 	protected void validate() {
@@ -144,7 +157,7 @@ public class User extends BusinessBase implements IAggregateRoot{
 			this.addBrokenRule(this.job.getBrokenRules());
 		}
 		
-		if (this.birthdayYear >= 1950 && this.birthdayYear < Calendar.getInstance().get(Calendar.YEAR) - 10) {
+		if ((this.birthdayYear < 1950) || (this.birthdayYear >= (Calendar.getInstance().get(Calendar.YEAR) - 10))) {
 			this.addBrokenRule("BirthdayYear", "El año de nacimiento es invalido.");
 		}	
 	}
