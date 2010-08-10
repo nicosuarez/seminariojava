@@ -8,7 +8,9 @@
         <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
-
+		
+		<version name="version" access="field" column="Version" type="integer"/>
+		
         <property name="salary" type="integer" access="field">
             <column name="Salary" />
         </property>

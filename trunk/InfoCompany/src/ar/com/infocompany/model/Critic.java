@@ -19,6 +19,9 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	private int postiveScore;
 	private int negativeScore;
 	
+	@SuppressWarnings("unused")
+	private int version; //To concurrency control in Hibernate
+	
 	public Critic() {
 		
 	}

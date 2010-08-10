@@ -11,9 +11,10 @@ import ar.com.infocompany.infraestructure.custom_exceptions.ConcurrencyException
 public class HibernateUnitOfWork implements IUnitOfWork {
 
 	private Session session;
-	
+	Transaction tx;
 	public HibernateUnitOfWork() {
 		this.session = SessionFactory.getCurrentSession();
+		this.tx = this.session.beginTransaction();
 	}
 
 	@Override
@@ -24,7 +25,7 @@ public class HibernateUnitOfWork implements IUnitOfWork {
 	
 	@Override
 	public void commit() throws Exception, ConcurrencyException {
-		Transaction tx = this.session.beginTransaction();
+		//Transaction tx = this.session.beginTransaction();
 		
 		try {
 			//Flush the session and commit the transaction.
@@ -47,5 +48,6 @@ public class HibernateUnitOfWork implements IUnitOfWork {
 	public void delete( IAggregateRoot entity ) {
 		this.session.delete(entity);
 	}
+	
 
 }
