@@ -24,6 +24,9 @@ public class User extends BusinessBase implements IAggregateRoot{
 	private Location location;
 	private int reputation;
 	
+	@SuppressWarnings("unused")
+	private int version; //To concurrency control in Hibernate
+	
 	public User() {
 		// Hibernate requirement
 	}

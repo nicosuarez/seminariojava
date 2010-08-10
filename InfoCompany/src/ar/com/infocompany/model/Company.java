@@ -20,6 +20,9 @@ public class Company extends BusinessBase implements IAggregateRoot {
 	private Industry industry;
 	private List<Critic> critics;
 	
+	@SuppressWarnings("unused")
+	private int version; //To concurrency control in Hibernate
+	
 	public Company() {
 		 
 	}
