@@ -28,6 +28,12 @@
 			<result name="SUCCESS">/pages/index.jsp</result>
 			<result name="INPUT">/pages/userCreateForm.jsp</result>
 		</action>
+		
+		<action name="SearchCompanyAction" class="ar.com.infocompany.presentation.SearchCompanyAction">
+			<result>/pages/companyListForm.jsp</result>
+		</action>
+		
+		
 	</package>
 	
 	<package name="infoCompanyPublic" namespace="/pages" extends="struts-default">
@@ -62,6 +68,11 @@
 			<result name="input">/pages/login.jsp</result>
 		</action>
 		
+		<action name="WelcomeAction" class="ar.com.infocompany.presentation.WelcomeAction">
+			<result name="success">index.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
 		<!--<action name="userRegisterAction" method="createUser" class="springUserRegisterAction">
 			<result type="redirectAction">UserCreateForm</result>
 			<result name="SUCCESS">/pages/userCreateForm.jsp</result>
@@ -82,8 +93,8 @@
 				<result name="SUCCESS">/pages/test1.jsp</result>
 		</action>
 		
-		<action name="SearchCompanyAction" class="ar.com.infocompany.presentation.SearchCommpanyAction">
-				<result name="SUCCESS">/pages/test1.jsp</result>
+		<action name="SearchCompanyAction" class="ar.com.infocompany.presentation.SearchCompanyAction">
+			<result>/pages/companyListForm.jsp</result>
 		</action>
 		
 		

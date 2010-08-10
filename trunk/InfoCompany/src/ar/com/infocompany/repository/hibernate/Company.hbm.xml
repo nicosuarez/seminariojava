@@ -14,14 +14,14 @@
         <property name="name" type="string" access="field">
             <column name="Name" length="50" not-null="true" />
         </property>
-        <!-- 
-        <component name="Industry" class="Industry" >
-        	<property name="value" access="field" type="string">
+         
+        <component name="industry" class="Industry" access="field" >
+        	<property name="name" access="field" type="string">
 	            <column name="Industry" not-null="true" />
 	        </property>	
         </component>
-         -->
-        <many-to-one name="industry" class="Industry" cascade="save-update" lazy="false" access="field" column="IndustryId" />
+         
+        <!--<many-to-one name="industry" class="Industry" cascade="save-update" lazy="false" access="field" column="IndustryId" />-->
         
         <bag name="critics"	access="field" cascade="all,delete-orphan" lazy="false" fetch="select" table = "Critic">
 			<key column="CompanyId" not-null="true"/>
