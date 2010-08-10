@@ -1,19 +1,21 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
  <div id="menu">
     <ul>
         <li class="current_page_item">
-            <a href="#">home</a>
+            <a href="welcome.jsp">home</a>
         </li>
         <li>
-            <a href="#">Companias</a>
+            <a href="companyListForm.jsp">Companias</a>
         </li>
         <li>
-            <a href="#">Log-in</a>
+            <a href="login.jsp">Log-in</a>
         </li>
         <li>
-            <a href="#">Mi cuenta</a>
+            <a href="userEditForm.jsp">Mi cuenta</a>
         </li>
         <li>
-            <a href="#">Noticias</a>
+            <a href="reports.jsp#">Estadisticas</a>
         </li>
     </ul>
 </div>

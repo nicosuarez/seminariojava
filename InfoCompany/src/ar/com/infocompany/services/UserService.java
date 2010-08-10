@@ -23,15 +23,20 @@ public class UserService implements IUserService {
 			throw new ApplicationException("Error en el registro de usuario", brokenRules);
 		}
 		IUserRepository userRep = new UserRepository();
-		Query  query = new Query();
-		query.addCriteria(new Criteria(User.NAME, 
-				user.getUserName(), CriteriaOperator.Equals));
-		List<User> users = userRep.findBy(query);
-		if (users.size() > 0) {
+		if (this.userExist(user)) {
 			throw new ApplicationException("usuario registrado");
 		} else {
 			userRep.save(user);
 		}
+	}
+	
+	public boolean userExist(User user) {
+		IUserRepository userRep = new UserRepository();
+		Query  query = new Query();
+		query.addCriteria(new Criteria(User.NAME, 
+				user.getUserName(), CriteriaOperator.Equals));
+		List<User> users = userRep.findBy(query);
+		return (users.size() > 0); 
 	}
 	
 }

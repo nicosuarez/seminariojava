@@ -12,12 +12,14 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	public static final CriticComparator comparator = new CriticComparator();
 	
 	private User author;
-	private Job job;
 	private int salary;
 	private List<Comment> comments;
 	private List<Item> items;
 	private int postiveScore;
 	private int negativeScore;
+	private Location location;
+	private String industryName;
+	private String jobName;
 	
 	@SuppressWarnings("unused")
 	private int version; //To concurrency control in Hibernate
@@ -26,24 +28,25 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		
 	}
 		
-	public Critic(User author, Comment comment, Job job, int salary) {
+	public Critic(User author, Comment comment, String jobName, String industryName, int salary) {
 		this.author = author;
 		this.salary = salary;
-		this.job = job;
+		this.jobName = jobName;
+		this.industryName = industryName;
 		this.postiveScore = 0;
 		this.negativeScore = 0;
 		this.items = new ArrayList<Item>();
 		this.comments = new ArrayList<Comment>();
 		this.comments.add(comment);
 	}
+	
+	public Critic(User author, Comment comment, Job job, int salary) {
+		this(author, comment, job.getName(), job.getIndustry().getName() , salary);
+	}
 
 	public Critic(User author, Comment comment,
 			Job job, int salary, List<Item> items) {
-		this.author = author;
-		this.salary = salary;
-		this.comments = new ArrayList<Comment>();
-		this.comments.add(comment);
-		this.job = job;
+		this(author, comment, job, salary);
 		this.items = items;
 	}
 	
@@ -85,7 +88,8 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public Job getJob() {
-		return this.job;
+		
+		return Job.getJob(industryName, jobName);
 	}
 	
 	public Comment getAuthorComment() {
@@ -114,7 +118,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 
 	protected void validate() {	
-		if(this.job == null) {
+		if(this.isVoid(industryName) || this.isVoid(jobName) ) {
 			this.addBrokenRule("Job", "El trabajo es requerido.");
 		}
 		
@@ -135,6 +139,14 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 				this.addBrokenRule(item.getBrokenRules());
 			}
 		}
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Location getLocation() {
+		return location;
 	}
 		
 }

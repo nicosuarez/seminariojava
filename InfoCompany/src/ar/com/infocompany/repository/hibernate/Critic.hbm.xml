@@ -24,7 +24,20 @@
             <column name="UserId" not-null="true" />
         </many-to-one>
         
-        <many-to-one name="job" cascade="save-update" access="field" class="Job" column="JobId" not-null="true"  />
+        <component name="location" access="field" class="Location">
+        	<property name="country" access="field" column="Country"></property>
+        	<property name="state" access="field" column="State"></property>
+         </component>
+         
+        <property name="industryName" access="field">
+            <column name="industry" />
+        </property>
+        
+        <property name="jobName" access="field">
+            <column name="job" />
+        </property>
+         
+        <!--<many-to-one name="job" cascade="save-update" access="field" class="Job" column="JobId" not-null="true"  />-->
         
         <bag name="items" access="field" cascade="all,delete-orphan" lazy="false" table="CriticItems" fetch="select">
             <key column="CriticId" not-null="true"/>

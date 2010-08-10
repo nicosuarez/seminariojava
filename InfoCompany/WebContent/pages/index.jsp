@@ -1,18 +1,21 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <jsp:include page="/pages/head.jsp"></jsp:include>
+<html>
+    <s:include value="/pages/head.jsp"></s:include>
     <body>
-    	<jsp:include page="/pages/header.jsp"></jsp:include>
+    	<s:include value="/pages/header.jsp"></s:include>
         <div id="page">
             <div id="content">
                 <div id="latest-post" class="post">
-                    <h2 class="title">Bienvenidos a infocompany 
-                        
-                    </h2>
+                    <h2 class="title">Bienvenidos a infocompany</h2>
                     <div class="entry">
                         <p>
+                        	<div id="error">
+	                        	<s:property value="name" />
+	                        	<s:fielderror title="label.name" key="label.name" label="label.name" name="label.name" value="name" fieldName="name"  ></s:fielderror>
+	                        	<s:actionerror label="Se ha producido los siguientes errores:"/>
+                        	</div>
                             Infocompany sirve como guia a aquellas personas que inician una
                             busqueda laboral o necesitan informacion del mercado, en base a la 
                             experiencia y opinion de la comunidad. 
@@ -49,8 +52,8 @@
                         </p>
                     </div>
                 </div>
-                <jsp:include page="/pages/sidebar.jsp"></jsp:include>
-                <jsp:include page="/pages/divFooter.jsp"></jsp:include>
+                <s:include value="/pages/sidebar.jsp"></s:include>
+                <s:include value="/pages/divFooter.jsp"></s:include>
             </div> 
         </div> 
         <jsp:include page="/pages/footer.jsp"></jsp:include>

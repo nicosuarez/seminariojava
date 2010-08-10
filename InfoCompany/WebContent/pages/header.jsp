@@ -1,3 +1,5 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <div id="header">
      <div id="logo">
          <h1 style="width: 200px;">infocompany 
@@ -8,5 +10,5 @@
              </a>
          </h2>
      </div>
-    <%@ include file="/pages/menu.jsp" %>
+    <s:include value="/pages/menu.jsp" />
 </div>

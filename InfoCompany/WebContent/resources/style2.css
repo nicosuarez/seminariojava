@@ -316,6 +316,56 @@ hr { display: none; }
 	text-decoration: none;
 }
 
+/* Search */
+
+#search {
+	float: right;
+	width: 200px;
+}
+
+#search ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#search li {
+	background: #96A96F;
+}
+
+#search li ul {
+	padding: 0px 20px 30px;
+  background: #96a96f url(images/img03.gif) no-repeat scroll right bottom;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+#search li li {
+  margin: -5;
+  padding: 0px 10px 10px 0px;
+  
+}
+
+#search form input {
+  
+}
+
+#search h2 {
+	width: 190px;
+	margin: 0 0 15px 20px;
+	padding: 20px 0 7px 0;
+	background: url(images/img07.gif) repeat-x left bottom;
+	text-transform: uppercase;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #FFFFFF;
+}
+
+#search a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+
 /* Sidebar1 */
 
 #sidebar1 {
