@@ -1,7 +1,7 @@
 /*
- * Score
- * 
+ * Item
  */
+
 package ar.com.infocompany.model;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
@@ -9,34 +9,28 @@ import ar.com.infocompany.infraestructure.IValueObject;
 
 public class Item extends BusinessBase implements IValueObject{
 	
-	String tag;
-	int score;
+	private String name;
 	
-	public Item(){
-		
+	public Item() {
+	
 	}
 	
-	public Item(String tag, int score) {
-		this.tag = tag;
-		this.score = score;
-	}
-	
-	public String getTag() {
-		return this.tag;
-	}
-		
-	public int getScore() {
-		return this.score;
+	public String getName() {
+		return this.name;
 	}
 
-	protected void validate() {
-		if (this.isVoid(this.tag)) {
-			this.addBrokenRule("Tag", "El tag del item es requerido.");
+	public boolean equals(Object o) {
+		return (o instanceof Item) && (this.name.equals(((Item) o).name));
+	}
+	
+	public int hashcode() {
+		return this.name.hashCode();
+	}
+	
+	protected void validate() {		
+		if(this.isVoid(name)) {
+			this.addBrokenRule("Name", "El nombre del item es requerido.");
 		}
-		
-		if(this.score < 0 && this.score > 10) {
-			this.addBrokenRule("Score", "El puntaje debe ser un valor entre 0-10");
-		}	
 	}
 	
 }

@@ -13,37 +13,33 @@ import ar.com.infocompany.model.Company;
 import ar.com.infocompany.model.Country;
 import ar.com.infocompany.model.Critic;
 import ar.com.infocompany.model.ICompanyRepository;
-import ar.com.infocompany.model.ICountryRepository;
 import ar.com.infocompany.model.ICriticRepository;
-import ar.com.infocompany.model.IIndustryRepository;
 import ar.com.infocompany.model.IUserRepository;
 import ar.com.infocompany.model.Industry;
+import ar.com.infocompany.model.CriticItem;
 import ar.com.infocompany.model.Item;
 import ar.com.infocompany.model.Job;
 import ar.com.infocompany.model.State;
 import ar.com.infocompany.model.User;
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
-import ar.com.infocompany.repository.hibernate.CountryRepository;
 import ar.com.infocompany.repository.hibernate.CriticRepository;
-import ar.com.infocompany.repository.hibernate.IndustryRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
+import ar.com.infocompany.services.ViewService;
 
 public class CriticTest {
 	
 	private static ICompanyRepository comRep;
 	private static IUserRepository usrRep;
-	private static IIndustryRepository indRep;
 	private static ICriticRepository criRep;
-	private static ICountryRepository countryRep;
+	private static ViewService viewService;
 	
 	@BeforeClass  
     public static void setUpClass() throws Exception {  
 		ar.com.infocompany.repository.hibernate.SessionFactory.getNewSession();
 		comRep = new CompanyRepository();
 		usrRep = new UserRepository();
-		indRep = new IndustryRepository();
 		criRep = new CriticRepository();
-		countryRep = new CountryRepository();
+		viewService = new ViewService();
 		addCritics();
     }  
       
@@ -55,15 +51,16 @@ public class CriticTest {
     public static void addCritics() {
 		String name = "Coca Cola";
 
-		Industry industry = indRep.findBy(1);
+		Industry industry = viewService.findAllIndustries().get(1);
 		Job job = industry.getJobs().get(0);
-
 		Company company = new Company(name, industry);
-		Country country = countryRep.findBy(1);
+		Country country = viewService.findAllCountries().get(1);
 		State state = country.getStates().get(0);
+		Item item1 = viewService.findAllItems().get(0);
+		Item item2 = viewService.findAllItems().get(1);
 		
-		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
-		Item salaryItem = new Item("Salario", 5);
+		CriticItem workEnviromentItem = new CriticItem(item1.getName(), 10);
+		CriticItem salaryItem = new CriticItem(item2.getName(), 5);
 		
 		User user = null;
 		user = new User("Sebastian", 
@@ -89,14 +86,16 @@ public class CriticTest {
     @Test
 	public void testUserCritic() {
 		String name = "Finnegans";
-		Industry industry = indRep.findBy(1);
+		Industry industry = viewService.findAllIndustries().get(0);
 		Job job = industry.getJobs().get(0);
 		Company company = new Company(name, industry);
-		Country country = countryRep.findBy(1);
+		Country country = viewService.findAllCountries().get(0);
 		State state = country.getStates().get(0);
 				
-		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
-		Item salaryItem = new Item("Salario", 5);
+		Item item1 = viewService.findAllItems().get(0);
+		Item item2 = viewService.findAllItems().get(1);
+		CriticItem workEnviromentItem = new CriticItem(item1.getName(), 6);
+		CriticItem salaryItem = new CriticItem(item2.getName(), 6);
 		
 		User user = new User("nsuarez", 
 								"password", 
@@ -125,20 +124,20 @@ public class CriticTest {
     	Critic critic = company.getLastCritic();
     	System.out.println("Comentario: " + critic.getAuthorComment().getText());
 
-    	List<Item> items = critic.getItems();
-    	for(Item item : items)
-    		System.out.println(item.getTag() + ": " + item.getScore());
+    	List<CriticItem> criticItems = critic.getItems();
+    	for(CriticItem criticItem : criticItems)
+    		System.out.println(criticItem.getTag() + ": " + criticItem.getScore());
     	
 		Assert.assertTrue( critic.getId() != 0 );
-		Assert.assertTrue( items.size() > 0 );
+		Assert.assertTrue( criticItems.size() > 0 );
     }    
     
     @Test
     public void testAddReply() {
 		User user = null;
-		Industry industry = indRep.findBy(1);
+		Industry industry = viewService.findAllIndustries().get(0);
 		Job job = industry.getJobs().get(0);
-		Country country = countryRep.findBy(1);
+		Country country = viewService.findAllCountries().get(0);
 		State state = country.getStates().get(0);
 		
 		user = new User("Juancito", 
@@ -185,9 +184,9 @@ public class CriticTest {
     		System.out.println(critic.getJob().getName() + " (" + critic.getIndustry().getName() + ")");
     		System.out.println("Salary: " + critic.getSalary());
 
-    		List<Item> items = critic.getItems();
-        	for(Item item : items)
-        		System.out.println("	"  + item.getTag() + ": " + item.getScore());
+    		List<CriticItem> criticItems = critic.getItems();
+        	for(CriticItem criticItem : criticItems)
+        		System.out.println("	"  + criticItem.getTag() + ": " + criticItem.getScore());
         	System.out.println("Comentario: " + critic.getAuthorComment().getText());
     	}
     	Assert.assertTrue(critics.size() > 1 );
