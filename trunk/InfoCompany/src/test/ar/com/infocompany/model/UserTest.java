@@ -14,7 +14,6 @@ import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 
 import ar.com.infocompany.infraestructure.IUnitOfWork;
-import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationException;
 import ar.com.infocompany.infraestructure.query.Criteria;
 import ar.com.infocompany.infraestructure.query.CriteriaOperator;
 import ar.com.infocompany.infraestructure.query.Query;
@@ -31,15 +30,13 @@ public class UserTest {
 	private static UserRepository rep = null;
 	private static CompanyRepository comRep = null;
 	private static IIndustryRepository indRep = null;
+	private static ICountryRepository countryRep = null;
 	
 	private static void createUsers() {
 		amountUsers = 5;
-	 	Location location = null;
-    	try {
-    		location = new Location("Argentina", "Buenos Aires");
-    	} catch(InvalidLocationException e) {
-    		
-    	}
+		
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
  
     	rep = new UserRepository();
 		Industry industry = indRep.findBy(1);
@@ -49,7 +46,7 @@ public class UserTest {
     	
     	for(int i=0; i<amountUsers; i++)
     	{
-    		user = new User("Juan " + String.valueOf(i), "123456", "juan" + String.valueOf(i) + "@lopez.com", industry.getName(), job.getName(), location, 1984);
+    		user = new User("Juan " + String.valueOf(i), "123456", "juan" + String.valueOf(i) + "@lopez.com", industry.getName(), job.getName(), country.getName(), state.getName(), 1984);
     		rep.save(user);
     	}
 	}
@@ -90,14 +87,10 @@ public class UserTest {
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
 
-    	Location location = null;
-    	try {
-    		location = new Location("Argentina", "Buenos Aires");
-    	} catch(InvalidLocationException e) {
-    		
-    	}
-    	  	
-    	User user = new User(username, password, email, industry.getName(), job.getName(), location, year);
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
+   	  	
+    	User user = new User(username, password, email, industry.getName(), job.getName(), country.getName(), state.getName(), year);
     	rep.save(user);
     	amountUsers++;
     	
@@ -125,7 +118,7 @@ public class UserTest {
     		System.out.println("Password: " + user.getPassword());
     		System.out.println("Year: " + user.getBirthdayYear());
     		System.out.println("Job: " + user.getJob().getName() + " (" + user.getIndustry().getName() + ")");
-    		System.out.println("Location: " + user.getLocation().getState() + " (" + user.getLocation().getCountry() + ")");
+    		System.out.println("Country: " + user.getState() + " (" + user.getCountry() + ")");
     		System.out.println("Email:" + user.getEmail() + "\n");
     	}
     	Assert.assertEquals(amountUsers, users.size());

@@ -33,10 +33,13 @@
         	<column name="JobName"/>
         </property>
 
-         <component name="location" access="field" class="Location">
-        	<property name="country" access="field" column="Country"></property>
-        	<property name="state" access="field" column="State"></property>
-         </component>
+		<property name="country" access="field" type="string">
+        	<column name="Country"/>
+        </property>
+        
+        <property name="state" access="field" type="string">
+        	<column name="State"/>
+        </property>
 
     </class>
 </hibernate-mapping>

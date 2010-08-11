@@ -17,9 +17,10 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	private List<Item> items;
 	private int postiveScore;
 	private int negativeScore;
-	private Location location;
 	private String industryName;
 	private String jobName;
+	private String country;
+	private String state;
 	
 	@SuppressWarnings("unused")
 	private int version; // To concurrency control in Hibernate
@@ -95,14 +96,6 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		return Industry.getIndustry(industryName);
 	}
 	
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-
-	public Location getLocation() {
-		return location;
-	}
-	
 	public Comment getAuthorComment() {
 		return this.comments.get(0);
 	}
@@ -160,7 +153,23 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 			}
 		}
 	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCountry() {
+		return this.country;
+	}
 		
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getState() {
+		return this.state;
+	}
+
 }
 
 // eof

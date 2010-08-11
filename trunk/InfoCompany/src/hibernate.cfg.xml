@@ -35,6 +35,8 @@
 		<mapping resource="ar/com/infocompany/repository/hibernate/Job.hbm.xml"/>
 		<mapping resource="ar/com/infocompany/repository/hibernate/Industry.hbm.xml"/>
 		<mapping resource="ar/com/infocompany/repository/hibernate/Item.hbm.xml"/>
+		<mapping resource="ar/com/infocompany/repository/hibernate/Country.hbm.xml"/>
+		<mapping resource="ar/com/infocompany/repository/hibernate/State.hbm.xml"/>
 
 	</session-factory>
 </hibernate-configuration>

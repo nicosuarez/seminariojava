@@ -21,6 +21,7 @@ import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.model.*;
 
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
+import ar.com.infocompany.repository.hibernate.CountryRepository;
 import ar.com.infocompany.repository.hibernate.IndustryRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 import ar.com.infocompany.repository.hibernate.HibernateUnitOfWork;
@@ -31,6 +32,7 @@ public class CompanyTest {
 	private static ICompanyRepository comRep;
 	private static IUserRepository usrRep;
 	private static IIndustryRepository indRep;
+	private static ICountryRepository countryRep;
 	
 	@BeforeClass  
     public static void setUpClass() throws Exception {  
@@ -38,6 +40,7 @@ public class CompanyTest {
 		comRep = new CompanyRepository();
 		usrRep = new UserRepository();
 		indRep = new IndustryRepository();
+		countryRep = new CountryRepository();
     }  
       
     @AfterClass  
@@ -58,15 +61,15 @@ public class CompanyTest {
     } 
 	
 	public static List<Company> makeCompanies() {
-    	Industry industry = Industry.getIndustry("IT");
-    	
-        Company company = new Company("Sistran",industry);
+		Industry industry = indRep.findBy(1);
 
+        Company company = new Company("Sistran",industry);
         Company company2 = new Company("Globant",industry);
         
-        Industry industry3 = Industry.getIndustry("Gastronomia");
-        Company company3 = new Company("Plaza Mayor",industry3);
-        
+
+		Industry industry2 = indRep.findBy(2);
+        Company company3 = new Company("Plaza Mayor",industry2);
+      
         List<Company> companyList = new ArrayList<Company>();
         companyList.add(company);
         companyList.add(company2);
@@ -134,22 +137,23 @@ public class CompanyTest {
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
 		Company company = new Company(name, industry);
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
 		User user = null;
 		
-		try {
-			user = new User("nsuarez", 
+		user = new User("nsuarez", 
 							"password", 
 							"nsuarez@hotmail.com", 
 							industry.getName(),
 							job.getName(),
-							new Location("Argentina","Capital Federal"), 
+							country.getName(),
+							state.getName(),
 							1984);
 			usrRep.save(user);
-		} catch (InvalidLocationException e) {
-			e.printStackTrace();
-		}
 					
 		Critic critic = user.makeCritic("esta company es barata", industry, job, 2800);
+		critic.setCountry(country.getName());
+		critic.setState(state.getName());
 		
 		company.addCritic(critic);
 		comRep.save(company);
@@ -159,7 +163,8 @@ public class CompanyTest {
 	@Ignore
 	public void testPersistCompanyWithoutCritic() {
 		String name = "Villa del Sur";
-		Industry industry = Industry.getIndustry("Alimentos");
+
+		Industry industry = indRep.findBy(1);
 		Company company = new Company(name, industry);
 		comRep.save(company);
 		Assert.assertTrue(company.getId() != 0);
@@ -171,20 +176,20 @@ public class CompanyTest {
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
 		Company company = new Company(name, industry);
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
+		
 		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
 
 		User user = null;
-		try {
-			user = new User("scamjayi", 
+		user = new User("scamjayi", 
 								"password", 
 								"scamjayi@hotmail.com", 
 								industry.getName(),
 								job.getName(),
-								new Location("Argentina","Capital Federal"), 
+								country.getName(),
+								state.getName(), 
 								1984);
-		} catch (InvalidLocationException e) {
-			e.printStackTrace();
-		}
 				
 		Critic critic = user.makeCritic("me gusta criticar", industry, job, 3333);
 		critic.addItem(workEnviromentItem);
@@ -203,13 +208,16 @@ public class CompanyTest {
 
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
 		
 		User user = new User("jlopez", 
 				"password", 
 				"jlopez@hotmail.com", 
 				industry.getName(),
 				job.getName(),
-				new Location("Argentina","Buenos Aires"), 
+				country.getName(),
+				state.getName(),
 				1984);
 		
 		usrRep.save(user);
@@ -272,16 +280,17 @@ public class CompanyTest {
 		User user = null;
 		Company company = null;
 		
-		try
-		{
-			unitOfWork = new HibernateUnitOfWork();
-			comRep.inyect(unitOfWork);
-			usrRep.inyect(unitOfWork);
-
-			Industry industry = indRep.findBy(1);
-			Job job = industry.getJobs().get(0);
- 
-			user = new User("Nicolas", "123456", "nsuarez@gmail.com", industry.getName(), job.getName(), new Location("AR", "BS AS"), 1983);
+		unitOfWork = new HibernateUnitOfWork();
+		comRep.inyect(unitOfWork);
+		usrRep.inyect(unitOfWork);
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
+					
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
+		
+		try{ 
+			user = new User("Nicolas", "123456", "nsuarez@gmail.com", industry.getName(), job.getName(), industry.getName(), state.getName(), 1983);
 			usrRep.save(user);
 			
 			company = new Company("Engenus", industry);
@@ -290,14 +299,10 @@ public class CompanyTest {
 			comRep.save(company);
 			
 			unitOfWork.commit();
-		}
-		catch (InvalidLocationException e)
+		}		
+		catch(Exception e)
 		{
-			System.out.println("InvalidLocationException");
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2.getMessage());
+			System.out.println(e.getMessage());
 		}
 		
 		Assert.assertTrue( user.isTransient() );

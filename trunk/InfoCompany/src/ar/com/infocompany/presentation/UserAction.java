@@ -7,7 +7,6 @@ import java.util.List;
 import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException;
 import ar.com.infocompany.model.Industry;
 import ar.com.infocompany.model.Job;
-import ar.com.infocompany.model.Location;
 import ar.com.infocompany.model.User;
 import ar.com.infocompany.model.IUserService;
 

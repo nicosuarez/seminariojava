@@ -22,7 +22,8 @@ public class User extends BusinessBase implements IAggregateRoot{
 	private int birthdayYear;
 	private String industryName;
 	private String jobName;
-	private Location location;
+	private String country;
+	private String state; 
 	private int reputation;
 	
 	@SuppressWarnings("unused")
@@ -33,13 +34,14 @@ public class User extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public User(String userName, String password, 
-			String email, String industryName, String jobName, Location location, int birthdayYear) {
+			String email, String industryName, String jobName, String country, String state, int birthdayYear) {
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
 		this.industryName = industryName;
 		this.jobName = jobName;
-		this.location = location;
+		this.country = country;
+		this.state = state;
 		this.birthdayYear = birthdayYear;
 	}
 	
@@ -90,15 +92,23 @@ public class User extends BusinessBase implements IAggregateRoot{
 	public Industry getIndustry() {
 		return Industry.getIndustry(industryName);
 	}
-	
-	public Location getLocation() {
-		return this.location;
-	}
-	
-	public void setLocation(Location location) {
-		this.location = location;
-	}
 
+	public String getCountry() {
+		return this.country;
+	}
+	
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	
+	public String getState() {
+		return this.state;
+	}
+	
+	public void setState(String state) {
+		this.state = state;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}
