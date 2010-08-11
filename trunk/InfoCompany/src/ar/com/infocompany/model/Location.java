@@ -8,8 +8,8 @@ import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationExcep
 
 public class Location {
 
-	String country;
-	String state;
+	private String country;
+	private String state;
 	
 	public Location(){
 		
@@ -22,6 +22,16 @@ public class Location {
 		validate();
 	}
 	
+	public boolean equals(Object o) {
+		return (o instanceof Location) 
+				&& (this.country.equals(((Location) o).country) 
+				&& (this.state.equals(((Location) o).state)));
+	}
+	
+	public int hashcode() {
+		return (this.country + this.state).hashCode();
+	}
+		
 	protected void validate() throws InvalidLocationException {
 		
 		StringBuilder sbBrokenRules = new StringBuilder();
