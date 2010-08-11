@@ -27,7 +27,7 @@ public class User extends BusinessBase implements IAggregateRoot{
 	private int reputation;
 	
 	@SuppressWarnings("unused")
-	private int version; //To concurrency control in Hibernate
+	private int version;	// To concurrency control in Hibernate
 	
 	public User() {
 		// Hibernate requirement
@@ -139,7 +139,8 @@ public class User extends BusinessBase implements IAggregateRoot{
 			this.addBrokenRule("Password", "El password es requerido.");
 		}
 		else {
-			if ((this.password.length() < 6) || (this.password.length() > 20)) {
+			if ((this.password.length() < BusinessRules.PASSWORD_MIN) 
+					|| (this.password.length() > 20)) {
 				this.addBrokenRule("Password", "El password debe tener como maximo 20 caracteres.");
 			}
 		}

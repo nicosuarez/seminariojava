@@ -135,8 +135,9 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 			this.addBrokenRule("Job", "El trabajo es requerido.");
 		}
 		
-		if (this.salary <= 0) {
-			this.addBrokenRule("Salary", "El sueldo tiene que ser mayor que 0.");
+		if (this.salary <= BusinessRules.SALARY_MIN) {
+			this.addBrokenRule("Salary", "El sueldo minimo es " 
+					+ BusinessRules.SALARY_MIN); 
 		}
 		
 		if (this.author == null) {
