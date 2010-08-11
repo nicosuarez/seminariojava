@@ -73,11 +73,15 @@
 			<result name="input">index.jsp</result>
 		</action>
 		
-		<action name="ViewCompany" class="ar.com.infocompany.presentation.CompanyAction">
+		<action name="ViewCompanyAction" class="ar.com.infocompany.presentation.CompanyAction">
 			<result name="success">companyForm.jsp</result>
 			<result name="input">companyListForm.jsp</result>
 		</action>
 		
+		<action name="ViewCriticAction" class="ar.com.infocompany.presentation.ViewCriticAction">
+			<result name="success">criticForm.jsp</result>
+			<result name="input">companyForm.jsp</result>
+		</action>
 		
 		<!--<action name="userRegisterAction" method="createUser" class="springUserRegisterAction">
 			<result type="redirectAction">UserCreateForm</result>
