@@ -8,8 +8,8 @@ import ar.com.infocompany.infraestructure.IValueObject;
 
 public class CriticItem extends BusinessBase implements IValueObject{
 	
-	String tag;
-	int score;
+	private String tag;
+	private int score;
 	
 	public CriticItem(){
 		

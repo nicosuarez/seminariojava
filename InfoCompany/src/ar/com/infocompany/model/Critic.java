@@ -119,6 +119,19 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		return this.salary;
 	}
 	
+	public CriticItem getItem(String tag) {
+		CriticItem item = null;
+		synchronized(this.criticItems) {
+			for (CriticItem i : this.criticItems) {
+				if (i.getTag().equals(tag)) {
+					item = i;
+					break;
+				}
+			}
+		}
+		return item;
+	}
+	
 	public List<CriticItem> getItems() {
 		return this.criticItems;
 	}
