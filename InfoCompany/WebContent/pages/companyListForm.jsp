@@ -10,7 +10,7 @@
                 <div id="latest-post" class="post">
                     <h2 class="title">Resultado de Companias </h2>
                     <div class="entry">
-                    <s:property value="companyName"/><
+                    <s:property value="companyName"/>
                         <table border="1">
 						    <tr>
 						        <th><s:text name="label.name"/></th>
@@ -22,7 +22,7 @@
 						            <td><s:property value="name"/></td>
 						            <td><s:property value="industry.name"/></td>
 						            <td>
-						            	<s:url id="viewCompany" action="viewCompany">
+						            	<s:url id="viewCompany" action="ViewCompany">
 											<s:param name="companyId" value="id" />
 										</s:url> 
 										<s:a href="%{viewCompany}">Ver</s:a>

@@ -162,7 +162,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	public String getCountry() {
 		return this.country;
 	}
-		
+	
 	public void setState(String state) {
 		this.state = state;
 	}
