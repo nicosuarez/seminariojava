@@ -157,6 +157,10 @@ public class CompanyTest {
 		Critic critic = user.makeCritic("esta company es barata", industry, job, 2800);
 		critic.setCountry(country.getName());
 		critic.setState(state.getName());
+		List<Item> listItems = itemRep.findAll();
+		
+		critic.addItem(new CriticItem(listItems.get(0).getName(), 10));
+		critic.addItem(new CriticItem(listItems.get(1).getName(), 4));
 		
 		company.addCritic(critic);
 		comRep.save(company);
