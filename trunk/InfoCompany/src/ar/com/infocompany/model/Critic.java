@@ -29,6 +29,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		
 	}
 		
+	@Deprecated
 	public Critic(User author, Comment comment, String jobName, String industryName, int salary) {
 		this.author = author;
 		this.salary = salary;
@@ -41,20 +42,34 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		this.comments.add(comment);
 	}
 	
+	@Deprecated
 	public Critic(User author, Comment comment, Industry industry, Job job, int salary) {
 		this(author, comment, job.getName(), industry.getName() , salary);
 	}
+	
+	public Critic(User author, Comment comment, Industry industry,
+			Job job, int salary, List<CriticItem> items) {
+		this(author, comment, job.getName(), industry.getName() , salary, items);
+	}
 
-	public Critic(User author, Comment comment,
-			Industry industry, Job job, int salary, List<CriticItem> criticItems) {
-		this(author, comment, industry, job, salary);
-		this.criticItems = criticItems;
+	public Critic(User author, Comment comment, String industryName,
+			String jobName, int salary, List<CriticItem> items) {
+		this.author = author;
+		this.salary = salary;
+		this.jobName = jobName;
+		this.industryName = industryName;
+		this.postiveScore = 0;
+		this.negativeScore = 0;
+		this.criticItems = items;
+		this.comments = new ArrayList<Comment>();
+		this.comments.add(comment);
+		this.criticItems = items;
 	}
 	
 	public float getScore() {
 		float score = 0;
-		for (CriticItem criticItem : this.criticItems) {
-			score += criticItem.getScore(); 
+		for (CriticItem item : this.criticItems) {
+			score += item.getScore(); 
 		}
 		score /= this.criticItems.size();
 		return score;
@@ -89,11 +104,11 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public Job getJob() {
-		return Job.getJob(jobName);
+		return Job.getJob(this.jobName);
 	}
 	
 	public Industry getIndustry() {
-		return Industry.getIndustry(industryName);
+		return Industry.getIndustry(this.industryName);
 	}
 	
 	public Comment getAuthorComment() {
@@ -126,12 +141,12 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		return this.comments.add(reply);
 	}
 		
-	public boolean addItem(CriticItem criticItem) {
-		return this.criticItems.add(criticItem);
+	public boolean addItem(CriticItem item) {
+		return this.criticItems.add(item);
 	}
 
 	protected void validate() {	
-		if(this.isVoid(industryName) || this.isVoid(jobName) ) {
+		if(this.isVoid(this.industryName) || this.isVoid(this.jobName) ) {
 			this.addBrokenRule("Job", "El trabajo es requerido.");
 		}
 		
@@ -149,8 +164,8 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		} else if (this.criticItems.size() == 0 ) {
 			this.addBrokenRule("Items", "Una critica debe tener al menos un item calificado");
 		} else {
-			for (CriticItem criticItem : this.criticItems) {
-				this.addBrokenRule(criticItem.getBrokenRules());
+			for (CriticItem item : this.criticItems) {
+				this.addBrokenRule(item.getBrokenRules());
 			}
 		}
 	}
