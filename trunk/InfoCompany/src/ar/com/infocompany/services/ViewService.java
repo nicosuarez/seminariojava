@@ -3,6 +3,7 @@
  */
 package ar.com.infocompany.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.com.infocompany.model.Country;
@@ -60,6 +61,15 @@ public class ViewService implements IViewService {
 		return items;
 	}
 	
+	@Override
+	public List<String> getItemsName(){
+		List<String> list = new ArrayList<String>();
+		for(Item item : items)
+		{
+			list.add(item.getName());
+		}
+		return list;
+	}
 }
 	
 // eof

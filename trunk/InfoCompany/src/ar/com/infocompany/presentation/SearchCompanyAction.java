@@ -21,10 +21,11 @@ public class SearchCompanyAction extends ActionSupport {
     public String execute() throws Exception {
     	
     	companies = new ArrayList<Company>();
-    	Company comp = new Company("Sistran", Industry.getIndustry("hola"));
-    	companies.add(comp);
-    	companies.add(comp);
-        //companies = this.companyService.searchByName(companyName);
+//    	Company comp = new Company("Sistran", Industry.getIndustry("hola"));
+//    	companies.add(comp);
+//    	companies.add(comp);
+    	companies = this.companyService.findAll();
+//      companies = this.companyService.searchByName(companyName);
         return SUCCESS;
     }
 

@@ -9,30 +9,20 @@
             <div id="content">
                 <div id="latest-post" class="post">
                     <h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2>
+                    <h2 class="title"><s:property value="critic.getJob().getName()"/> &nbsp; (<s:property value="critic.getIndustry().getName()"/>)&nbsp; 
+                    				  $<s:property value="critic.salary"/></h2>
                     <div class="entry"> 
 	                    <table>
 						    <tr>
-						        <th><s:text name="label.name"/></th>
-						        <th><s:text name="label.field"/></th>
-						        <th><s:text name="label.options"/></th>
+						        <th></th>
+						        <th></th>
 						    </tr>
 						    <s:iterator value="critic.items">
 						        <tr>
-						        	<td ><s:property value="value"/></td>
+						        	<td ><s:property value="tag"/>:&nbsp;</td>
 						            <td ><s:property value="score"/></td>
-						            <td></td>
 						        </tr>	
-							</s:iterator>
-							
-							<!-- 
-							<s:url id="updateCompany" action="setUpForInsertOrUpdateCompany">
-								<s:param name="company.CompanyId" value="CompanyId" />
-							</s:url> <s:a href="%{updateCompany}">Edit</s:a>
-								
-							 <s:url id="deleteCompany" action="deleteCompany">
-								<s:param name="company.CompanyId" value="CompanyId" />
-							</s:url>
-						    <s:a href="%{deleteCompany}">Delete</s:a>-->
+							</s:iterator>				
 					    </table>
                     </div>
                     <h2 class="title">Comentar
@@ -45,33 +35,20 @@
                         </s:form>
                     </div>
                    
-               		 <s:iterator value="critic.comments" status="itStatus">
-               		 	<h1 class="title">
-               		 		<s:property value="jobName" />(<s:property value="industryName" />) &nbsp; &nbsp; $<s:property value="salary" />  
-                        	<br/>
-                    	</h1>
+               		 <s:iterator value="critic.getReplies()" status="itStatus">
 	                    <div class="entry">
 	                    	<table>
 	                    		<tr>
 		                    		<td>
 				                        <p>
-				                            Free css. Cras at nibh. Aliquam fermentum. Nunc aliquet tempus dui.
-				                            Duis ultrices aliquet elit. Vestibulum id metus vel mi semper laoreet.
-				                            Nullam adipiscing consectetuer nisl. Lorem ipsum dolorede. Proin et
-				                            libero sed enim vehicula ornare. Etiam nec lacus. Proin id elit. Duis 
-				                            at massa. Suspendisse in dui eu magna viverra condimentum. 
+				                        	<s:property value="text"/> 
 				                        </p>
-			                        </td>
-			                        <td>
-				                        <s:property value="author.reputation" />
 			                        </td>
 		                        </tr>
 	                        </table>
 	                        <p class="meta">
-	                            <span class="posted">Posted on <s:property value="postedDate"/> by 
-	                            <s:property value="author.userName"/>(<s:property value="author.reputation"/>)</span>
-	                            <a href="#" class="permalink">More</a>
-	                            <a href="#" class="comments">(<s:property value="repliesSize"/>)</a>
+	                            <span class="posted">Posted on <s:property value="date"/> by 
+	                            <s:property value="author.userName"/>&nbsp;(<s:property value="author.reputation"/>)</span>
 	                        </p>
 	                    </div>
                     </s:iterator>

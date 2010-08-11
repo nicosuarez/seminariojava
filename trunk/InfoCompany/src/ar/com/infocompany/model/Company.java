@@ -115,7 +115,7 @@ public class Company extends BusinessBase implements IAggregateRoot {
 		synchronized(this.critics) {
 			if (this.critics.size() > 0) {
 				for (Critic c : this.critics) {
-					if (c.getId() == critic.getId()) {
+					if (c.getId() == id) {
 						critic = c;
 					}
 				}

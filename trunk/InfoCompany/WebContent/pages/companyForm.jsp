@@ -12,15 +12,13 @@
                     <div class="entry"> 
 	                    <table>
 						    <tr>
-						        <th><s:text name="label.name"/></th>
-						        <th><s:text name="label.field"/></th>
-						        <th><s:text name="label.options"/></th>
+						        <th></th>
+						        <th></th>
 						    </tr>
-						    <s:iterator value="company.critics.items">
+						    <s:iterator value="criticItems">
 						        <tr>
-						        	<td ><s:property value="value"/></td>
+						        	<td ><s:property value="tag"/></td>
 						            <td ><s:property value="score"/></td>
-						            <td></td>
 						        </tr>	
 							</s:iterator>
 							
@@ -48,7 +46,7 @@
                    
                		 <s:iterator value="company.critics" status="itStatus">
                		 	<h1 class="title">
-               		 		<s:property value="jobName" />(<s:property value="industryName" />) &nbsp; &nbsp; $<s:property value="salary" />  
+               		 		<s:property value="getJob().getName()" />(<s:property value="getIndustry().getName()" />) &nbsp; &nbsp; $<s:property value="salary" />  
                         	<br/>
                     	</h1>
 	                    <div class="entry">
@@ -56,21 +54,17 @@
 	                    		<tr>
 		                    		<td>
 				                        <p>
-				                            Free css. Cras at nibh. Aliquam fermentum. Nunc aliquet tempus dui.
-				                            Duis ultrices aliquet elit. Vestibulum id metus vel mi semper laoreet.
-				                            Nullam adipiscing consectetuer nisl. Lorem ipsum dolorede. Proin et
-				                            libero sed enim vehicula ornare. Etiam nec lacus. Proin id elit. Duis 
-				                            at massa. Suspendisse in dui eu magna viverra condimentum. 
+				                           <s:property value="getAuthorComment().getText()"/>
 				                        </p>
 			                        </td>
 			                        <td>
-				                        <s:property value="author.reputation" />
+				                        <s:property value="getScore()" />
 			                        </td>
 		                        </tr>
 	                        </table>
 	                        <p class="meta">
-	                            <span class="posted">Posted on <s:property value="postedDate"/> by 
-	                            <s:property value="author.userName"/>(<s:property value="author.reputation"/>)</span>
+	                            <span class="posted">Posted on <s:property value="getAuthorComment().date"/> by 
+	                            <s:property value="author.userName"/> (<s:property value="author.reputation"/>)</span>
 	                            
 	                            <s:url id="viewCritic" action="ViewCriticAction">
 									<s:param name="criticId" value="id" />
