@@ -58,13 +58,13 @@ public class CompanyTest {
     } 
 	
 	public static List<Company> makeCompanies() {
-    	Industry industry = new Industry("IT");
+    	Industry industry = Industry.getIndustry("IT");
     	
         Company company = new Company("Sistran",industry);
 
         Company company2 = new Company("Globant",industry);
         
-        Industry industry3 = new Industry("Gastronomia");
+        Industry industry3 = Industry.getIndustry("Gastronomia");
         Company company3 = new Company("Plaza Mayor",industry3);
         
         List<Company> companyList = new ArrayList<Company>();
@@ -159,7 +159,7 @@ public class CompanyTest {
 	@Ignore
 	public void testPersistCompanyWithoutCritic() {
 		String name = "Villa del Sur";
-		Industry industry = new Industry("Alimentos");
+		Industry industry = Industry.getIndustry("Alimentos");
 		Company company = new Company(name, industry);
 		comRep.save(company);
 		Assert.assertTrue(company.getId() != 0);
