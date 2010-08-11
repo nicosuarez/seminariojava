@@ -91,6 +91,20 @@ public class Company extends BusinessBase implements IAggregateRoot {
 		return this.critics.add(critic);
 	}
 	
+	public Critic getCriticById(int id) {
+		Critic critic = null;
+		synchronized(this.critics) {
+			if (this.critics.size() > 0) {
+				for (Critic c : this.critics) {
+					if (c.getId() == critic.getId()) {
+						critic = c;
+					}
+				}
+			}
+		}
+		return critic;
+	}
+	
 	public List<Job>  getRelatedJobs() {
 		List<Job> jobs = new LinkedList<Job>();
 		Job criticJob = null;
