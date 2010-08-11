@@ -6,5 +6,5 @@ public interface IViewService {
 	public List<Industry> findAllIndustries();
 	public List<Country> findAllCountries();
 	public List<Item> findAllItems();
-	
+	public List<String> getItemsName();
 }

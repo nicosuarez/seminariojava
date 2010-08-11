@@ -38,14 +38,12 @@ public class CompanyService implements ICompanyService {
 
 	@Override
 	public List<Company> findAll() throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		return companyRep.findAll();
 	}
 
 	@Override
 	public Company findById(int companyId) throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		return companyRep.findBy(companyId);
 	}
 
 	@Override
