@@ -3,6 +3,7 @@
  */
 package ar.com.infocompany.services;
 
+import java.util.Collections;
 import java.util.List;
 
 import ar.com.infocompany.infraestructure.BrokenRule;
@@ -66,6 +67,17 @@ public class CompanyService implements ICompanyService {
 		query.addCriteria(new Criteria(Company.NAME, 
 				name, CriteriaOperator.Like));
 		List<Company> companies = companyRep.findBy(query);
+		return companies;
+	}
+	
+	public List<Company> getBestRankedCompanies(int n) {
+		List<Company> companies = this.companyRep.findAll();
+		synchronized(companies) {
+			Collections.sort(companies, Company.RATING_ORDER);
+			if (companies.size() > n) {
+				companies = companies.subList(0, n);
+			}
+		}		
 		return companies;
 	}
 	

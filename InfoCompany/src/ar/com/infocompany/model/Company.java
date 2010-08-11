@@ -6,6 +6,7 @@ package ar.com.infocompany.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,7 +16,21 @@ import ar.com.infocompany.infraestructure.IAggregateRoot;
 public class Company extends BusinessBase implements IAggregateRoot {
 	
 	public static final String NAME = "name";
-	
+	public static final Comparator<Company> RATING_ORDER =
+			new Comparator<Company>() {
+				public int compare(Company c1, Company c2) {
+					int order = 0;
+					float r1 = c1.getRating();
+					float r2 = c2.getRating();
+					if (r1 < r2) {
+						order = -1;
+					} else if (r1 > r2) {
+						order = 1;
+					}
+					return order;
+				}
+			};
+
 	private String name;
 	private Industry industry;
 	private List<Critic> critics;
