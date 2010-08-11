@@ -44,6 +44,22 @@ public class Company extends BusinessBase implements IAggregateRoot {
 		return rating;
 	}
 	
+	public List<CriticItem> getItems(List<String> itemTags) {
+		List<CriticItem> items = new ArrayList<CriticItem>(itemTags.size());
+		int score = 0;
+		synchronized(this.critics) {
+			for (String tag : itemTags) {	
+				for (Critic critic : this.critics) {	
+					score += critic.getItem(tag).getScore();
+				}
+				score /= this.critics.size();
+				items.add(new CriticItem(tag, score));
+			}
+		}
+		
+		return items;
+	}
+		
 	public List<Critic> getBestCritics(int n) {
 		return this.getCritics(n, 1);
 	}
