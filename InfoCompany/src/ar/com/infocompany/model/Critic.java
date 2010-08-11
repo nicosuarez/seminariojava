@@ -14,7 +14,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	private User author;
 	private int salary;
 	private List<Comment> comments;
-	private List<Item> items;
+	private List<CriticItem> criticItems;
 	private int postiveScore;
 	private int negativeScore;
 	private String industryName;
@@ -36,7 +36,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		this.industryName = industryName;
 		this.postiveScore = 0;
 		this.negativeScore = 0;
-		this.items = new ArrayList<Item>();
+		this.criticItems = new ArrayList<CriticItem>();
 		this.comments = new ArrayList<Comment>();
 		this.comments.add(comment);
 	}
@@ -46,17 +46,17 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 
 	public Critic(User author, Comment comment,
-			Industry industry, Job job, int salary, List<Item> items) {
+			Industry industry, Job job, int salary, List<CriticItem> criticItems) {
 		this(author, comment, industry, job, salary);
-		this.items = items;
+		this.criticItems = criticItems;
 	}
 	
 	public float getScore() {
 		float score = 0;
-		for (Item item : this.items) {
-			score += item.getScore(); 
+		for (CriticItem criticItem : this.criticItems) {
+			score += criticItem.getScore(); 
 		}
-		score /= this.items.size();
+		score /= this.criticItems.size();
 		return score;
 	}
 	
@@ -104,8 +104,8 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		return this.salary;
 	}
 	
-	public List<Item> getItems() {
-		return this.items;
+	public List<CriticItem> getItems() {
+		return this.criticItems;
 	}
 	
 	public int getRepliesSize() {
@@ -126,8 +126,8 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		return this.comments.add(reply);
 	}
 		
-	public boolean addItem(Item criticItem) {
-		return this.items.add(criticItem);
+	public boolean addItem(CriticItem criticItem) {
+		return this.criticItems.add(criticItem);
 	}
 
 	protected void validate() {	
@@ -144,13 +144,13 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 			this.addBrokenRule("Author", "El autor del la critica es requerido.");
 		}
 		
-		if (this.items == null) {
+		if (this.criticItems == null) {
 			this.addBrokenRule("Items", "Una critica debe tener al menos un item calificado");
-		} else if (this.items.size() == 0 ) {
+		} else if (this.criticItems.size() == 0 ) {
 			this.addBrokenRule("Items", "Una critica debe tener al menos un item calificado");
 		} else {
-			for (Item item : this.items) {
-				this.addBrokenRule(item.getBrokenRules());
+			for (CriticItem criticItem : this.criticItems) {
+				this.addBrokenRule(criticItem.getBrokenRules());
 			}
 		}
 	}
