@@ -1,4 +1,4 @@
-package ar.com.infocompany.model.test;
+package test.ar.com.infocompany.model;
 
 import java.util.ArrayList;
 import java.util.List;
