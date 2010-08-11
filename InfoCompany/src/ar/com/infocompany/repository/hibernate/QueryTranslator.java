@@ -12,7 +12,7 @@ public class QueryTranslator {
 					criteria.add(org.hibernate.criterion.Expression.eq(c.getPropertyName(), c.getValue()));
 					break;
 				case Like:
-					criteria.add(org.hibernate.criterion.Expression.eq(c.getPropertyName(), String.format("%s%", c.getValue())));
+					criteria.add(org.hibernate.criterion.Expression.eq(c.getPropertyName(), String.format("%s", c.getValue())));
 					break;
 				default:
 					System.out.println("The operator is unknown.");

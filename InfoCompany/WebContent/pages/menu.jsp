@@ -6,7 +6,8 @@
             <a href="welcome.jsp">home</a>
         </li>
         <li>
-            <a href="companyListForm.jsp">Companias</a>
+	       	 <s:url id="companyList" action="SearchCompanyAction"></s:url> 
+	        <s:a href="%{companyList}" cssClass="permalink">Compañias</s:a>
         </li>
         <li>
             <a href="login.jsp">Log-in</a>

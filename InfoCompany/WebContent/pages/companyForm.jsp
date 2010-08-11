@@ -46,7 +46,7 @@
                    
                		 <s:iterator value="company.critics" status="itStatus">
                		 	<h1 class="title">
-               		 		<s:property value="getJob().getName()" />(<s:property value="getIndustry().getName()" />) &nbsp; &nbsp; $<s:property value="salary" />  
+               		 		<s:property value="getJob().getName()" />&nbsp;(<s:property value="getIndustry().getName()" />) &nbsp; &nbsp; <s:property value="getScore()" />  
                         	<br/>
                     	</h1>
 	                    <div class="entry">
@@ -56,9 +56,6 @@
 				                        <p>
 				                           <s:property value="getAuthorComment().getText()"/>
 				                        </p>
-			                        </td>
-			                        <td>
-				                        <s:property value="getScore()" />
 			                        </td>
 		                        </tr>
 	                        </table>
