@@ -35,10 +35,12 @@ public class Company extends BusinessBase implements IAggregateRoot {
 	
 	public float getRating() {
 		float rating = 0;
-		for (Critic critic : this.critics) {
-			rating += critic.getScore();
+		synchronized(this.critics) {
+			for (Critic critic : this.critics) {
+				rating += critic.getScore();
+			}
+			rating /= this.critics.size();
 		}
-		rating /= this.critics.size();
 		return rating;
 	}
 	
@@ -52,26 +54,20 @@ public class Company extends BusinessBase implements IAggregateRoot {
 	
 	public Critic getLastCritic() {
 		Critic lastCritic = null;
-		if (this.critics.size() > 0) {
-			lastCritic = this.critics.get(0);
-			for (Critic critic : this.critics) {
-				if (critic.getDate().before(lastCritic.getDate())) {
-					lastCritic = critic;
+		synchronized(this.critics) {
+			if (this.critics.size() > 0) {
+				lastCritic = this.critics.get(0);
+				for (Critic critic : this.critics) {
+					if (critic.getDate().before(lastCritic.getDate())) {
+						lastCritic = critic;
+					}
 				}
 			}
 		}
 		return lastCritic;
 	}
 		
-	public void removeCritic(Critic critic) {
-		this.critics.remove(critic);
-	}
-	
-	public boolean addCritic(Critic critic) {
-		return this.critics.add(critic);
-	}
-	
-	public List<Critic> getCritics(int n, int criteria) {
+	private List<Critic> getCritics(int n, int criteria) {
 		if (criteria == 1) {
 			Collections.sort(this.critics,
 					Collections.reverseOrder(Critic.comparator));
@@ -85,6 +81,14 @@ public class Company extends BusinessBase implements IAggregateRoot {
 	
 	public List<Critic> getCritics() {
 		return this.critics;
+	}
+	
+	public boolean removeCritic(Critic critic) {
+		return this.critics.remove(critic);
+	}
+	
+	public boolean addCritic(Critic critic) {
+		return this.critics.add(critic);
 	}
 	
 	public List<Job>  getRelatedJobs() {

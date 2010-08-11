@@ -54,7 +54,7 @@ public class Comment extends BusinessBase {
 	}
 	
 	protected void validate() {
-		if(isVoid(text)) {
+		if (this.isVoid(text)) {
 			this.addBrokenRule("Text", "El comentario es requerido.");
 		}
 		

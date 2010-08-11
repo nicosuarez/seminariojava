@@ -22,7 +22,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	private String jobName;
 	
 	@SuppressWarnings("unused")
-	private int version; //To concurrency control in Hibernate
+	private int version; // To concurrency control in Hibernate
 	
 	public Critic() {
 		
@@ -88,12 +88,19 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public Job getJob() {
-		
 		return Job.getJob(jobName);
 	}
 	
 	public Industry getIndustry() {
 		return Industry.getIndustry(industryName);
+	}
+	
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Location getLocation() {
+		return location;
 	}
 	
 	public Comment getAuthorComment() {
@@ -109,7 +116,10 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public List<Comment> getReplies() {
-		List<Comment> replies = this.comments.subList( 1, comments.size() ); 
+		List<Comment> replies;
+		synchronized(this.comments) {
+			replies = this.comments.subList(1, this.comments.size()); 
+		}
 		return replies;
 	}
 	
@@ -126,7 +136,7 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 			this.addBrokenRule("Job", "El trabajo es requerido.");
 		}
 		
-		if (this.salary > 0) {
+		if (this.salary <= 0) {
 			this.addBrokenRule("Salary", "El sueldo tiene que ser mayor que 0.");
 		}
 		
@@ -143,14 +153,6 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 				this.addBrokenRule(item.getBrokenRules());
 			}
 		}
-	}
-
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-
-	public Location getLocation() {
-		return location;
 	}
 		
 }
