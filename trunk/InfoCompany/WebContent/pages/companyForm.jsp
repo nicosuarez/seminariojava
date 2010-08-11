@@ -26,7 +26,7 @@
 							
 							<tr>
 							    <td colspan="1">
-							    	<!--<s:set var="Company" value="commpany" scope="session"/>-->
+							    	<!--<s:set var="Company" value="company" scope="session"/>-->
 									<s:url id="criticCompany" action="CriticCompany">
 										<s:param name="companyId" value="id" />
 									</s:url> 
@@ -72,13 +72,13 @@
 	                            <span class="posted">Posted on <s:property value="postedDate"/> by 
 	                            <s:property value="author.userName"/>(<s:property value="author.reputation"/>)</span>
 	                            
-	                            <s:url id="viewCritic" action="ViewCritic">
+	                            <s:url id="viewCritic" action="ViewCriticAction">
 									<s:param name="criticId" value="id" />
 									<s:param name="companyId" value="companyId" />
 								</s:url> 
 								
-	                            <a href="%{viewCritic}" class="permalink">More</a>
-	                            <a href="%{viewCritic}" class="comments">(<s:property value="repliesSize"/>)</a>
+	                            <s:a href="%{viewCritic}" cssClass="permalink">More</s:a>
+	                            <s:a href="%{viewCritic}" cssClass="comments">(<s:property value="repliesSize"/>)</s:a>
 	                        </p>
 	                    </div>
                     </s:iterator>

@@ -22,7 +22,7 @@
 						            <td><s:property value="name"/></td>
 						            <td><s:property value="industry.name"/></td>
 						            <td>
-						            	<s:url id="viewCompany" action="ViewCompany">
+						            	<s:url id="viewCompany" action="ViewCompanyAction">
 											<s:param name="companyId" value="id" />
 										</s:url> 
 										<s:a href="%{viewCompany}">Ver</s:a>
