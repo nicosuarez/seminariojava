@@ -23,6 +23,7 @@ import ar.com.infocompany.model.*;
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
 import ar.com.infocompany.repository.hibernate.CountryRepository;
 import ar.com.infocompany.repository.hibernate.IndustryRepository;
+import ar.com.infocompany.repository.hibernate.ItemRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 import ar.com.infocompany.repository.hibernate.HibernateUnitOfWork;
 
@@ -33,6 +34,7 @@ public class CompanyTest {
 	private static IUserRepository usrRep;
 	private static IIndustryRepository indRep;
 	private static ICountryRepository countryRep;
+	private static IItemRepository itemRep;
 	
 	@BeforeClass  
     public static void setUpClass() throws Exception {  
@@ -41,6 +43,7 @@ public class CompanyTest {
 		usrRep = new UserRepository();
 		indRep = new IndustryRepository();
 		countryRep = new CountryRepository();
+		itemRep = new ItemRepository();
     }  
       
     @AfterClass  
@@ -179,7 +182,8 @@ public class CompanyTest {
 		Country country = countryRep.findBy(1);
 		State state = country.getStates().get(0);
 		
-		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
+		Item item = itemRep.findAll().get(0);
+		CriticItem workEnviromentItem = new CriticItem(item.getName(), 10);
 
 		User user = null;
 		user = new User("scamjayi", 

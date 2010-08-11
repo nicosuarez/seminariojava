@@ -4,12 +4,13 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
 <hibernate-mapping package="ar.com.infocompany.model">
-    <class name="Item" table="Item" lazy="true">
+    <class name="CriticItem" table="CriticItem">
         <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
-                        
-        <property name="name" access="field" column="Name"></property>
-                
+        
+        <property name="tag" access="field" column="Tag"></property>
+        <property name="score" access="field" column="Score"></property>
+      
     </class>
 </hibernate-mapping>
