@@ -9,62 +9,50 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
+import ar.com.infocompany.infraestructure.IValueObject;
 
-public class Job extends BusinessBase {
+public class Job extends BusinessBase implements IValueObject{
 
-	private Industry industry;
 	private String name;
 	
 	private static List<Job> instances = new LinkedList<Job>();
 	
-	public static Job getJob(String industryName, String jobName) {
+	public static Job getJob(String jobName) {
 		Job job = null;
-		Industry industry = Industry.getIndustry(industryName); 
-			
+	
 		synchronized(instances) {
 			for(Job j :  instances){
-				if(j.getName().equals(jobName) && industry == j.getIndustry()){
+				if( j.getName().equals(jobName) ){
 					job = j;
 					break;
 				}
 			}
 			if(job == null){
-				job = new Job(industry,jobName);
+				job = new Job(jobName);
 				instances.add(job);
 			}
 		}
 		return job;
 	}
 	
-	//Probar si se puede sacar 
 	public Job() {
 	
 	}
 	
-	private Job(Industry industry, String jobName) {
-		if ((industry == null) || (jobName == null)) {
+	private Job(String jobName) {
+		if (jobName == null) {
 			throw new IllegalArgumentException();
 		}
-		this.industry = industry;
 		this.name = jobName;
 	}
 	
-	public Industry getIndustry() {
-		return this.industry;
-	}
 	
 	public String getName() {
 		return this.name;
 	}
 
 	@Override
-	protected void validate() {
-		if (this.industry == null) {
-			this.addBrokenRule("Industry", "La industria del trabajo es requerida.");
-		} else {
-			this.addBrokenRule(this.industry.getBrokenRules());
-		}
-		
+	protected void validate() {		
 		if(this.isVoid(name)) {
 			this.addBrokenRule("Name", "El nombre del trabajo es requerido.");
 		}

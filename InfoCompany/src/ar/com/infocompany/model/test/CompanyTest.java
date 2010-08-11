@@ -128,26 +128,28 @@ public class CompanyTest {
 		}
 	}
 	
-	@Ignore
+	@Test
 	public void testPersistCompany() {
 		String name = "Finnegans";
-		Industry industry = new Industry("IT");
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
 		Company company = new Company(name, industry);
 		User user = null;
+		
 		try {
 			user = new User("nsuarez", 
-								"password", 
-								"nsuarez@hotmail.com", 
-								new Job(industry,"Programador"), 
-								new Location("Argentina","Capital Federal"), 
-								1984);
+							"password", 
+							"nsuarez@hotmail.com", 
+							industry.getName(),
+							job.getName(),
+							new Location("Argentina","Capital Federal"), 
+							1984);
 			usrRep.save(user);
 		} catch (InvalidLocationException e) {
 			e.printStackTrace();
 		}
-		Job job = new Job(industry, "trabajo a criticar");
-							
-		Critic critic = user.makeCritic("esta company es barata", job, 2800);
+					
+		Critic critic = user.makeCritic("esta company es barata", industry, job, 2800);
 		
 		company.addCritic(critic);
 		comRep.save(company);
@@ -166,30 +168,28 @@ public class CompanyTest {
 	@Ignore
 	public void testUserPersistCompanyWithCritic() {
 		String name = "HP";
-		Industry industry = new Industry("IT");
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
 		Company company = new Company(name, industry);
-		
 		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
-		
+
 		User user = null;
 		try {
 			user = new User("scamjayi", 
 								"password", 
 								"scamjayi@hotmail.com", 
-								new Job(industry,"Programador"), 
+								industry.getName(),
+								job.getName(),
 								new Location("Argentina","Capital Federal"), 
 								1984);
 		} catch (InvalidLocationException e) {
 			e.printStackTrace();
 		}
-		
-		Job job = new Job(industry, "Jefe de Sistemas");
-							
-		Critic critic = user.makeCritic("me gusta criticar", job, 3333);
+				
+		Critic critic = user.makeCritic("me gusta criticar", industry, job, 3333);
 		critic.addItem(workEnviromentItem);
 		company.addCritic(critic);
 		
-		indRep.save(industry);
 		usrRep.save(user);
 		comRep.save(company);
 		
@@ -200,11 +200,15 @@ public class CompanyTest {
 	public void testUserCriticReply() throws InvalidLocationException {
 		
 		testUserPersistCompanyWithCritic();
+
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
 		
 		User user = new User("jlopez", 
 				"password", 
 				"jlopez@hotmail.com", 
-				new Job(new Industry("ITMM"),"Programador"), 
+				industry.getName(),
+				job.getName(),
 				new Location("Argentina","Buenos Aires"), 
 				1984);
 		
@@ -263,7 +267,7 @@ public class CompanyTest {
     	
 	}
 	
-	@Test
+	@Ignore
 	public void testUnitOfWork() {
 		User user = null;
 		Company company = null;
@@ -273,9 +277,11 @@ public class CompanyTest {
 			unitOfWork = new HibernateUnitOfWork();
 			comRep.inyect(unitOfWork);
 			usrRep.inyect(unitOfWork);
-			
-			Industry industry = new Industry("IT"); 
-			user = new User("Nicolas", "123456", "nsuarez@gmail.com", new Job(industry, "Programador"), new Location("AR", "BS AS"), 1983);
+
+			Industry industry = indRep.findBy(1);
+			Job job = industry.getJobs().get(0);
+ 
+			user = new User("Nicolas", "123456", "nsuarez@gmail.com", industry.getName(), job.getName(), new Location("AR", "BS AS"), 1983);
 			usrRep.save(user);
 			
 			company = new Company("Engenus", industry);

@@ -50,7 +50,10 @@ public class CriticTest {
       
     public static void addCritics() {
 		String name = "Coca Cola";
-		Industry industry = new Industry("Alimentos");
+
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
+
 		Company company = new Company(name, industry);
 		
 		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
@@ -61,22 +64,20 @@ public class CriticTest {
 			user = new User("Sebastian", 
 								"password", 
 								"seba@hotmail.com", 
-								new Job(industry,"Programador"), 
+								industry.getName(),
+								job.getName(),
 								new Location("Argentina","Capital Federal"), 
 								1984);
 		} catch (InvalidLocationException e) {
 			e.printStackTrace();
 		}
 		
-		Job job = new Job(industry, "Desarrolador");
-		
-		Critic critic = user.makeCritic("Esta empresa es lo mejor", job, 5000);
+		Critic critic = user.makeCritic("Esta empresa es lo mejor", industry, job, 5000);
 		critic.addItem(workEnviromentItem);
 		critic.addItem(salaryItem);
 		
 		company.addCritic(critic);
 		
-		indRep.save(industry);
 		usrRep.save(user);
 		comRep.save(company);
     }
@@ -85,7 +86,8 @@ public class CriticTest {
     @Test
 	public void testUserCritic() {
 		String name = "Finnegans";
-		Industry industry = new Industry("IT");
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
 		Company company = new Company(name, industry);
 		
 		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
@@ -96,22 +98,20 @@ public class CriticTest {
 			user = new User("nsuarez", 
 								"password", 
 								"nsuarez@hotmail.com", 
-								new Job(industry,"Programador"), 
+								industry.getName(),
+								job.getName(),
 								new Location("Argentina","Capital Federal"), 
 								1984);
 		} catch (InvalidLocationException e) {
 			e.printStackTrace();
 		}
 		
-		Job job = new Job(industry, "Tester");
-		
-		Critic critic = user.makeCritic("mi comentario es grosso", job, 1200);
+		Critic critic = user.makeCritic("mi comentario es grosso", industry, job, 1200);
 		critic.addItem(workEnviromentItem);
 		critic.addItem(salaryItem);
 		
 		company.addCritic(critic);
 		
-		indRep.save(industry);
 		usrRep.save(user);
 		comRep.save(company);
 
@@ -135,11 +135,14 @@ public class CriticTest {
     @Test
     public void testAddReply() {
 		User user = null;
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
 		try {
 			user = new User("Juancito", 
 								"password", 
 								"juancito@hotmail.com", 
-								new Job( new Industry("IT"),"Programador" ), 
+								industry.getName(),
+								job.getName(),
 								new Location("Argentina","Capital Federal"), 
 								1984);
 		} catch (InvalidLocationException e) {
@@ -178,7 +181,7 @@ public class CriticTest {
     		System.out.println("N°: " + critic.getId());
     		System.out.println("Autor: " + critic.getAuthor().getUserName());
     		System.out.println("Fecha: " + critic.getDate());
-    		System.out.println(critic.getJob().getName() + " (" + critic.getJob().getIndustry().getName() + ")");
+    		System.out.println(critic.getJob().getName() + " (" + critic.getIndustry().getName() + ")");
     		System.out.println("Salary: " + critic.getSalary());
 
     		List<Item> items = critic.getItems();

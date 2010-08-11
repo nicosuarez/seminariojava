@@ -20,7 +20,8 @@ public class User extends BusinessBase implements IAggregateRoot{
 	private String password;
 	private String email;
 	private int birthdayYear;
-	private Job job;
+	private String industryName;
+	private String jobName;
 	private Location location;
 	private int reputation;
 	
@@ -32,17 +33,18 @@ public class User extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public User(String userName, String password, 
-			String email, Job job, Location location, int birthdayYear) {
+			String email, String industryName, String jobName, Location location, int birthdayYear) {
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
-		this.job = job;
+		this.industryName = industryName;
+		this.jobName = jobName;
 		this.location = location;
 		this.birthdayYear = birthdayYear;
 	}
 	
-	public Critic makeCritic(String commentText, Job job, int salary) {
-		return new Critic(this, this.comment(commentText), job, salary);
+	public Critic makeCritic(String commentText, Industry industry, Job job, int salary) {
+		return new Critic(this, this.comment(commentText), industry, job, salary);
 	}
 	
 	public Comment comment(String text) {
@@ -82,11 +84,11 @@ public class User extends BusinessBase implements IAggregateRoot{
 	}
 		
 	public Job getJob() {
-		return this.job;
+		return Job.getJob(jobName);
 	}
 	
-	public void setJob(Job job) {
-		this.job = job;
+	public Industry getIndustry() {
+		return Industry.getIndustry(industryName);
 	}
 	
 	public Location getLocation() {
@@ -154,10 +156,8 @@ public class User extends BusinessBase implements IAggregateRoot{
 			}
 		}
 				
-		if (this.job == null) {
-			this.addBrokenRule("Job", "El trabajo actual del usuario es requerido.");
-		} else {
-			this.addBrokenRule(this.job.getBrokenRules());
+		if(this.isVoid(industryName) || this.isVoid(jobName) ) {
+			this.addBrokenRule("Job", "El trabajo es requerido.");
 		}
 		
 		if ((this.birthdayYear < 1950) || (this.birthdayYear >= (Calendar.getInstance().get(Calendar.YEAR) - 10))) {

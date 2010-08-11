@@ -10,5 +10,11 @@
         </id>
         <property name="name" access="field" column="name"/>
         
+        <bag name="jobs" access="field" cascade="all" lazy="false" table="Job" fetch="select">
+            <key column="IndustryId" not-null="true"/>
+            <one-to-many class="Job" />
+        </bag>
+        
+        
     </class>
 </hibernate-mapping>

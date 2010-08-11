@@ -8,9 +8,8 @@
         <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
-        
-        <many-to-one cascade="all" name="industry" class="Industry" access="field" column="IndustryId"></many-to-one>
+                        
         <property name="name" access="field" column="Name"></property>
-        
+                
     </class>
 </hibernate-mapping>
