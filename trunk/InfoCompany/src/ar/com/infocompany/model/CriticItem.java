@@ -28,6 +28,22 @@ public class CriticItem extends BusinessBase implements IValueObject{
 		return this.score;
 	}
 
+	public boolean equals(Object o) {
+		boolean equals = true;
+		if (o instanceof CriticItem) {
+			CriticItem item = (CriticItem) o;
+			if ((this.tag.equals(item.tag)) && (this.score == item.score)) {
+				equals = true;
+			}
+		}
+		return equals;
+	}
+	
+	public int hashcode() {
+		return (this.tag + this.score).hashCode();
+	}
+	
+	
 	protected void validate() {
 		if (this.isVoid(this.tag)) {
 			this.addBrokenRule("Tag", "El tag del item es requerido.");
