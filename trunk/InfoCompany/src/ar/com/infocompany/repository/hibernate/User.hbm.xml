@@ -26,30 +26,17 @@
         <property name="birthdayYear" access="field" type="integer">
             <column name="BirthdayYear"/>
         </property>
-           
-        <!-- No funciona componentes dentro de otros
-        <component name="job" access="field" class="Job">
-        	<component name="industry" access="field" class="Industry">
-        		<property name="industry" access="field" column="Industry"></property>
-        	</component>
-        	<property name="name" access="field" column="JobName"></property>
-        </component>
-          -->
-        
-        <!-- TODO: sacar cascade="all"  ver hay que hacer el repositorio de job -->
-        <many-to-one name="job" cascade="save-update" class="Job" access="field" column="JobId" not-null="true" lazy="false"/>
-        
+        <property name="industryName" access="field" type="string">
+        	<column name="IndustryName"/>
+        </property>
+         <property name="jobName" access="field" type="string">
+        	<column name="JobName"/>
+        </property>
+
          <component name="location" access="field" class="Location">
         	<property name="country" access="field" column="Country"></property>
         	<property name="state" access="field" column="State"></property>
          </component>
-      <!--    
-        <bag name="comments" cascade="all" access="field" inverse="true" lazy="false" table="Comment" fetch="select">
-            <key>
-                <column name="UserId" not-null="true" />
-            </key>
-            <one-to-many class="Comment"/>
-        </bag>
-       -->
+
     </class>
 </hibernate-mapping>

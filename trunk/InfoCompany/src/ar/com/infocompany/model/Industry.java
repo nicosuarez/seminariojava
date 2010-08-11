@@ -4,11 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
-import ar.com.infocompany.infraestructure.IAggregateRoot;
+import ar.com.infocompany.infraestructure.IValueObject;
 
-public class Industry extends BusinessBase implements IAggregateRoot {
+public class Industry extends BusinessBase implements IValueObject {
 	
 	private String name;
+	private List<Job> jobs;
 	private static List<Industry> instances = new LinkedList<Industry>();
 	
 	public static Industry getIndustry(String industryName) {
@@ -27,31 +28,29 @@ public class Industry extends BusinessBase implements IAggregateRoot {
 		}
 		return industry;
 	}
-	
-	//Probar si se puede sacar
+		
 	public Industry() {
 		
 	}
 	
-	private Industry(String name) {
-		this.name = name;
+	public Industry(String industryName){
+		this.name = industryName;
 	}
-		
+	
 	public String getName() {
 		return this.name;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public List<Job> getJobs() {
+		return jobs;
 	}
-
+	
 	@Override
 	protected void validate() {
 		if (isVoid(name)) {
 			this.addBrokenRule("Name", "El nombre de la industria es requerido.");
 		}
 	}
-
 }
 
 // eof

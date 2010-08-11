@@ -1,7 +1,7 @@
 package ar.com.infocompany.model;
 
-import ar.com.infocompany.infraestructure.IRepository;
+import ar.com.infocompany.infraestructure.IValueObjectRepository;
 
-public interface IIndustryRepository extends IRepository<Industry> {
+public interface IIndustryRepository extends IValueObjectRepository<Industry> {
 
 }

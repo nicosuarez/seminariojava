@@ -29,11 +29,11 @@
         	<property name="state" access="field" column="State"></property>
          </component>
          
-        <property name="industryName" access="field">
+        <property name="industryName" access="field" type="string">
             <column name="industry" />
         </property>
         
-        <property name="jobName" access="field">
+        <property name="jobName" access="field" type="string">
             <column name="job" />
         </property>
          

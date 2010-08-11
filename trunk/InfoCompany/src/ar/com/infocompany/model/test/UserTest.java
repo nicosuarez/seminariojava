@@ -21,6 +21,7 @@ import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.model.*;
 
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
+import ar.com.infocompany.repository.hibernate.IndustryRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
 
 
@@ -29,6 +30,7 @@ public class UserTest {
 	private static int amountUsers;
 	private static UserRepository rep = null;
 	private static CompanyRepository comRep = null;
+	private static IIndustryRepository indRep = null;
 	
 	private static void createUsers() {
 		amountUsers = 5;
@@ -40,13 +42,14 @@ public class UserTest {
     	}
  
     	rep = new UserRepository();
-    	Industry industry = new Industry("IT");
-    	Job job = new Job(industry,"Programador");
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
+
     	User user;
     	
     	for(int i=0; i<amountUsers; i++)
     	{
-    		user = new User("Juan " + String.valueOf(i), "123456", "juan" + String.valueOf(i) + "@lopez.com", job, location, 1984);
+    		user = new User("Juan " + String.valueOf(i), "123456", "juan" + String.valueOf(i) + "@lopez.com", industry.getName(), job.getName(), location, 1984);
     		rep.save(user);
     	}
 	}
@@ -55,6 +58,7 @@ public class UserTest {
     public static void setUpClass() throws Exception {  
 //		ar.com.infocompany.repository.hibernate.SessionFactory.getNewSession();
 		comRep = new CompanyRepository();
+		indRep = new IndustryRepository();
     	createUsers();
     }  
       
@@ -82,8 +86,10 @@ public class UserTest {
     	String password = "123456";
     	String email = "a@a.a";
     	int year = 1984;
-    	Industry industry = new Industry("IT");
-    	Job job = new Job(industry,"Programador");
+
+		Industry industry = indRep.findBy(1);
+		Job job = industry.getJobs().get(0);
+
     	Location location = null;
     	try {
     		location = new Location("Argentina", "Buenos Aires");
@@ -91,12 +97,12 @@ public class UserTest {
     		
     	}
     	  	
-    	User user = new User(username, password, email, job, location, year);
+    	User user = new User(username, password, email, industry.getName(), job.getName(), location, year);
     	rep.save(user);
     	amountUsers++;
     	
     	Company company = new Company("Adidas", industry);
-    	Critic critic = user.makeCritic("Este es un comentario", job, 1000);
+    	Critic critic = user.makeCritic("Este es un comentario", industry, job, 1000);
     	company.addCritic( critic );
     	comRep.save(company);
     	
@@ -118,7 +124,7 @@ public class UserTest {
     		System.out.println("Username: " + user.getUserName());
     		System.out.println("Password: " + user.getPassword());
     		System.out.println("Year: " + user.getBirthdayYear());
-    		System.out.println("Job: " + user.getJob().getName() + " (" + user.getJob().getIndustry().getName() + ")");
+    		System.out.println("Job: " + user.getJob().getName() + " (" + user.getIndustry().getName() + ")");
     		System.out.println("Location: " + user.getLocation().getState() + " (" + user.getLocation().getCountry() + ")");
     		System.out.println("Email:" + user.getEmail() + "\n");
     	}

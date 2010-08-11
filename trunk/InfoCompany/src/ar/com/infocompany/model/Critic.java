@@ -40,13 +40,13 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		this.comments.add(comment);
 	}
 	
-	public Critic(User author, Comment comment, Job job, int salary) {
-		this(author, comment, job.getName(), job.getIndustry().getName() , salary);
+	public Critic(User author, Comment comment, Industry industry, Job job, int salary) {
+		this(author, comment, job.getName(), industry.getName() , salary);
 	}
 
 	public Critic(User author, Comment comment,
-			Job job, int salary, List<Item> items) {
-		this(author, comment, job, salary);
+			Industry industry, Job job, int salary, List<Item> items) {
+		this(author, comment, industry, job, salary);
 		this.items = items;
 	}
 	
@@ -89,7 +89,11 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	
 	public Job getJob() {
 		
-		return Job.getJob(industryName, jobName);
+		return Job.getJob(jobName);
+	}
+	
+	public Industry getIndustry() {
+		return Industry.getIndustry(industryName);
 	}
 	
 	public Comment getAuthorComment() {
