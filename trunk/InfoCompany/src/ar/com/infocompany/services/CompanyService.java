@@ -49,8 +49,7 @@ public class CompanyService implements ICompanyService {
 	}
 
 	@Override
-	public Company findByName(String name)
-			throws ApplicationException {
+	public Company findByName(String name) throws ApplicationException {
 		Company company = null;
 		Query  query = new Query();
 		query.addCriteria(new Criteria(Company.NAME, 
