@@ -4,13 +4,15 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 	
 <hibernate-mapping package="ar.com.infocompany.model">
-    <class name="Item" table="CriticItems">
+    <class name="Country" table="Country">
         <id name="id" access="field" column="Id" unsaved-value="0">
             <generator class="native"></generator>
         </id>
+        <property name="name" access="field" column="Name"/>
         
-        <property name="tag" access="field" column="Tag"></property>
-        <property name="score" access="field" column="Score"></property>
-      
+        <bag name="states" access="field" cascade="all" lazy="false" table="State" fetch="select">
+            <key column="CountryId" not-null="true"/>
+            <one-to-many class="State" />
+        </bag>        
     </class>
 </hibernate-mapping>

@@ -16,8 +16,8 @@ public class SessionFactory {
 		_sessionFactory = config.configure().buildSessionFactory();
 		//config.addFile("")
 		//Construir la base de datos en base a los archivos de mapeo.
-		//org.hibernate.tool.hbm2ddl.SchemaExport se = new org.hibernate.tool.hbm2ddl.SchemaExport(config); 
-		//se.execute(false,true,false,false);
+//		org.hibernate.tool.hbm2ddl.SchemaExport se = new org.hibernate.tool.hbm2ddl.SchemaExport(config); 
+//		se.execute(false,true,false,false);
 //		File f=new File(servlet.getServletContext()
 //				.getRealPath("/WEB-INF/classes/hibernate.cfg.xml"));
 		

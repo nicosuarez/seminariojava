@@ -5,8 +5,9 @@
 package ar.com.infocompany.model;
 
 import ar.com.infocompany.infraestructure.BusinessBase;
+import ar.com.infocompany.infraestructure.IValueObject;
 
-public class Item extends BusinessBase {
+public class Item extends BusinessBase implements IValueObject{
 	
 	String tag;
 	int score;

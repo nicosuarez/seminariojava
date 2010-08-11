@@ -8,20 +8,22 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationException;
 import ar.com.infocompany.model.Comment;
 import ar.com.infocompany.model.Company;
+import ar.com.infocompany.model.Country;
 import ar.com.infocompany.model.Critic;
 import ar.com.infocompany.model.ICompanyRepository;
+import ar.com.infocompany.model.ICountryRepository;
 import ar.com.infocompany.model.ICriticRepository;
 import ar.com.infocompany.model.IIndustryRepository;
 import ar.com.infocompany.model.IUserRepository;
 import ar.com.infocompany.model.Industry;
 import ar.com.infocompany.model.Item;
 import ar.com.infocompany.model.Job;
-import ar.com.infocompany.model.Location;
+import ar.com.infocompany.model.State;
 import ar.com.infocompany.model.User;
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
+import ar.com.infocompany.repository.hibernate.CountryRepository;
 import ar.com.infocompany.repository.hibernate.CriticRepository;
 import ar.com.infocompany.repository.hibernate.IndustryRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
@@ -32,6 +34,7 @@ public class CriticTest {
 	private static IUserRepository usrRep;
 	private static IIndustryRepository indRep;
 	private static ICriticRepository criRep;
+	private static ICountryRepository countryRep;
 	
 	@BeforeClass  
     public static void setUpClass() throws Exception {  
@@ -40,6 +43,7 @@ public class CriticTest {
 		usrRep = new UserRepository();
 		indRep = new IndustryRepository();
 		criRep = new CriticRepository();
+		countryRep = new CountryRepository();
 		addCritics();
     }  
       
@@ -55,22 +59,21 @@ public class CriticTest {
 		Job job = industry.getJobs().get(0);
 
 		Company company = new Company(name, industry);
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
 		
 		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
 		Item salaryItem = new Item("Salario", 5);
 		
 		User user = null;
-		try {
-			user = new User("Sebastian", 
-								"password", 
-								"seba@hotmail.com", 
-								industry.getName(),
-								job.getName(),
-								new Location("Argentina","Capital Federal"), 
-								1984);
-		} catch (InvalidLocationException e) {
-			e.printStackTrace();
-		}
+		user = new User("Sebastian", 
+							"password", 
+							"seba@hotmail.com", 
+							industry.getName(),
+							job.getName(),
+							country.getName(),
+							state.getName(), 
+							1984);
 		
 		Critic critic = user.makeCritic("Esta empresa es lo mejor", industry, job, 5000);
 		critic.addItem(workEnviromentItem);
@@ -89,22 +92,20 @@ public class CriticTest {
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
 		Company company = new Company(name, industry);
-		
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
+				
 		Item workEnviromentItem = new Item("Ambiente Laboral", 10);
 		Item salaryItem = new Item("Salario", 5);
 		
-		User user = null;
-		try {
-			user = new User("nsuarez", 
+		User user = new User("nsuarez", 
 								"password", 
 								"nsuarez@hotmail.com", 
 								industry.getName(),
 								job.getName(),
-								new Location("Argentina","Capital Federal"), 
+								country.getName(),
+								state.getName(),
 								1984);
-		} catch (InvalidLocationException e) {
-			e.printStackTrace();
-		}
 		
 		Critic critic = user.makeCritic("mi comentario es grosso", industry, job, 1200);
 		critic.addItem(workEnviromentItem);
@@ -137,17 +138,17 @@ public class CriticTest {
 		User user = null;
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
-		try {
-			user = new User("Juancito", 
-								"password", 
-								"juancito@hotmail.com", 
-								industry.getName(),
-								job.getName(),
-								new Location("Argentina","Capital Federal"), 
-								1984);
-		} catch (InvalidLocationException e) {
-			e.printStackTrace();
-		}
+		Country country = countryRep.findBy(1);
+		State state = country.getStates().get(0);
+		
+		user = new User("Juancito", 
+							"password", 
+							"juancito@hotmail.com", 
+							industry.getName(),
+							job.getName(),
+							country.getName(),
+							state.getName(),
+							1984);
 		usrRep.save(user);
 		
 		Comment comment = new Comment(user, "Tu comentario es una poronga");

@@ -13,7 +13,6 @@ import ar.com.infocompany.infraestructure.query.Query;
 import ar.com.infocompany.model.Company;
 import ar.com.infocompany.model.ICompanyRepository;
 import ar.com.infocompany.model.ICompanyService;
-import ar.com.infocompany.model.User;
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
 
 public class CompanyService implements ICompanyService {
