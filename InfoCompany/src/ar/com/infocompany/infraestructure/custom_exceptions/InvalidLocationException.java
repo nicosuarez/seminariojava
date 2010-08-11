@@ -2,7 +2,9 @@ package ar.com.infocompany.infraestructure.custom_exceptions;
 
 public class InvalidLocationException extends ApplicationException {
 	
-    protected Throwable cause;
+	private static final long serialVersionUID = 2502046996813014739L;
+	
+	protected Throwable cause;
 
     public InvalidLocationException() {
         
