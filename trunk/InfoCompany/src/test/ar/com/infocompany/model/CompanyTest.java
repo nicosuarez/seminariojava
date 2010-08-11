@@ -134,7 +134,7 @@ public class CompanyTest {
 		}
 	}
 	
-	@Test
+	@Ignore
 	public void testPersistCompany() {
 		String name = "Finnegans";
 		Industry industry = indRep.findBy(1);
