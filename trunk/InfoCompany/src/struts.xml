@@ -107,6 +107,13 @@
 			<result>/pages/companyListForm.jsp</result>
 		</action>
 		
+		<action name="CommentAction" class="ar.com.infocompany.presentation.CommentAction">
+		<result type="redirect">
+			/pages/ViewCriticAction.action?criticId=${criticId}&amp;companyId=${companyId}
+		</result>
+   		 <result name="input">/pages/criticForm.jsp</result>
+		</action>
+		
 		
 	
 	</package>
