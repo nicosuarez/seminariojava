@@ -5,6 +5,7 @@
 package ar.com.infocompany.model;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,12 +46,12 @@ public class User extends BusinessBase implements IAggregateRoot{
 		this.birthdayYear = birthdayYear;
 	}
 	
-	public Critic makeCritic(String commentText, Industry industry, Job job, int salary)
+	public Critic makeCritic(String commentText, Industry industry, Job job, int salary , List<CriticItem> items )
 			throws UserInactiveException {
 		if (!this.isActive()) {
 			throw new UserInactiveException();
 		}
-		return new Critic(this, this.comment(commentText), industry, job, salary);
+		return new Critic(this, this.comment(commentText), industry, job, salary, items);
 	}
 	
 	public Comment comment(String text) throws UserInactiveException {

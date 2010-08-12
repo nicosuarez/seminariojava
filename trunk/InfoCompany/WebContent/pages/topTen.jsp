@@ -26,7 +26,8 @@
         <s:url id="rankGrowth" action="RankingAction" namespace="/pages">
        		<s:param name="criteria">GROWTH</s:param>
 		</s:url>     
-        <a href="<s:property value="%{rankGrowth}"/>">Crecimiento profesional</a>
+        <!--<a href="<s:property value="%{rankGrowth}"/>">Crecimiento profesional</a>-->
+        <a href="#">Crecimiento profesional</a>
     </li>
     <li>    
         <a href="#">Puestos mejores pagos</a>

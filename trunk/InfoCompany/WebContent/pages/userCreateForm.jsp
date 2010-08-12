@@ -21,7 +21,7 @@
 								
 							<s:doubleselect key="label.job"  name="industryName" list="industries" listKey="name" listValue="name" 
 							doubleName="jobName" doubleList="jobs" doubleListKey="name" doubleListValue="name"/>
-							<s:submit/>
+							<s:submit key="label.create"/>
 						</s:form>	
 						<s:actionerror />
 						<s:actionmessage />					

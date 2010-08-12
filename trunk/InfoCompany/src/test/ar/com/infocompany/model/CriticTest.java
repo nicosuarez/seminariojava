@@ -1,5 +1,6 @@
 package test.ar.com.infocompany.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -60,8 +61,13 @@ public class CriticTest {
 		Item item1 = viewService.findAllItems().get(0);
 		Item item2 = viewService.findAllItems().get(1);
 		
+		
+		List<CriticItem> criticItems = new ArrayList<CriticItem>();
+		
 		CriticItem workEnviromentItem = new CriticItem(item1.getName(), 10);
 		CriticItem salaryItem = new CriticItem(item2.getName(), 5);
+		criticItems.add(workEnviromentItem);
+		criticItems.add(salaryItem);
 		
 		User user = null;
 		user = new User("Sebastian", 
@@ -73,9 +79,7 @@ public class CriticTest {
 							state.getName(), 
 							1984);
 		
-		Critic critic = user.makeCritic("Esta empresa es lo mejor", industry, job, 5000);
-		critic.addItem(workEnviromentItem);
-		critic.addItem(salaryItem);
+		Critic critic = user.makeCritic("Esta empresa es lo mejor", industry, job, 5000, criticItems);
 		
 		company.addCritic(critic);
 		
@@ -95,8 +99,13 @@ public class CriticTest {
 				
 		Item item1 = viewService.findAllItems().get(0);
 		Item item2 = viewService.findAllItems().get(1);
+		
 		CriticItem workEnviromentItem = new CriticItem(item1.getName(), 6);
 		CriticItem salaryItem = new CriticItem(item2.getName(), 6);
+		
+		List<CriticItem> criticItems = new ArrayList<CriticItem>();
+		criticItems.add(workEnviromentItem);
+		criticItems.add(salaryItem);
 		
 		User user = new User("nsuarez", 
 								"password", 
@@ -107,10 +116,8 @@ public class CriticTest {
 								state.getName(),
 								1984);
 		
-		Critic critic = user.makeCritic("mi comentario es grosso", industry, job, 1200);
-		critic.addItem(workEnviromentItem);
-		critic.addItem(salaryItem);
-		
+		Critic critic = user.makeCritic("mi comentario es grosso", industry, job, 1200, criticItems);
+
 		company.addCritic(critic);
 		
 		usrRep.save(user);

@@ -153,14 +153,15 @@ public class CompanyTest {
 							state.getName(),
 							1984);
 			usrRep.save(user);
-					
-		Critic critic = user.makeCritic("esta company es barata", industry, job, 2800);
+		
+		List<Item> listItems = itemRep.findAll();
+		List<CriticItem> criticItems = new ArrayList<CriticItem>();
+		criticItems.add(new CriticItem(listItems.get(0).getName(), 10));
+		criticItems.add(new CriticItem(listItems.get(1).getName(), 4));
+			
+		Critic critic = user.makeCritic("esta company es barata", industry, job, 2800, criticItems);
 		critic.setCountry(country.getName());
 		critic.setState(state.getName());
-		List<Item> listItems = itemRep.findAll();
-		
-		critic.addItem(new CriticItem(listItems.get(0).getName(), 10));
-		critic.addItem(new CriticItem(listItems.get(1).getName(), 4));
 		
 		company.addCritic(critic);
 		comRep.save(company);
@@ -186,9 +187,12 @@ public class CompanyTest {
 		Country country = countryRep.findBy(1);
 		State state = country.getStates().get(0);
 		
+		
 		Item item = itemRep.findAll().get(0);
+		List<CriticItem> criticItems = new ArrayList<CriticItem>();
 		CriticItem workEnviromentItem = new CriticItem(item.getName(), 10);
-
+		criticItems.add(workEnviromentItem);
+	
 		User user = null;
 		user = new User("scamjayi", 
 								"password", 
@@ -199,7 +203,7 @@ public class CompanyTest {
 								state.getName(), 
 								1984);
 				
-		Critic critic = user.makeCritic("me gusta criticar", industry, job, 3333);
+		Critic critic = user.makeCritic("me gusta criticar", industry, job, 3333, criticItems);
 		critic.addItem(workEnviromentItem);
 		company.addCritic(critic);
 		

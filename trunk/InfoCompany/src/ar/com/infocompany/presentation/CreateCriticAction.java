@@ -13,7 +13,9 @@ import ar.com.infocompany.model.IUserService;
 import ar.com.infocompany.model.IViewService;
 import ar.com.infocompany.model.Industry;
 import ar.com.infocompany.model.Item;
+import ar.com.infocompany.model.Job;
 import ar.com.infocompany.model.User;
+import ar.com.infocompany.model.UserInactiveException;
 import ar.com.infocompany.services.CompanyService;
 import ar.com.infocompany.services.UserService;
 import ar.com.infocompany.services.ViewService;
@@ -48,11 +50,10 @@ public class CreateCriticAction extends ActionSupport implements UserAware {
 			}else {
 				company = companyService.findById(companyId);
 			}
-			
-			Critic critic = new Critic(user, 
-									new Comment(user, comment),
-									jobName,
-									industryName, 
+
+			Critic critic = user.makeCritic(comment,
+									Industry.getIndustry(industryName), 
+									Job.getJob(jobName),
 									salary,
 									setScoreCriticItems(this.itemsScore)); 
 			
@@ -61,7 +62,8 @@ public class CreateCriticAction extends ActionSupport implements UserAware {
 			companyId = company.getId();
 			
 		} catch (ApplicationException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UserInactiveException e) {
 			e.printStackTrace();
 		}
 		
