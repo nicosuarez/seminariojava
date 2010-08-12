@@ -1,6 +1,6 @@
 package ar.com.infocompany.presentation;
 
-import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException;
+import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 import ar.com.infocompany.model.Comment;
 import ar.com.infocompany.model.Company;
 import ar.com.infocompany.model.Critic;

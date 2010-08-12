@@ -3,7 +3,7 @@ package ar.com.infocompany.presentation;
 
 import java.util.List;
 
-import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException;
+import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 import ar.com.infocompany.model.Company;
 
 import ar.com.infocompany.model.CriticItem;

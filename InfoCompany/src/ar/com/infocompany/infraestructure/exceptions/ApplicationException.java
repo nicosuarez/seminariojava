@@ -1,4 +1,4 @@
-package ar.com.infocompany.infraestructure.custom_exceptions;
+package ar.com.infocompany.infraestructure.exceptions;
 
 import java.util.List;
 

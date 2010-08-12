@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException;
+import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 import ar.com.infocompany.model.Industry;
 import ar.com.infocompany.model.Job;
 import ar.com.infocompany.model.User;

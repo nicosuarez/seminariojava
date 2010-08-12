@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import ar.com.infocompany.infraestructure.BrokenRule;
-import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException;
+import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 import ar.com.infocompany.infraestructure.query.Criteria;
 import ar.com.infocompany.infraestructure.query.CriteriaOperator;
 import ar.com.infocompany.infraestructure.query.Query;

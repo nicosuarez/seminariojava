@@ -1,6 +1,6 @@
 package ar.com.infocompany.infraestructure;
 
-import ar.com.infocompany.infraestructure.custom_exceptions.ConcurrencyException;
+import ar.com.infocompany.infraestructure.exceptions.ConcurrencyException;
 
 public interface IUnitOfWork {
 	void save( IAggregateRoot entity );
