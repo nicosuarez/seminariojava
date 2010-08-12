@@ -25,8 +25,8 @@
 							<tr>
 							    <td colspan="1">
 							    	<!--<s:set var="Company" value="company" scope="session"/>-->
-									<s:url id="criticCompany" action="CriticCompany">
-										<s:param name="companyId" value="id" />
+									<s:url id="criticCompany" action="PrepareCreateCriticAction">
+										<s:param name="companyId" value="companyId" />
 									</s:url> 
 									<s:a href="%{criticCompany}">Criticar</s:a>
 								</td>

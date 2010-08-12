@@ -78,6 +78,17 @@
 			<result name="input">companyListForm.jsp</result>
 		</action>
 		
+		<action name="PrepareCreateCriticAction" class="ar.com.infocompany.presentation.CriticAction">
+			<result name="success">criticCreateForm.jsp</result>
+			<result name="input">companyForm.jsp</result>
+		</action>
+		
+		<action name="CreateCriticAction" class="ar.com.infocompany.presentation.CreateCriticAction">
+			<result type="redirect">/pages/ViewCompanyAction.action?companyId=${companyId} 
+			</result>
+			<result name="input">criticCreateForm.jsp</result>
+		</action>
+
 		<action name="ViewCriticAction" class="ar.com.infocompany.presentation.ViewCriticAction">
 			<result name="success">criticForm.jsp</result>
 			<result name="input">companyForm.jsp</result>
