@@ -45,11 +45,18 @@ public class User extends BusinessBase implements IAggregateRoot{
 		this.birthdayYear = birthdayYear;
 	}
 	
-	public Critic makeCritic(String commentText, Industry industry, Job job, int salary) {
+	public Critic makeCritic(String commentText, Industry industry, Job job, int salary)
+			throws UserInactiveException {
+		if (!this.isActive()) {
+			throw new UserInactiveException();
+		}
 		return new Critic(this, this.comment(commentText), industry, job, salary);
 	}
 	
-	public Comment comment(String text) {
+	public Comment comment(String text) throws UserInactiveException {
+		if (!this.isActive()) {
+			throw new UserInactiveException();
+		}
 		return new Comment(this, text);
 	}
 		

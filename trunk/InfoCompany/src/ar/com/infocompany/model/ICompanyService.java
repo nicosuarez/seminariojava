@@ -2,7 +2,7 @@ package ar.com.infocompany.model;
 
 import java.util.List;
 
-import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException;
+import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 
 public interface ICompanyService {
 	

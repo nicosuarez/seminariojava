@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 
 import ar.com.infocompany.infraestructure.IAggregateRoot;
 import ar.com.infocompany.infraestructure.IUnitOfWork;
-import ar.com.infocompany.infraestructure.custom_exceptions.ConcurrencyException;
+import ar.com.infocompany.infraestructure.exceptions.ConcurrencyException;
 
 public class HibernateUnitOfWork implements IUnitOfWork {
 
