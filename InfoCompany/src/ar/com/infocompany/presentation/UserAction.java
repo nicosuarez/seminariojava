@@ -22,12 +22,12 @@ public class UserAction extends ActionSupport implements UserAware {
 	
 	public String execute(){
 		
-//		if(user == null){
-//			return INPUT;
-//		}
-			
 		countries = viewService.findAllCountries();
 		industries = viewService.findAllIndustries();
+		
+		if(user == null){
+			return INPUT;
+		}	
 		
 		return SUCCESS;
 	}

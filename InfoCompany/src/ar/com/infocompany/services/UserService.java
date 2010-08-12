@@ -37,6 +37,14 @@ public class UserService implements IUserService {
 		}
 	}
 	
+	public void updateUser(User user) throws ApplicationException {
+		List<BrokenRule> brokenRules = user.getBrokenRules();
+		if (brokenRules.size() > 0) {
+			throw new ApplicationException("Error en el registro de usuario", brokenRules);
+		}	
+		userRep.save(user);
+	}
+	
 	public User authenticateUser(String userName, String password)
 			throws ApplicationException {
 		User user = this.getUser(userName);

@@ -24,12 +24,12 @@
 					    </table>
                     </div>
                     <div class="entry">
-	                    <s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages" >
+	                    <s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages/secure" >
 							<s:param name="companyId" value="companyId" />
 						</s:url> 
 						<s:a href="%{criticCompany}">Opinar sobre <s:property value="company.name"/></s:a>
 						&nbsp;&nbsp;&nbsp;
-						<s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages" >
+						<s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages/secure" >
 							<s:param name="companyId" value="0" />
 						</s:url> 
 						<s:a href="%{criticCompany}">Opinar sobe nueva compania</s:a>

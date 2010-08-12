@@ -56,6 +56,9 @@ public class CriticAction extends ActionSupport implements UserAware {
 	public String execute() {
 		
 		if(companyId != 0) {
+			if(user==null) {
+				return INPUT;
+			}
 			try {
 				company = companyService.findById(companyId);
 			} catch (ApplicationException e) {

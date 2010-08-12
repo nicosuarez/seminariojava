@@ -2,28 +2,30 @@ package ar.com.infocompany.presentation;
 
 import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 import ar.com.infocompany.model.IUserService;
+import ar.com.infocompany.model.Industry;
+import ar.com.infocompany.model.Job;
 import ar.com.infocompany.model.User;
+import ar.com.infocompany.services.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 public class EditUserAction extends ActionSupport implements UserAware {
 
 	private static final long serialVersionUID = 1L;
-	private IUserService userService;
-	
-	private String userName;
-	private String password;
-	private String email;
-	private int birthdayYear;
+	private IUserService userService = new UserService();
 	private String industryName;
 	private String jobName;
-	private String country;
-	private String state; 
+	private User user;
 	
 	public String execute(){
 		try {
-			User user = new User(userName, password, email, industryName, jobName, country, state, birthdayYear);
-			userService.registerUser(user);
+			if(user != null) {
+				user.setIndustry(Industry.getIndustry(industryName));
+				user.setJob(Job.getJob(jobName));
+				userService.updateUser(user);
+			}else {
+				return INPUT;
+			}
 		} catch (ApplicationException e) {
 			this.addActionMessage(e.getMessage());
 			return INPUT;
@@ -46,13 +48,6 @@ public class EditUserAction extends ActionSupport implements UserAware {
 	
 	public void validate() {
 		
-		if( getUserName().length() == 0 ){
-			addFieldError("userName","UserName is required");	
-		}
-		
-		if( getBirthdayYear() == 0 ){
-			addFieldError("birthdayYear","BirthDay is required");	
-		}
 	}
 
 	public void prepare() throws Exception 
@@ -77,58 +72,14 @@ public class EditUserAction extends ActionSupport implements UserAware {
 		this.industryName = industryName;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getBirthdayYear() {
-		return birthdayYear;
-	}
-
-	public void setBirthdayYear(int birthdayYear) {
-		this.birthdayYear = birthdayYear;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
 	@Override
 	public void setUser(User user) {
-		// TODO Auto-generated method stub
+		this.user = user;
 		
+	}
+
+	public User getUser() {
+		return user;
 	}
 	
 

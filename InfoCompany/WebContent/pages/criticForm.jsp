@@ -8,8 +8,8 @@
         <div id="page">
             <div id="content">
                 <div id="latest-post" class="post">
-                    <h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2>
-                    <h2 class="title"><s:property value="critic.getJob().getName()"/> &nbsp; (<s:property value="critic.getIndustry().getName()"/>)&nbsp;| Salario: $<s:property value="critic.salary"/></h2>
+                    <h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2><br/>
+                    <h2 class="title"><s:property value="critic.getJob().getName()"/> &nbsp; (<s:property value="critic.getIndustry().getName()"/>)&nbsp;| Salario: $<s:property value="critic.salary"/></h2><br/>
                     <div class="entry"> 
 	                    <table>
 						    <tr>

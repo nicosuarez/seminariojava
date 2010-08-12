@@ -13,7 +13,7 @@
                     
                     <s:if test="companies.size() == 0">
                    		<h3>No se ha encontrado ningun resultado para "<b><s:property value="companyName"/></b>",
-                   		<s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages" >
+                   		<s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages/secure" >
 							<s:param name="companyId" value="0" />
 						</s:url> 
 						<s:a href="%{criticCompany}"> desea agregar la compañia</s:a> </h3><br/>
@@ -33,7 +33,7 @@
 					            <td><s:property value="industry.name"/></td>
 					            <td> <s:property value="getRating()"/></td>
 					            <td>
-					            	<s:url id="viewCompany" action="ViewCompanyAction">
+					            	<s:url id="viewCompany" action="ViewCompanyAction" namespace="/pages">
 										<s:param name="companyId" value="id" />
 									</s:url> 
 									<s:a href="%{viewCompany}">Ver</s:a>
