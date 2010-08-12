@@ -36,11 +36,13 @@ public class UserAction extends ActionSupport{
 	}
 	
 	public void validate() {
-		if(user.getUserName().length() == 0 ){
+		if(user == null)
+			return;
+		if( user.getUserName().length() == 0 ){
 			addFieldError("user.userName","UserName is required");	
 		}
 		
-		if(user.getBirthdayYear() == 0 ){
+		if( user.getBirthdayYear() == 0 ){
 			addFieldError("user.birthdayYear","BirthDay is required");	
 		}
 		

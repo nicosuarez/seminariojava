@@ -28,11 +28,11 @@
       <property name="modelService" ref="modelService"/>
    </bean>
    
-   <bean id="springLoginAction" class="ar.com.infocompany.actions.LoginAction"
+   <bean id="springLoginAction" class="ar.com.infocompany.presentation.LoginAction"
    	scope="prototype">
-      <property name="businessService" ref="businessService"/>
+      <property name="userService" ref="userService"/>
    </bean>
-   
+  
    <bean id="springUserRegisterAction" class="ar.com.infocompany.presentation.UserAction"
    	scope="prototype">
       <property name="userService" ref="userService"/>

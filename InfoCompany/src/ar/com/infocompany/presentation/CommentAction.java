@@ -11,21 +11,21 @@ import ar.com.infocompany.services.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CommentAction extends ActionSupport{
+public class CommentAction extends ActionSupport implements UserAware{
 	
 	private static final long serialVersionUID = 6571444032727688786L;
 	
 	ICompanyService compService = new CompanyService();
-	UserService userService = new UserService();
+	//UserService userService = new UserService();
 	int companyId;
 	int criticId;
 	String textComment;
 	Company company;
+	User user;
 
 	public String execute() {
 		try {
-			//TODO: El usuario debe estar logueado
-			User user = userService.findAllUsers().get(0);
+//			User user = userService.findAllUsers().get(0);
 			company = compService.findById(companyId);
 			Critic critic = company.getCriticById(criticId);
 			critic.addReply(user.comment(textComment));
@@ -60,5 +60,11 @@ public class CommentAction extends ActionSupport{
 	
 	public int getCriticId() {
 		return this.criticId;
+	}
+
+	@Override
+	public void setUser(User user) {
+		this.user = user;
+		
 	}
 }

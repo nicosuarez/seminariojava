@@ -1,4 +1,6 @@
-package ar.com.infocompany.entities;
+package ar.com.infocompany.presentation;
+
+import ar.com.infocompany.model.User;
 
 
 

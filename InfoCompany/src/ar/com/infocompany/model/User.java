@@ -73,7 +73,7 @@ public class User extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public boolean isActive() {	
-		return (this.reputation < BusinessRules.USER_ACTIVE_TRESHOLD);
+		return (this.reputation > BusinessRules.USER_ACTIVE_TRESHOLD);
 	}
 	
 	public String getEmail() {

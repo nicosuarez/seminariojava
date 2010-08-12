@@ -63,7 +63,7 @@
 		
 		<action name="LoginAction" class="springLoginAction">
 			<result type="redirect">
-				/pages/secure/getAllCompanies.action
+				/pages/welcome.jsp
 			</result>
 			<result name="input">/pages/login.jsp</result>
 		</action>
@@ -118,13 +118,6 @@
 			<result>/pages/companyListForm.jsp</result>
 		</action>
 		
-		<action name="CommentAction" class="ar.com.infocompany.presentation.CommentAction">
-		<result type="redirect">
-			/pages/ViewCriticAction.action?criticId=${criticId}&amp;companyId=${companyId}
-		</result>
-   		 <result name="input">/pages/companyListForm.jsp</result>
-		</action>
-		
 		<action name="CriticAbuseAction" class="ar.com.infocompany.presentation.CriticAbuseAction">
 		<result type="redirect">
 			/pages/ViewCompanyAction.action?companyId=${companyId}
@@ -143,13 +136,9 @@
 	</package>
 	
 	<package name="infoCompanySecure" namespace="/pages/secure" extends="struts-default">
-		<!--<result-types>
-			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
-		</result-types>-->
 		<interceptors>
-
 			<interceptor name="authenticationInterceptor"
-				class="ar.com.infocompany.utils.AuthenticationInterceptor" />
+				class="ar.com.infocompany.presentation.AuthenticationInterceptor" />
 
 			<interceptor-stack name="secureStack">
 				<interceptor-ref name="authenticationInterceptor" />
@@ -162,7 +151,7 @@
 
 		<global-results>
 			<result name="login" type="redirect">
-				/pages/LoginForm.action
+				/pages/LoginAction.action
 			</result>
 			<result name="error">/pages/error.jsp</result>
 		</global-results>
@@ -187,6 +176,13 @@
 		
 		<action name="deleteCompany" method="deleteCompany" class="springCompanyAction">
 			<result name="success" type="redirectAction">getAllCompanies</result>
+		</action>
+		
+		<action name="CommentAction" class="ar.com.infocompany.presentation.CommentAction">
+		<result type="redirect">
+			/pages/ViewCriticAction.action?criticId=${criticId}&amp;companyId=${companyId}
+		</result>
+   		 <result name="input">/pages/companyListForm.jsp</result>
 		</action>
 		
 	</package>

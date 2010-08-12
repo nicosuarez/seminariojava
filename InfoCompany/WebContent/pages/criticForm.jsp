@@ -29,7 +29,7 @@
                         <br/>
                     </h2>
                     <div class="entry">
-                    	<s:form action="CommentAction">
+                    	<s:form action="CommentAction" namespace="/pages/secure">
                         	<s:textarea rows="5" cols="60" name="textComment"/>
 							    <s:hidden name="criticId" value="%{criticId}">
 							    </s:hidden> 
