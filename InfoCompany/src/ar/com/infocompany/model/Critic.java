@@ -42,11 +42,6 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		this.comments.add(comment);
 	}
 	
-	@Deprecated
-	public Critic(User author, Comment comment, Industry industry, Job job, int salary) {
-		this(author, comment, job.getName(), industry.getName() , salary);
-	}
-	
 	public Critic(User author, Comment comment, Industry industry,
 			Job job, int salary, List<CriticItem> items) {
 		this(author, comment, job.getName(), industry.getName() , salary, items);

@@ -22,9 +22,9 @@ public class Company extends BusinessBase implements IAggregateRoot {
 					int order = 0;
 					float r1 = c1.getRating();
 					float r2 = c2.getRating();
-					if (r1 < r2) {
+					if (r1 > r2) {
 						order = -1;
-					} else if (r1 > r2) {
+					} else if (r1 < r2) {
 						order = 1;
 					}
 					return order;
@@ -37,9 +37,9 @@ public class Company extends BusinessBase implements IAggregateRoot {
 				int order = 0;
 				float r1 = c1.getItem("Ambiente").getScore();
 				float r2 = c2.getItem("Ambiente").getScore();
-				if (r1 < r2) {
+				if (r1 > r2) {
 					order = -1;
-				} else if (r1 > r2) {
+				} else if (r1 < r2) {
 					order = 1;
 				}
 				return order;
@@ -52,9 +52,9 @@ public class Company extends BusinessBase implements IAggregateRoot {
 					int order = 0;
 					float r1 = c1.getItem("Beneficios").getScore();
 					float r2 = c2.getItem("Beneficios").getScore();
-					if (r1 < r2) {
+					if (r1 > r2) {
 						order = -1;
-					} else if (r1 > r2) {
+					} else if (r1 < r2) {
 						order = 1;
 					}
 					return order;
@@ -67,9 +67,9 @@ public class Company extends BusinessBase implements IAggregateRoot {
 					int order = 0;
 					float r1 = c1.getItem("Crecimiento Profesional").getScore();
 					float r2 = c2.getItem("Crecimiento Profesional").getScore();
-					if (r1 < r2) {
+					if (r1 > r2) {
 						order = -1;
-					} else if (r1 > r2) {
+					} else if (r1 < r2) {
 						order = 1;
 					}
 					return order;

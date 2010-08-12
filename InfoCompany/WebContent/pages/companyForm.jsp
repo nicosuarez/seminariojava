@@ -8,7 +8,7 @@
         <div id="page">
             <div id="content">
                 <div id="latest-post" class="post">
-                    <h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2>
+                    <h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2><br/>
                     <div class="entry"> 
 	                    <table>
 						    <tr>
@@ -17,7 +17,7 @@
 						    </tr>
 						    <s:iterator value="criticItems">
 						        <tr>
-						        	<td ><s:property value="tag"/></td>
+						        	<td ><s:property value="tag"/>:&nbsp;</td>
 						            <td ><s:property value="score"/></td>
 						        </tr>	
 							</s:iterator>

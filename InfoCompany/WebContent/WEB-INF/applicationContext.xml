@@ -7,31 +7,10 @@
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
  
-   <bean id="companyDAO" class="ar.com.infocompany.dao.CompanyHibernateDAO"/>
-   <bean id="fieldDAO" class="ar.com.infocompany.dao.FieldHibernateDAO"/>
-   <bean id="userDAO" class="ar.com.infocompany.dao.UserHibernateDAO"/>
-   
    <bean id="userService" class="ar.com.infocompany.services.UserService"/>
    <bean id="viewService" class="ar.com.infocompany.services.ViewService"/>
    <bean id="companyService" class="ar.com.infocompany.services.CompanyService"/>
-   
-   
-   <bean id="modelService" class="ar.com.infocompany.services.ModelService">
-   		<property name="companyDAO" ref="companyDAO"/>
-   		<property name="fieldDAO" ref="fieldDAO"/>
-   		<property name="userDAO" ref="userDAO"/>
-   </bean>
-   
-   <bean id="businessService" class="ar.com.infocompany.services.BusinessService"
-   	scope="prototype">
-      <property name="modelService" ref="modelService"/>
-   </bean>
- 
-   <bean id="springCompanyAction" class="ar.com.infocompany.actions.CompanyAction"
-   	scope="prototype">
-      <property name="modelService" ref="modelService"/>
-   </bean>
-   
+
    <bean id="springLoginAction" class="ar.com.infocompany.presentation.LoginAction"
    	scope="prototype">
       <property name="userService" ref="userService"/>

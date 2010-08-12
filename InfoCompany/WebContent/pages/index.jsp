@@ -31,7 +31,7 @@
                     </div>
 
                     <br/>
-                    <div style="margin: auto; width: 50%;">
+                    <div style="margin: auto; width: 80%;">
 	                     <s:iterator value="companyCloud.tags()" status="status" >
 				       		 <a href="<s:property value="link"/>" style="font-size: <s:property value="weight"/>px;"><s:property value="name" /></a>
 				   		 </s:iterator>

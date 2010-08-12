@@ -4,38 +4,6 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="infoCompany" extends="struts-default">
-		<!--<result-types>
-			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
-		</result-types>-->
-		<global-results>
-			<result name="error">/pages/error.jsp</result>
-		</global-results>
-		
-		<global-exception-mappings>
-			<exception-mapping exception="java.lang.Exception"
-				result="error" />
-		</global-exception-mappings>
-		
-		<action name="simpleechoAction" method="simpleecho" class="springCompanyAction">
-			<result  name="SUCCESS">/pages/userCreateForm.jsp</result>
-			<result name="input">/pages/userCreateForm.jsp</result>
-		</action>
-		
-		<action name="UserAction" class="ar.com.infocompany.presentation.UserAction">
-			<result name="input">/pages/userCreateForm.jsp</result>
-			<result type="redirectAction">UserCreateForm</result>
-			<result name="SUCCESS">/pages/index.jsp</result>
-			<result name="INPUT">/pages/userCreateForm.jsp</result>
-		</action>
-		
-		<action name="SearchCompanyAction" class="ar.com.infocompany.presentation.SearchCompanyAction">
-			<result>/pages/companyListForm.jsp</result>
-		</action>
-		
-		
-	</package>
-	
 	<package name="infoCompanyPublic" namespace="/pages" extends="struts-default">
 		<global-results>
 			<result name="error">/pages/error.jsp</result>
@@ -80,13 +48,6 @@
 			<result name="input">companyForm.jsp</result>
 		</action>
 		
-		<!--<action name="userRegisterAction" method="createUser" class="springUserRegisterAction">
-			<result type="redirectAction">UserCreateForm</result>
-			<result name="SUCCESS">/pages/userCreateForm.jsp</result>
-			<result name="error">/pages/userCreateForm.jsp</result>
-		</action>-->
-	
-		
 		<action name="UserRegisterSuccesfull" class="ar.com.infocompany.presentation.CreateUserAction" method="userRegisterSuccesfull" >
 			<result name="success">
 				/pages/userRegisterSuccesfull.jsp?userName=${userName}
@@ -96,14 +57,6 @@
 		<action name="UserAction" class="ar.com.infocompany.presentation.UserAction">
 			<result name="success">/pages/userCreateForm.jsp</result>
 			<result name="input">/pages/userCreateForm.jsp</result>
-		</action>
-		
-		<action name="setUpForInsertOrUpdateUser" method="setUpForInsertOrUpdateUser" class="springUserRegisterAction">
-			<result type="redirectAction">UserCreateForm</result>
-		</action>
-	
-		<action name="TestAjaxAction" method="TestAjax" class="springCompanyAction">
-				<result name="SUCCESS">/pages/test1.jsp</result>
 		</action>
 		
 		<action name="SearchCompanyAction" class="ar.com.infocompany.presentation.SearchCompanyAction">
@@ -125,8 +78,8 @@
 		</action>
 		
 		<action name="RankingAction" class="ar.com.infocompany.presentation.RankingAction" >
-			<result name="success">/pages/companyListForm.jsp</result>
-			<result name="input">/pages/companyListForm.jsp</result>
+			<result name="success">/pages/reports.jsp</result>
+			<result name="input">/pages/reports.jsp</result>
 		</action>
 		
 		<action name="CreateUserAction" class="ar.com.infocompany.presentation.CreateUserAction">
@@ -162,28 +115,11 @@
 				result="error" />
 		</global-exception-mappings>
 		
-		<action name="getAllCompanies" method="getAllCompanies" class="springCompanyAction">
-			<result name="success">/pages/companies.jsp</result>
-		</action>
-		
-		<action name="setUpForInsertOrUpdateCompany" method="setUpForInsertOrUpdateCompany" class="springCompanyAction">
-			<result name="success">/pages/companyForm.jsp</result>
-		</action>
-		
-		<action name="insertOrUpdateCompany" method="insertOrUpdateCompany" class="springCompanyAction">
-			<result name="input">/pages/companyForm.jsp</result>
-			<result name="success">/pages/companyForm.jsp</result>
-		</action>
-		
-		<action name="deleteCompany" method="deleteCompany" class="springCompanyAction">
-			<result name="success" type="redirectAction">getAllCompanies</result>
-		</action>
-		
 		<action name="CommentAction" class="ar.com.infocompany.presentation.CommentAction">
-		<result type="redirect">
-			/pages/ViewCriticAction.action?criticId=${criticId}&amp;companyId=${companyId}
-		</result>
-   		 <result name="input">/pages/companyListForm.jsp</result>
+			<result type="redirect">
+				/pages/ViewCriticAction.action?criticId=${criticId}&amp;companyId=${companyId}
+			</result>
+	   		 <result name="input">/pages/companyListForm.jsp</result>
 		</action>
 		
 		<action name="CreateCriticAction" class="ar.com.infocompany.presentation.CreateCriticAction">

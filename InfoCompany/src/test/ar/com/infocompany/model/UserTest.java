@@ -94,8 +94,11 @@ public class UserTest {
     	rep.save(user);
     	amountUsers++;
     	
+    	List<CriticItem> criticItems = new ArrayList<CriticItem>();
+		criticItems.add(new CriticItem("Beneficios", 10));
+    	
     	Company company = new Company("Adidas", industry);
-    	Critic critic = user.makeCritic("Este es un comentario", industry, job, 1000);
+    	Critic critic = user.makeCritic("Este es un comentario", industry, job, 1000, criticItems);
     	company.addCritic( critic );
     	comRep.save(company);
     	

@@ -1,5 +1,6 @@
 package ar.com.infocompany.presentation;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -24,8 +25,9 @@ public class RankingAction extends ActionSupport{
 
 		if( amount<= 0 || criteria == null)
 			return INPUT;
-		
-		companies = compService.getBestRankedCompanies(amount, criteria);
+				
+		companies =  compService.getBestRankedCompanies(amount, criteria);
+
 		return SUCCESS;
 	}
 	
