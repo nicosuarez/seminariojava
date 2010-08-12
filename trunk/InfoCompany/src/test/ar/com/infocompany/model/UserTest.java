@@ -78,7 +78,7 @@ public class UserTest {
     } 
 	
     @Test
-    public void testCreateUser() {
+    public void testCreateUser() throws UserInactiveException {
     	String username = "juan";
     	String password = "123456";
     	String email = "a@a.a";

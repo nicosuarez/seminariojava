@@ -21,6 +21,7 @@ import ar.com.infocompany.model.Item;
 import ar.com.infocompany.model.Job;
 import ar.com.infocompany.model.State;
 import ar.com.infocompany.model.User;
+import ar.com.infocompany.model.UserInactiveException;
 import ar.com.infocompany.repository.hibernate.CompanyRepository;
 import ar.com.infocompany.repository.hibernate.CriticRepository;
 import ar.com.infocompany.repository.hibernate.UserRepository;
@@ -48,7 +49,7 @@ public class CriticTest {
     	ar.com.infocompany.repository.hibernate.SessionFactory.getCurrentSession().close();
     }  
       
-    public static void addCritics() {
+    public static void addCritics() throws UserInactiveException {
 		String name = "Coca Cola";
 
 		Industry industry = viewService.findAllIndustries().get(1);
@@ -84,7 +85,7 @@ public class CriticTest {
    
     
     @Test
-	public void testUserCritic() {
+	public void testUserCritic() throws UserInactiveException {
 		String name = "Finnegans";
 		Industry industry = viewService.findAllIndustries().get(0);
 		Job job = industry.getJobs().get(0);

@@ -135,7 +135,7 @@ public class CompanyTest {
 	}
 	
 	@Ignore
-	public void testPersistCompany() {
+	public void testPersistCompany() throws UserInactiveException {
 		String name = "Finnegans";
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
@@ -178,7 +178,7 @@ public class CompanyTest {
     }
 	
 	@Ignore
-	public void testUserPersistCompanyWithCritic() {
+	public void testUserPersistCompanyWithCritic() throws UserInactiveException {
 		String name = "HP";
 		Industry industry = indRep.findBy(1);
 		Job job = industry.getJobs().get(0);
@@ -210,7 +210,7 @@ public class CompanyTest {
     }
 	
 	@Ignore
-	public void testUserCriticReply() throws InvalidLocationException {
+	public void testUserCriticReply() throws InvalidLocationException, UserInactiveException {
 		
 		testUserPersistCompanyWithCritic();
 
@@ -243,7 +243,7 @@ public class CompanyTest {
     }
 	
 	@Ignore
-	public void testRetriveCriticsByCompany() throws InvalidLocationException {
+	public void testRetriveCriticsByCompany() throws InvalidLocationException, UserInactiveException {
 		
 		testUserCriticReply();
 		
