@@ -111,9 +111,22 @@
 		<result type="redirect">
 			/pages/ViewCriticAction.action?criticId=${criticId}&amp;companyId=${companyId}
 		</result>
-   		 <result name="input">/pages/criticForm.jsp</result>
+   		 <result name="input">/pages/companyListForm.jsp</result>
 		</action>
 		
+		<action name="CriticAbuseAction" class="ar.com.infocompany.presentation.CriticAbuseAction">
+		<result type="redirect">
+			/pages/ViewCompanyAction.action?companyId=${companyId}
+		</result>
+   		 <result name="input">/pages/companyListForm.jsp</result>
+		</action>
+		
+		<action name="CriticLikeAction" class="ar.com.infocompany.presentation.CriticLikeAction">
+		<result type="redirect">
+			/pages/ViewCompanyAction.action?companyId=${companyId}
+		</result>
+   		 <result name="input">/pages/companyListForm.jsp</result>
+		</action>
 		
 	
 	</package>

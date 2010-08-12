@@ -15,8 +15,8 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	private int salary;
 	private List<Comment> comments;
 	private List<CriticItem> criticItems;
-	private int postiveScore;
-	private int negativeScore;
+	private int postiveCriticScore;
+	private int negativeCriticScore;
 	private String industryName;
 	private String jobName;
 	private String country;
@@ -35,8 +35,8 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		this.salary = salary;
 		this.jobName = jobName;
 		this.industryName = industryName;
-		this.postiveScore = 0;
-		this.negativeScore = 0;
+		this.postiveCriticScore = 0;
+		this.negativeCriticScore = 0;
 		this.criticItems = new ArrayList<CriticItem>();
 		this.comments = new ArrayList<Comment>();
 		this.comments.add(comment);
@@ -58,8 +58,8 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 		this.salary = salary;
 		this.jobName = jobName;
 		this.industryName = industryName;
-		this.postiveScore = 0;
-		this.negativeScore = 0;
+		this.postiveCriticScore = 0;
+		this.negativeCriticScore = 0;
 		this.criticItems = items;
 		this.comments = new ArrayList<Comment>();
 		this.comments.add(comment);
@@ -76,11 +76,11 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 	
 	public void increaseCriticScore() {
-		++this.postiveScore;
+		++this.postiveCriticScore;
 	}
 	
 	public void decreaseCriticScore() {
-		++this.negativeScore;
+		++this.negativeCriticScore;
 	}
 
 	public int getCriticScore() {
@@ -88,11 +88,11 @@ public class Critic extends BusinessBase implements IAggregateRoot{
 	}
 
 	public int getPositiveCriticScore() {
-		return this.postiveScore;
+		return this.postiveCriticScore;
 	}
 	
 	public int getNegativeCriticScore() {
-		return this.negativeScore;
+		return this.negativeCriticScore;
 	}
 	
 	public User getAuthor() {

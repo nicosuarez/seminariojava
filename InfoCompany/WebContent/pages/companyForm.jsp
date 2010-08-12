@@ -63,11 +63,31 @@
 	                            <span class="posted">Posted on <s:property value="getAuthorComment().date"/> by 
 	                            <s:property value="author.userName"/> (<s:property value="author.reputation"/>)</span>
 	                            
+
+	                            <s:url id="positiveCritic" action="CriticLikeAction">
+									<s:param name="criticId" value="id" />
+									<s:param name="companyId" value="companyId" />
+									<s:param name="value" value="1" />
+								</s:url>							                         
+	                            <s:a href="%{positiveCritic}" cssClass="handUp">(<s:property value="positiveCriticScore"/>)</s:a>
+	                            
+	                            <s:url id="negativeCritic" action="CriticLikeAction">
+									<s:param name="criticId" value="id" />
+									<s:param name="companyId" value="companyId" />
+									<s:param name="value" value="-1" />
+								</s:url>
+	                            <s:a href="%{negativeCritic}" cssClass="handDown">(<s:property value="negativeCriticScore"/>)</s:a>
+	                            
+	                            <s:url id="abuseCritic" action="CriticAbuseAction">
+									<s:param name="criticId" value="id" />
+									<s:param name="companyId" value="companyId" />
+								</s:url>
+	                            <s:a href="%{abuseCritic}" cssClass="abuse"></s:a>
+	                            
 	                            <s:url id="viewCritic" action="ViewCriticAction">
 									<s:param name="criticId" value="id" />
 									<s:param name="companyId" value="companyId" />
 								</s:url> 
-								
 	                            <s:a href="%{viewCritic}" cssClass="permalink">More</s:a>
 	                            <s:a href="%{viewCritic}" cssClass="comments">(<s:property value="repliesSize"/>)</s:a>
 	                        </p>
