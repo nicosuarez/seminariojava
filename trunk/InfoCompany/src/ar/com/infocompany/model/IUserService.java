@@ -6,5 +6,7 @@ import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 
 public interface IUserService {
 	public void registerUser(User user) throws ApplicationException;
+	public User authenticateUser(String userName, String password)
+			throws ApplicationException;
 	public List<User> findAllUsers();
 }
