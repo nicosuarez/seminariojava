@@ -96,10 +96,18 @@ public class User extends BusinessBase implements IAggregateRoot{
 		return Job.getJob(jobName);
 	}
 	
+	public void setJob(Job job) {
+		this.jobName = job.getName();
+	}
+	
 	public Industry getIndustry() {
 		return Industry.getIndustry(industryName);
 	}
 
+	public void setIndustry(Industry industry) {
+		this.industryName = industry.getName();
+	}
+	
 	public String getCountry() {
 		return this.country;
 	}
