@@ -1,12 +1,14 @@
-package ar.com.infocompany.actions;
+package ar.com.infocompany.presentation;
 
 
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
-import ar.com.infocompany.entities.User;
-import ar.com.infocompany.services.BusinessService;
-import ar.com.infocompany.services.IBusinessService;
+
+import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
+import ar.com.infocompany.model.User;
+import ar.com.infocompany.model.IUserService;
+import ar.com.infocompany.services.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,20 +27,19 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware {
 
-	private IBusinessService businessService;
+	private IUserService userService;
 
 	public String execute(){
-		
-		User user = getBusinessService().authenticateUser( getUsername(), getPassword() ); 
-		if ( user == null )
-		{
+		if(userService == null)
+			userService = new UserService();
+		User user;
+		try {
+			user = getUserService().authenticateUser( getUsername(), getPassword() );
+			session.put( "User", user );
+		} catch (ApplicationException e) {
 			/* User not valid, return to input page. */
 			return INPUT;
-		}
-		else{
-			session.put( "User", user );
-		}
-		
+		} 
 		return SUCCESS;
 	}
 	
@@ -66,20 +67,20 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void validate(){
 
 		/* Check that fields are not empty */
-		if ( getPassword().length() == 0 ){			
-			addFieldError( "password", getText("password.required") );
-		}
-		if ( getUsername().length() == 0 ){			
-			addFieldError( "username", getText("username.required") );
-		}
+//		if ( getPassword().length() == 0 ){			
+//			addFieldError( "password", getText("password.required") );
+//		}
+//		if ( getUsername().length() == 0 ){			
+//			addFieldError( "username", getText("username.required") );
+//		}
 
 	}
 
-	public IBusinessService getBusinessService() {
-		return businessService;
+	public IUserService getUserService() {
+		return userService;
 	}
-	public void setBusinessService(IBusinessService businessService) {
-		this.businessService = businessService;
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
 	}
 	public void setSession(Map session) {
 		this.session = session;

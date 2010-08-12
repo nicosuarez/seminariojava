@@ -1,9 +1,8 @@
-package ar.com.infocompany.utils;
+package ar.com.infocompany.presentation;
 
 import java.util.Map;
 
-import ar.com.infocompany.entities.User;
-import ar.com.infocompany.entities.UserAware;
+import ar.com.infocompany.model.User;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
