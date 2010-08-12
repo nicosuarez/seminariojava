@@ -11,11 +11,6 @@
                     <h2 class="title">Bienvenidos a infocompany</h2>
                     <div class="entry">
                         <p>
-                        	<div id="error">
-	                        	<s:property value="name" />
-	                        	<s:fielderror title="label.name" key="label.name" label="label.name" name="label.name" value="name" fieldName="name"  ></s:fielderror>
-	                        	<s:actionerror label="Se ha producido los siguientes errores:"/>
-                        	</div>
                             Infocompany sirve como guia a aquellas personas que inician una
                             busqueda laboral o necesitan informacion del mercado, en base a la 
                             experiencia y opinion de la comunidad. 

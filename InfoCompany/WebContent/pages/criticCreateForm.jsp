@@ -8,18 +8,25 @@
         <div id="page">
             <div id="content">
                 <div id="latest-post" class="post">
-                    <h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2>
+                	<s:if test="company != null || company.id != 0">
+                		<h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2> 
+                	</s:if>
+  
                     <div class="entry">
-                    	<s:form action="CreateCriticAction" status="itStatus">
+                    	<s:form action="CreateCriticAction" status="itStatus" namespace="/pages/secure" >
+                    		<s:if test="company == null || company.id == 0">
+		                		<s:textfield key="label.company" name="companyName"/>
+		                		<s:select key="label.industry" list="industries" name="industryCompanyName" listKey="name" listValue="name" />
+		                	</s:if>
                			    <s:iterator value="items">
-					        	<s:select key="name" name="critic.getItems()[#itStatus.Count].score" list="{'1','2','3','4','5','6','7','8','9',10}" />
+					        	<s:select key="name" name="itemsScore" list="{'1','2','3','4','5','6','7','8','9',10}" />
 							</s:iterator>
-						 	<s:doubleselect key="label.location" name="critic.countryName" list="countries" listKey="id" listValue="name" 
-						 	doubleName="critic.stateName" doubleList="states" doubleListKey="id" doubleListValue="name"/>
-						 	<s:doubleselect key="label.job" name="critic.industryName" list="industries" listKey="id" listValue="name" 
-						 	doubleName="critic.jobName" doubleList="jobs" doubleListKey="id" doubleListValue="name"/>
-		                    <s:textfield key="label.salary" name="critic.salary"></s:textfield>	
-							<s:textarea key="label.comment" name="critic.comment" rows="5" cols="40"></s:textarea>
+						 	<s:doubleselect key="label.location" name="country" list="countries" listKey="name" listValue="name" 
+						 	doubleName="state" doubleList="states" doubleListKey="name" doubleListValue="name"/>
+						 	<s:doubleselect key="label.job"  name="industryName" list="industries" listKey="name" listValue="name" 
+						 	doubleName="jobName" doubleList="jobs" doubleListKey="name" doubleListValue="name"/>
+		                    <s:textfield key="label.salary" name="salary"></s:textfield>	
+							<s:textarea key="label.comment" name="comment" rows="5" cols="40"></s:textarea>
 							<s:hidden name="companyId" value="%{companyId}" />
                    	    	<s:submit key="label.publish"></s:submit>
 					    </s:form>

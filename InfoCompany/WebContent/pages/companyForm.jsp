@@ -21,28 +21,19 @@
 						            <td ><s:property value="score"/></td>
 						        </tr>	
 							</s:iterator>
-							
-							<tr>
-							    <td colspan="1">
-							    	<!--<s:set var="Company" value="company" scope="session"/>-->
-									<s:url id="criticCompany" action="PrepareCreateCriticAction">
-										<s:param name="companyId" value="companyId" />
-									</s:url> 
-									<s:a href="%{criticCompany}">Criticar</s:a>
-								</td>
-							</tr>
-							
-							<!-- 
-							<s:url id="updateCompany" action="setUpForInsertOrUpdateCompany">
-								<s:param name="company.CompanyId" value="CompanyId" />
-							</s:url> <s:a href="%{updateCompany}">Edit</s:a>
-								
-							 <s:url id="deleteCompany" action="deleteCompany">
-								<s:param name="company.CompanyId" value="CompanyId" />
-							</s:url>
-						    <s:a href="%{deleteCompany}">Delete</s:a>-->
 					    </table>
                     </div>
+                    <div class="entry">
+	                    <s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages" >
+							<s:param name="companyId" value="companyId" />
+						</s:url> 
+						<s:a href="%{criticCompany}">Opinar sobre <s:property value="company.name"/></s:a>
+						&nbsp;&nbsp;&nbsp;
+						<s:url id="criticCompany" action="PrepareCreateCriticAction" namespace="/pages" >
+							<s:param name="companyId" value="0" />
+						</s:url> 
+						<s:a href="%{criticCompany}">Opinar sobe nueva compania</s:a>
+					</div>
                    
                		 <s:iterator value="company.critics" status="itStatus">
                		 	<h1 class="title">

@@ -52,7 +52,7 @@ public class CompanyService implements ICompanyService {
 		Company company = null;
 		Query  query = new Query();
 		query.addCriteria(new Criteria(Company.NAME, 
-				name, CriteriaOperator.Equals));
+				name, CriteriaOperator.Like));
 		List<Company> companies = companyRep.findBy(query);
 		if(companies.size() > 0) {
 			company = companies.get(0);
