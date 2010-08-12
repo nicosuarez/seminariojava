@@ -140,7 +140,12 @@
 			<result name="success">/pages/criticCreateForm.jsp</result>
 			<result name="input">/pages/companyForm.jsp</result>
 		</action>
-	
+		
+				<action name="PrepareEditUserAction" class="ar.com.infocompany.presentation.UserAction">
+			<result name="success">/pages/userEditForm.jsp</result>
+			<result name="input">/pages/login.jsp</result>
+		</action>
+		
 	</package>
 	
 	<package name="infoCompanySecure" namespace="/pages/secure" extends="struts-default">
@@ -198,6 +203,8 @@
 			</result>
 			<result name="input">/pages/criticCreateForm.jsp</result>
 		</action>
+		
+
 		
 	</package>
 	

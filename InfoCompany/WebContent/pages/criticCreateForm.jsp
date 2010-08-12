@@ -9,7 +9,7 @@
             <div id="content">
                 <div id="latest-post" class="post">
                 	<s:if test="company != null || company.id != 0">
-                		<h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2> 
+                		<h2 class="title"><s:property value="company.name"/> &nbsp; (<s:property value="company.industry.name"/>)</h2><br/> 
                 	</s:if>
   
                     <div class="entry">
