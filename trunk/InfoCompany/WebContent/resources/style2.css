@@ -220,6 +220,26 @@ hr { display: none; }
 	height: 16px;
 }
 
+.post .handUp .post .handDown {
+	float: right;
+	height: 16px;
+}
+
+.post .handUp {
+	background: url(images/handUp.png) no-repeat left 80%;
+	padding: 0px 4px 5px 15px	
+}
+
+.post .handDown {
+	background: url(images/handDown.png) no-repeat left 80%;
+	padding: 0px 30px 5px 15px;	
+}
+
+.post .abuse {
+	background: url(images/abuse.gif) no-repeat left 80%;
+	padding: 0px 4px 5px 15px	
+}
+
 .post .permalink {
 	background: url(images/img05.gif) no-repeat left 80%;
 	padding: 5px 30px 5px 15px;

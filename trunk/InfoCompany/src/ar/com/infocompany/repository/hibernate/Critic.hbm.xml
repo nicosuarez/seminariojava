@@ -40,7 +40,15 @@
         <property name="jobName" access="field" type="string">
             <column name="job" />
         </property>
-            
+        
+        <property name="postiveCriticScore" access="field" type="integer">
+            <column name="PositiveScore" />
+        </property>
+        
+        <property name="negativeCriticScore" access="field" type="integer">
+            <column name="NegativeScore" />
+        </property>
+                    
         <bag name="criticItems" access="field" cascade="all,delete-orphan" lazy="false" table="CriticItem" fetch="select">
             <key column="CriticId" not-null="true"/>
             <one-to-many class="CriticItem" />
