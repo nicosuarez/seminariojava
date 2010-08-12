@@ -3,7 +3,7 @@
  <div id="menu">
     <ul>
         <li class="current_page_item">
-            <a href="welcome.jsp">home</a>
+            <s:a href="welcome.jsp">home</s:a>
         </li>
         <li>
 	       	 <s:url id="companyList" action="SearchCompanyAction"></s:url> 
@@ -13,10 +13,11 @@
             <a href="login.jsp">Log-in</a>
         </li>
         <li>
-            <a href="userEditForm.jsp">Mi cuenta</a>
+        	<s:url action="PrepareEditUserAction" id="editUser" namespace="/pages" />
+            <s:a href="%{editUser}">Mi cuenta</s:a>
         </li>
         <li>
-            <a href="reports.jsp#">Estadisticas</a>
+            <s:a href="reports.jsp#">Estadisticas</s:a>
         </li>
     </ul>
 </div>

@@ -11,7 +11,7 @@
 		<s:a href="%{rankingByScore}">Mejores calificadas</s:a>
     </li>        	
     <li>
-		<s:url id="rankEnv" action="RankingAction" namespace="rank">
+		<s:url id="rankEnv" action="RankingAction">
        		<s:param name="criteria">ENVIROMENT</s:param>
 		</s:url> 	     
         <a href="<s:property value="%{rankEnv}"/>" >Mejor ambiente laboral</a>

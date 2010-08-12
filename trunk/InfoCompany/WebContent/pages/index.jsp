@@ -29,23 +29,14 @@
                         </p>
                         
                     </div>
-                    <h2 class="title">Empresas de moda/populares 
-                        <br/>
-                    </h2>
-                    <div class="entry">
-                        <p>
-                            Free css. Cras at nibh. Aliquam fermentum. Nunc aliquet tempus dui.
-                            Duis ultrices aliquet elit. Vestibulum id metus vel mi semper laoreet.
-                            Nullam adipiscing consectetuer nisl. Lorem ipsum dolorede. Proin et
-                            libero sed enim vehicula ornare. Etiam nec lacus. Proin id elit. Duis 
-                            at massa. Suspendisse in dui eu magna viverra condimentum. 
-                        </p>
-                        <p class="meta">
-                            <span class="posted">Posted on March 4, 2008 by <a href="#">Someone</a></span>
-                            <a href="#" class="permalink">More</a>
-                            <a href="#" class="comments">64</a>
-                        </p>
-                    </div>
+
+                    <br/>
+                    <div style="margin: auto; width: 50%;">
+	                     <s:iterator value="companyCloud.tags()" status="status" >
+				       		 <a href="<s:property value="link"/>" style="font-size: <s:property value="weight"/>px;"><s:property value="name" /></a>
+				   		 </s:iterator>
+			   		 </div>
+                   
                 </div>
                 <s:include value="/pages/sidebar.jsp"></s:include>
                 <s:include value="/pages/divFooter.jsp"></s:include>
