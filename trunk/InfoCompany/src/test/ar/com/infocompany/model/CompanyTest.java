@@ -14,7 +14,7 @@ import com.opensymphony.xwork2.interceptor.annotations.After;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 import ar.com.infocompany.infraestructure.IUnitOfWork;
-import ar.com.infocompany.infraestructure.custom_exceptions.InvalidLocationException;
+import ar.com.infocompany.infraestructure.exceptions.InvalidLocationException;
 import ar.com.infocompany.infraestructure.query.Criteria;
 import ar.com.infocompany.infraestructure.query.CriteriaOperator;
 import ar.com.infocompany.infraestructure.query.Query;
