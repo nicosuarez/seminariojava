@@ -3,6 +3,8 @@
  */
 package ar.com.infocompany.services;
 
+
+import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +47,10 @@ public class ViewService implements IViewService {
 			items = itemRep.findAll();
 		}
 	}
+	
+//	public HashMap<Industries, V> findAllIndustriesHash() {
+//		
+//	}
 	
 	@Override
 	public List<Industry> findAllIndustries() {
