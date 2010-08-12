@@ -76,10 +76,18 @@ public class CompanyService implements ICompanyService {
 		
 	}
 	
-	public List<Company> getBestRankedCompanies(int n) {
+	public List<Company> getBestRankedCompanies(int n, String orderBy) {
 		List<Company> companies = this.companyRep.findAll();
 		synchronized(companies) {
-			Collections.sort(companies, Company.RATING_ORDER);
+			if( orderBy.compareTo("RATING") == 0 )
+				Collections.sort(companies, Company.RATING_ORDER);
+			else if( orderBy.compareTo("ENVIROMENT") == 0 )
+				Collections.sort(companies, Company.ENVIROMENT_ORDER);
+			else if( orderBy.compareTo("BENEFITIES") == 0 )
+				Collections.sort(companies, Company.BENEFITIES_ORDER);
+			else if( orderBy.compareTo("GROWTH") == 0 )
+				Collections.sort(companies, Company.GROWTH_ORDER);
+			
 			if (companies.size() > n) {
 				companies = companies.subList(0, n);
 			}

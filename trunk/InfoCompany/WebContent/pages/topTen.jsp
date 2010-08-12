@@ -5,21 +5,30 @@
 </h2>
 <ul>
     <li>
-        <a href="#">Mejores calificadas</a>
+       	<s:url id="rankingByScore" action="RankingAction">
+       		<s:param name="criteria">RATING</s:param>
+		</s:url>
+		<s:a href="%{rankingByScore}">Mejores calificadas</s:a>
+    </li>        	
+    <li>
+		<s:url id="rankEnv" action="RankingAction" namespace="rank">
+       		<s:param name="criteria">ENVIROMENT</s:param>
+		</s:url> 	     
+        <a href="<s:property value="%{rankEnv}"/>" >Mejor ambiente laboral</a>
+    </li> 
+    <li>
+         <s:url id="rankBenefits" action="RankingAction">
+       		<s:param name="criteria">BENEFITS</s:param>
+		</s:url> 
+        <a href="<s:property value="%{rankBenefits}"/>">Mas beneficios</a>
     </li>
     <li>
+        <s:url id="rankGrowth" action="RankingAction">
+       		<s:param name="criteria">GROWTH</s:param>
+		</s:url>     
+        <a href="<s:property value="%{rankGrowth}"/>">Crecimiento profesional</a>
+    </li>
+    <li>    
         <a href="#">Puestos mejores pagos</a>
-    </li>
-    <li>
-        <a href="#">Mejor ambiente laboral</a>
-    </li>
-    <li>
-        <a href="#">Mas beneficios</a>
-    </li>
-    <li>
-        <a href="#">Mas populares</a>
-    </li>
-    <li>
-        <a href="#">Crecimiento profesional</a>
-    </li>
+    </li>    
 </ul>

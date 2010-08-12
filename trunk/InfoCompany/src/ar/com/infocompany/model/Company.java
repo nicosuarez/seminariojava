@@ -31,6 +31,51 @@ public class Company extends BusinessBase implements IAggregateRoot {
 				}
 			};
 
+	public static final Comparator<Company> ENVIROMENT_ORDER =
+		new Comparator<Company>() {
+			public int compare(Company c1, Company c2) {
+				int order = 0;
+				float r1 = c1.getItem("Ambiente").getScore();
+				float r2 = c2.getItem("Ambiente").getScore();
+				if (r1 < r2) {
+					order = -1;
+				} else if (r1 > r2) {
+					order = 1;
+				}
+				return order;
+			}
+		};			
+
+	public static final Comparator<Company> BENEFITIES_ORDER =
+			new Comparator<Company>() {
+				public int compare(Company c1, Company c2) {
+					int order = 0;
+					float r1 = c1.getItem("Beneficios").getScore();
+					float r2 = c2.getItem("Beneficios").getScore();
+					if (r1 < r2) {
+						order = -1;
+					} else if (r1 > r2) {
+						order = 1;
+					}
+					return order;
+				}
+			};			
+
+		public static final Comparator<Company> GROWTH_ORDER =
+			new Comparator<Company>() {
+				public int compare(Company c1, Company c2) {
+					int order = 0;
+					float r1 = c1.getItem("Crecimiento Profesional").getScore();
+					float r2 = c2.getItem("Crecimiento Profesional").getScore();
+					if (r1 < r2) {
+						order = -1;
+					} else if (r1 > r2) {
+						order = 1;
+					}
+					return order;
+				}
+			};						
+		
 	private String name;
 	private Industry industry;
 	private List<Critic> critics;
@@ -76,6 +121,20 @@ public class Company extends BusinessBase implements IAggregateRoot {
 		}
 		
 		return items;
+	}
+	
+	public CriticItem getItem(String tag) {
+		int score;
+		synchronized(this.critics) {
+				score = 0;
+				if (this.critics.size() > 0) {
+					for (Critic critic : this.critics) {	
+						score += critic.getItem(tag).getScore();
+					}
+					score /= this.critics.size();
+				}				
+			}	
+		return new CriticItem(tag, score);
 	}
 		
 	public List<Critic> getBestCritics(int n) {
