@@ -5,7 +5,6 @@
     <title>Altruism by Free CSS Templates</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <link href="../resources/style2.css" rel="stylesheet" type="text/css" media="screen" />
-     <link href=".../resources/style2.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/InfoCompany/resources/style2.css" rel="stylesheet" type="text/css" media="screen" />
     <s:head />
 </head>

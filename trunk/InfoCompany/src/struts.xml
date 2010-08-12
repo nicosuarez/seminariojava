@@ -37,9 +37,6 @@
 	</package>
 	
 	<package name="infoCompanyPublic" namespace="/pages" extends="struts-default">
-		<!--<result-types>
-			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
-		</result-types>
 		<global-results>
 			<result name="error">/pages/error.jsp</result>
 		</global-results>
@@ -47,8 +44,7 @@
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
 				result="error" />
-		</global-exception-mappings>-->
-		
+		</global-exception-mappings>
 		
 		<action name="LoginForm">
 			<result>/pages/login.jsp</result>
@@ -89,10 +85,7 @@
 			<result name="SUCCESS">/pages/userCreateForm.jsp</result>
 			<result name="error">/pages/userCreateForm.jsp</result>
 		</action>-->
-		<action name="CreateUserAction" class="ar.com.infocompany.presentation.CreateUserAction">
-			<result name="success">/pages/userRegisterSuccesfull.jsp</result>
-			<result name="input" type="redirectAction">UserAction</result>
-		</action>
+	
 		
 		<action name="UserRegisterSuccesfull" class="ar.com.infocompany.presentation.CreateUserAction" method="userRegisterSuccesfull" >
 			<result name="success">
@@ -134,18 +127,13 @@
 		<action name="RankingAction" class="ar.com.infocompany.presentation.RankingAction" >
 			<result name="success">/pages/companyListForm.jsp</result>
 			<result name="input">/pages/companyListForm.jsp</result>
-		</action>	
-		
-		<action name="PrepareCreateCriticAction" class="ar.com.infocompany.presentation.CriticAction">
-			<result name="success">/pages/criticCreateForm.jsp</result>
-			<result name="input">/pages/companyForm.jsp</result>
 		</action>
 		
-				<action name="PrepareEditUserAction" class="ar.com.infocompany.presentation.UserAction">
-			<result name="success">/pages/userEditForm.jsp</result>
-			<result name="input">/pages/login.jsp</result>
+		<action name="CreateUserAction" class="ar.com.infocompany.presentation.CreateUserAction">
+			<result name="success">/pages/userRegisterSuccesfull.jsp</result>
+			<result name="input" type="redirectAction">UserAction</result>
 		</action>
-		
+
 	</package>
 	
 	<package name="infoCompanySecure" namespace="/pages/secure" extends="struts-default">
@@ -204,8 +192,20 @@
 			<result name="input">/pages/criticCreateForm.jsp</result>
 		</action>
 		
-
+		<action name="PrepareEditUserAction" class="ar.com.infocompany.presentation.UserAction">
+			<result name="success">/pages/userEditForm.jsp</result>
+			<result name="input">/pages/login.jsp</result>
+		</action>
 		
+		<action name="PrepareCreateCriticAction" class="ar.com.infocompany.presentation.CriticAction">
+			<result name="success">/pages/criticCreateForm.jsp</result>
+			<result name="input">/pages/companyForm.jsp</result>
+		</action>
+		
+		<action name="EditUserAction" class="ar.com.infocompany.presentation.EditUserAction">
+			<result name="success">/pages/index.jsp</result>
+			<result name="input" type="redirectAction">UserAction</result>
+		</action>
 	</package>
 	
 	
