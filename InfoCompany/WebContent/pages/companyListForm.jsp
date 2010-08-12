@@ -19,7 +19,7 @@
 						    </tr>
 						    <s:iterator value="companies">
 						        <tr>
-						            <td><s:property value="name"/></td>
+						            <td><s:property value="name"/> <s:property value="getRating()"/></td>
 						            <td><s:property value="industry.name"/></td>
 						            <td>
 						            	<s:url id="viewCompany" action="ViewCompanyAction">

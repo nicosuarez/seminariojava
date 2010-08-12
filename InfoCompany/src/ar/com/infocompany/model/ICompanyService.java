@@ -12,4 +12,5 @@ public interface ICompanyService {
 	public Company findByName(String name) throws ApplicationException;
 	public List<Company> searchByName(String name) throws ApplicationException;
 	public void save(Company company);
+	public List<Company> getBestRankedCompanies(int n, String orderBy);
 }

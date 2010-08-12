@@ -117,7 +117,7 @@
 		<action name="SearchCompanyAction" class="ar.com.infocompany.presentation.SearchCompanyAction">
 			<result>/pages/companyListForm.jsp</result>
 		</action>
-		
+				
 		<action name="CriticAbuseAction" class="ar.com.infocompany.presentation.CriticAbuseAction">
 		<result type="redirect">
 			/pages/ViewCompanyAction.action?companyId=${companyId}
@@ -132,6 +132,10 @@
    		 <result name="input">/pages/companyListForm.jsp</result>
 		</action>
 		
+		<action name="RankingAction" class="ar.com.infocompany.presentation.RankingAction" >
+			<result name="success">/pages/companyListForm.jsp</result>
+			<result name="input">/pages/companyListForm.jsp</result>
+		</action>	
 	
 	</package>
 	
