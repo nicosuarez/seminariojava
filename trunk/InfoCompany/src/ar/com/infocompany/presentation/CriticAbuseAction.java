@@ -2,7 +2,7 @@ package ar.com.infocompany.presentation;
 
 import ar.com.infocompany.model.Company;
 import ar.com.infocompany.model.Critic;
-import ar.com.infocompany.infraestructure.custom_exceptions.ApplicationException;
+import ar.com.infocompany.infraestructure.exceptions.ApplicationException;
 import ar.com.infocompany.model.ICompanyService;
 import ar.com.infocompany.services.CompanyService;
 
