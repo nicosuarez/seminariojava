@@ -69,6 +69,12 @@ public class CompanyService implements ICompanyService {
 		List<Company> companies = companyRep.findBy(query);
 		return companies;
 	}
+
+	@Override
+	public void save(Company company) {
+		companyRep.save(company);
+		
+	}
 	
 	public List<Company> getBestRankedCompanies(int n) {
 		List<Company> companies = this.companyRep.findAll();

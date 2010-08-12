@@ -11,4 +11,5 @@ public interface ICompanyService {
 	public List<Company> findAll() throws ApplicationException;
 	public Company findByName(String name) throws ApplicationException;
 	public List<Company> searchByName(String name) throws ApplicationException;
+	public void save(Company company);
 }

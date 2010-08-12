@@ -17,12 +17,18 @@ import ar.com.infocompany.repository.hibernate.UserRepository;
 
 public class UserService implements IUserService {
 
+	private IUserRepository userRep;
+	
+	public UserService() {
+		userRep = new UserRepository();
+	}
+	
 	public void registerUser(User user) throws ApplicationException {
 		List<BrokenRule> brokenRules = user.getBrokenRules();
 		if (brokenRules.size() > 0) {
 			throw new ApplicationException("Error en el registro de usuario", brokenRules);
 		}
-		IUserRepository userRep = new UserRepository();
+
 		if (this.userExist(user)) {
 			throw new ApplicationException("usuario registrado");
 		} else {
@@ -31,12 +37,17 @@ public class UserService implements IUserService {
 	}
 	
 	public boolean userExist(User user) {
-		IUserRepository userRep = new UserRepository();
+		
 		Query  query = new Query();
 		query.addCriteria(new Criteria(User.NAME, 
 				user.getUserName(), CriteriaOperator.Equals));
 		List<User> users = userRep.findBy(query);
 		return (users.size() > 0); 
+	}
+
+	@Override
+	public List<User> findAllUsers() {
+		return userRep.findAll();
 	}
 	
 }

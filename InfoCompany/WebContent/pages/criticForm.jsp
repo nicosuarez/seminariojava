@@ -29,10 +29,13 @@
                         <br/>
                     </h2>
                     <div class="entry">
-                    	<s:form action="CommentCompanyAction">
-                        	<s:textarea rows="5" cols="60"></s:textarea>
-                        	<s:submit key="label.publish"></s:submit>
-                        </s:form>
+                    	<s:form action="CommentAction">
+                        	<s:textarea rows="5" cols="60" name="textComment"/>
+							    <s:hidden name="criticId" value="%{criticId}">
+							    </s:hidden> 
+    	                        <s:hidden name="companyId" value="%{companyId}"/>                       	                       	
+                        	<s:submit key="label.publish"/>
+                        </s:form>            
                     </div>
                    
                		 <s:iterator value="critic.getReplies()" status="itStatus">
