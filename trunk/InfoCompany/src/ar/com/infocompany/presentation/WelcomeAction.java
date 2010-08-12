@@ -6,18 +6,11 @@ public class WelcomeAction extends ActionSupport {
 
 	private String name;
 	public String execute() {
-		name = "Seba";
-		this.addActionError("A ocurrido un error3");
+	
 		return SUCCESS;
 	}
 	
 	public void validate() {
-		this.addActionError("A ocurrido un error");
-		this.addActionError("A ocurrido un error2");
-		
-		this.addFieldError("name","FielderrorMessage");
-		
-		this.addActionMessage("Mensaje Ok");
 	
 	}
 	

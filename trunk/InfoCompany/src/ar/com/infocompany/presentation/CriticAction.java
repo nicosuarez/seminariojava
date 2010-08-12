@@ -9,12 +9,13 @@ import ar.com.infocompany.model.ICompanyService;
 import ar.com.infocompany.model.IViewService;
 import ar.com.infocompany.model.Industry;
 import ar.com.infocompany.model.Item;
+import ar.com.infocompany.model.User;
 import ar.com.infocompany.services.CompanyService;
 import ar.com.infocompany.services.ViewService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CriticAction extends ActionSupport {
+public class CriticAction extends ActionSupport implements UserAware {
 
 	ICompanyService companyService = new CompanyService();
 	IViewService viewService = new ViewService();
@@ -26,6 +27,7 @@ public class CriticAction extends ActionSupport {
 	List<Item> items;
 	String countryName;
 	String stateName;
+	User user;
 	
 	public String getCountryName() {
 		return countryName;
@@ -99,6 +101,12 @@ public class CriticAction extends ActionSupport {
 
 	public void setItems(List<Item> items) {
 		this.items = items;
+	}
+
+	@Override
+	public void setUser(User user) {
+		this.user = user;
+		
 	}
 	
 }

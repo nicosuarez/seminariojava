@@ -10,7 +10,11 @@
    <bean id="companyDAO" class="ar.com.infocompany.dao.CompanyHibernateDAO"/>
    <bean id="fieldDAO" class="ar.com.infocompany.dao.FieldHibernateDAO"/>
    <bean id="userDAO" class="ar.com.infocompany.dao.UserHibernateDAO"/>
+   
    <bean id="userService" class="ar.com.infocompany.services.UserService"/>
+   <bean id="viewService" class="ar.com.infocompany.services.ViewService"/>
+   <bean id="companyService" class="ar.com.infocompany.services.CompanyService"/>
+   
    
    <bean id="modelService" class="ar.com.infocompany.services.ModelService">
    		<property name="companyDAO" ref="companyDAO"/>
@@ -35,7 +39,7 @@
   
    <bean id="springUserRegisterAction" class="ar.com.infocompany.presentation.UserAction"
    	scope="prototype">
-      <property name="userService" ref="userService"/>
+	  <property name="viewService" ref="viewService"/>
    </bean>
    
    
